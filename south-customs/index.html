@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>South Customs — гараж, кузов, антикор · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tektur:wght@500;700;900&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--c:#18191A;--c2:#222426;--c3:#2C2F31;--y:#FFC500;--w:#ECEAE4;--mute:#8d8a83;--sp:#FF8A1F}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:'Roboto Mono',monospace;background:var(--c);color:var(--w);overflow-x:clip;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.t{font-family:Tektur,'Roboto Mono',sans-serif}
+.tape{height:26px;background:repeating-linear-gradient(-45deg,var(--y) 0 22px,#111 22px 44px);animation:tp 3s linear infinite}
+@keyframes tp{to{background-position:62px 0}}
+.demo{position:fixed;z-index:90;left:14px;bottom:14px;background:var(--y);color:#111;font:700 12px 'Roboto Mono';padding:6px 14px;letter-spacing:.1em}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px clamp(14px,3vw,36px);gap:20px}
+.logo{font:900 26px Tektur;letter-spacing:.04em;line-height:.9}
+.logo span{color:var(--y);display:block;font-size:12px;letter-spacing:.42em}
+header nav{display:flex;gap:18px;font-size:13px;text-transform:uppercase}
+header nav a:hover{color:var(--y)}
+.tg{border:2px solid var(--y);color:var(--y);padding:10px 14px;font-weight:700;font-size:13px;transition:.2s}
+.tg:hover{background:var(--y);color:#111}
+
+.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:minmax(130px,auto);gap:10px;padding:0 clamp(14px,3vw,36px) 10px}
+.tile{background:var(--c2);border:1px solid #2e3133;position:relative;overflow:hidden;padding:22px;transition:border-color .25s,transform .25s}
+.tile:hover{border-color:var(--y)}
+.tile .k{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+/* hero tile */
+.hero{grid-column:span 4;grid-row:span 3;padding:0;min-height:520px}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:contrast(1.1) brightness(.7)}
+#sparks{position:absolute;inset:0;width:100%;height:100%}
+.hero .in{position:absolute;left:0;right:0;bottom:0;padding:28px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.hero h1{font:900 clamp(44px,6vw,96px)/.9 Tektur;letter-spacing:-.01em;text-transform:uppercase}
+.hero h1 span{color:var(--y)}
+.hero p{margin-top:14px;max-width:520px;line-height:1.6;color:#d6d3cc;font-size:15px}
+.rate{grid-column:span 2;display:flex;flex-direction:column;justify-content:space-between;background:var(--y);color:#111;border-color:var(--y)}
+.rate b{font:900 88px/.85 Tektur}
+.rate small{font-weight:700}
+.hours{grid-column:span 2}
+.hours b{font:900 42px Tektur;color:var(--y);display:block;margin-top:8px}
+.hours p{color:#cfccc5;font-size:14px;margin-top:6px}
+.hours .live{display:inline-flex;align-items:center;gap:8px;margin-top:12px;font-size:12px;color:var(--mute)}
+.hours .live i{width:8px;height:8px;border-radius:50%;background:#666}
+.hours .live.on i{background:#4ade80;box-shadow:0 0 8px #4ade80}
+.call{grid-column:span 2;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.call a{font:700 20px Tektur;display:flex;justify-content:space-between;border-bottom:1px dashed #3a3d40;padding-bottom:8px}
+.call a:hover{color:var(--y)}
+
+.price{grid-column:span 2;display:flex;flex-direction:column;justify-content:space-between;min-height:190px}
+.price h3{font:700 24px Tektur;margin-top:10px;text-transform:uppercase}
+.price .v{font:900 40px Tektur;color:var(--y)}
+.price .v small{font:400 13px 'Roboto Mono';color:var(--mute)}
+.price .bar{height:4px;background:#333;margin-top:10px;position:relative}
+.price .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--y);width:var(--w)}
+.ph{grid-column:span 2;grid-row:span 2;padding:0;min-height:280px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.4) contrast(1.1);transition:filter .5s,transform .8s}
+.ph:hover img{filter:none;transform:scale(1.05)}
+.ph .lab{position:absolute;left:12px;bottom:12px;background:var(--y);color:#111;font-weight:700;font-size:12px;padding:6px 10px;text-transform:uppercase;letter-spacing:.1em}
+.wide{grid-column:span 4}
+.wide h2{font:900 clamp(30px,3.6vw,56px)/.95 Tektur;text-transform:uppercase;margin-top:10px}
+.wide h2 span{color:var(--y)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chips span{border:1px solid #444;padding:8px 12px;font-size:13px;transition:.2s}
+.chips span:hover{border-color:var(--y);color:var(--y)}
+.rust{grid-column:span 6;display:grid;grid-template-columns:1fr 1fr 1.4fr;gap:10px;padding:10px;background:transparent;border:0}
+.rust>div{position:relative;overflow:hidden;min-height:260px;background:var(--c2)}
+.rust img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rust .txt{padding:26px;display:flex;flex-direction:column;justify-content:center;border:1px solid #2e3133}
+.rust .txt h3{font:900 34px/1 Tektur;text-transform:uppercase}
+.rust .txt h3 span{color:var(--sp)}
+.rust .txt p{margin-top:12px;color:#cfccc5;line-height:1.6;font-size:14px}
+.mapt{grid-column:span 4;grid-row:span 2;padding:0;min-height:360px}
+.mapt iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.9) contrast(.9)}
+.addr{grid-column:span 2;grid-row:span 2;display:flex;flex-direction:column;justify-content:space-between}
+.addr b{font:900 30px/1.05 Tektur;text-transform:uppercase;margin-top:12px;display:block}
+.btn{display:block;text-align:center;background:var(--y);color:#111;font:700 15px Tektur;padding:15px;text-transform:uppercase;letter-spacing:.06em;transition:.2s}
+.btn:hover{background:#fff}
+footer{padding:20px clamp(14px,3vw,36px) 50px;color:var(--mute);font-size:12px;line-height:1.6}
+.rv{opacity:0;transform:translateY(20px) scale(.98);transition:.6s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:1000px){header nav{display:none}.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.hero,.wide,.mapt,.rust{grid-column:span 2}.rate,.hours,.call,.price,.ph,.addr{grid-column:span 2}.rust{grid-template-columns:1fr}.hero{min-height:480px}}
+@media(min-width:600px) and (max-width:1000px){.rate,.hours,.price{grid-column:span 1}}
+</style>
+</head>
+<body>
+<div class="demo">ДЕМО · НЕ ОФИЦИАЛЬНЫЙ</div>
+<div class="tape"></div>
+<header>
+  <div class="logo">SOUTH CUSTOMS<span>ГАРАЖ · ТАГАНРОГ</span></div>
+  <nav><a href="#work">Работы</a><a href="#rust">Антикор</a><a href="#where">Где мы</a></nav>
+  <a class="tg" href="https://t.me/servistagan1" target="_blank" rel="noopener">Telegram →</a>
+</header>
+
+<div class="bento">
+  <div class="tile hero rv">
+    <img src="https://avatars.mds.yandex.net/get-altay/19292509/2a0000019d4aab5e34059303e5bbca43b924/XXL" alt="Сварка">
+    <canvas id="sparks"></canvas>
+    <div class="in">
+      <div class="k" style="color:var(--y)">Лесная Биржа, 6А</div>
+      <h1>Варим.<br>Красим.<br><span>Спасаем</span> от ржавчины.</h1>
+      <p>Гаражный автосервис с кузовным уклоном: сварка, покраска, антикор, ТО и ремонт ГБЦ. Работаем до 21:00 и можем приехать сами.</p>
+    </div>
+  </div>
+  <div class="tile rate rv"><span class="k" style="color:#111">Яндекс Карты</span><b>4,8</b><small>18 оценок · 100% хвалят ремонт</small></div>
+  <div class="tile hours rv"><span class="k">Будни</span><b>09–21</b><p>Суббота 10–18 · вс выходной</p><span class="live" id="live"><i></i><span>…</span></span></div>
+  <div class="tile call rv"><span class="k">Звоните</span><a href="tel:+79310928721">+7 931 092-87-21 <span>→</span></a><a href="tel:+79930872041">+7 993 087-20-41 <span>→</span></a><a href="tel:+79952900588">+7 995 290-05-88 <span>→</span></a></div>
+
+  <div class="tile wide rv" id="work"><span class="k">Что делаем</span><h2>Полный <span>гараж</span> услуг</h2>
+    <div class="chips"><span>Кузовной ремонт</span><span>Сварка элементов</span><span>Покраска</span><span>Антикор</span><span>Покраска дисков</span><span>Ремонт ГБЦ</span><span>Плановое ТО</span><span>Автодиагностика</span><span>Фаркопы</span><span>Выездная диагностика</span><span>Выездной сервис</span><span>Автосервис самообслуживания</span><span>Гарантия</span></div></div>
+  <div class="tile ph rv"><img src="https://avatars.mds.yandex.net/get-altay/17712904/2a0000019d4aab70b6abe9ddc675f846b144/XXL" alt=""><span class="lab">Кузов</span></div>
+
+  <div class="tile price rv"><span class="k">01</span><div><h3>Плановое ТО</h3><div class="v">1 200 ₽ <small>от</small></div><div class="bar"><i style="--w:12%"></i></div></div></div>
+  <div class="tile price rv"><span class="k">02</span><div><h3>Антикор</h3><div class="v">5 000 ₽ <small>от</small></div><div class="bar"><i style="--w:50%"></i></div></div></div>
+  <div class="tile price rv"><span class="k">03</span><div><h3>Сварка кузова</h3><div class="v">5 000 ₽ <small>от</small></div><div class="bar"><i style="--w:50%"></i></div></div></div>
+  <div class="tile price rv"><span class="k">04</span><div><h3>Покраска элемента</h3><div class="v">10 000 ₽ <small>от</small></div><div class="bar"><i style="--w:100%"></i></div></div></div>
+  <div class="tile price rv"><span class="k">05</span><div><h3>Снятие ГБЦ, прокладка</h3><div class="v">10 000 ₽ <small>от</small></div><div class="bar"><i style="--w:100%"></i></div></div></div>
+  <div class="tile price rv" style="background:var(--c3);grid-column:1/-1;min-height:0"><span class="k">*</span><div><p style="font-size:13px;line-height:1.6;color:#cfccc5">Цены — по прайсу на Яндекс Картах. Точная стоимость — после осмотра машины.</p></div></div>
+
+  <div class="tile rust rv" id="rust">
+    <div><img src="https://avatars.mds.yandex.net/get-altay/20249436/2a0000019dda4f698a29e3a04a3908df71f4/XXL" alt="Коррозия"></div>
+    <div><img src="https://avatars.mds.yandex.net/get-altay/18769949/2a0000019d4aab5cd2cbc71b88d58f4b944a/XXL" alt="До и после"></div>
+    <div class="txt"><span class="k">Антикоррозийная обработка</span><h3>Ржавчина <span>не прощает</span> ожидания</h3><p>Чистим, завариваем и защищаем днище, пороги и арки. Приморский климат Таганрога быстро «съедает» металл — обработку лучше делать заранее.</p></div>
+  </div>
+
+  <div class="tile mapt rv" id="where"><iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.93749%2C47.216077&z=16&pt=38.93749,47.216077,pm2rdm"></iframe></div>
+  <div class="tile addr rv"><div><span class="k">Адрес</span><b>Таганрог,<br>ул. Лесная Биржа, 6А</b></div><div style="display:grid;gap:10px"><a class="btn" href="tel:+79310928721">Позвонить</a><a class="btn" style="background:transparent;color:var(--y);border:2px solid var(--y)" href="https://t.me/servistagan1" target="_blank" rel="noopener">Канал в Telegram</a></div></div>
+</div>
+<div class="tape" style="margin-top:20px"></div>
+<footer>Демо-концепт сайта для автосервиса South Customs (Таганрог). Не является официальным сайтом. Информация и цены — с Яндекс Карт (октябрь 2026), фото — из карточки сервиса на Яндекс Картах, принадлежат их авторам.</footer>
+<script>
+/* sparks */
+const cv=document.getElementById('sparks'),x=cv.getContext('2d');let P=[];
+function rs(){cv.width=cv.offsetWidth;cv.height=cv.offsetHeight}rs();addEventListener('resize',rs);
+function emit(){const ox=cv.width*.52,oy=cv.height*.34;for(let i=0;i<5;i++){const a=Math.random()*Math.PI-.2,s=Math.random()*6+2;P.push({x:ox,y:oy,vx:Math.cos(a)*s*(Math.random()<.5?-1:1),vy:-Math.sin(a)*s*.6,l:1})}}
+(function loop(){x.clearRect(0,0,cv.width,cv.height);emit();P.forEach(p=>{p.vy+=.18;p.x+=p.vx;p.y+=p.vy;p.l-=.02;x.strokeStyle=`rgba(255,${150+Math.random()*80|0},40,${p.l})`;x.lineWidth=2;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(p.x-p.vx*1.6,p.y-p.vy*1.6);x.stroke()});P=P.filter(p=>p.l>0);requestAnimationFrame(loop)})();
+/* live status */
+const d=new Date(),dw=d.getDay(),h=d.getHours()+d.getMinutes()/60;const open=(dw>=1&&dw<=5&&h>=9&&h<21)||(dw===6&&h>=10&&h<18);const lv=document.getElementById('live');lv.classList.toggle('on',open);lv.querySelector('span').textContent=open?'сейчас открыто':'сейчас закрыто';
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%5)*60+'ms';io.observe(el)});
+</script>
+</body>
+</html>

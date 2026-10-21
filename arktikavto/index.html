@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>АрктикАвто — кондиционеры и ремонт авто · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ice:#EAF6FF;--ice2:#CFE8FA;--navy:#0B2545;--cy:#25B9EE;--cy2:#7FDBFF;--hot:#FF6B3D;--mute:#5b7491}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:Rubik,system-ui,sans-serif;background:linear-gradient(180deg,var(--ice),#F7FBFF 40%,var(--ice2));color:var(--navy);overflow-x:clip;min-height:100vh}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.c{font-family:Comfortaa,sans-serif}
+#snow{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+main{position:relative;z-index:1}
+.demo{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:90;background:rgba(11,37,69,.88);color:#fff;font:700 12px Comfortaa;padding:10px 16px;border-radius:999px;backdrop-filter:blur(6px);white-space:nowrap}
+.glass{background:rgba(255,255,255,.55);backdrop-filter:blur(16px) saturate(1.4);-webkit-backdrop-filter:blur(16px) saturate(1.4);border:1px solid rgba(255,255,255,.8);box-shadow:0 20px 50px -30px rgba(11,37,69,.35)}
+nav{margin:16px clamp(12px,3vw,40px) 0;border-radius:22px;display:flex;align-items:center;justify-content:space-between;padding:14px 22px;position:sticky;top:12px;z-index:50}
+.logo{display:flex;align-items:center;gap:10px;font:700 22px Comfortaa}
+.logo svg{width:34px;animation:rot 14s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+nav .links{display:flex;gap:24px;font-weight:500}
+nav .links a:hover{color:var(--cy)}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--navy);color:#fff;font-weight:500;padding:13px 22px;border-radius:999px;transition:.2s}
+.btn:hover{background:var(--cy)}
+.btn.l{background:#fff;color:var(--navy)}
+
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding:60px clamp(16px,6vw,90px) 80px}
+.pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:8px 14px;font-weight:500;font-size:14px;box-shadow:0 8px 20px -14px rgba(11,37,69,.4)}
+.pill b{color:var(--cy)}
+h1{font:700 clamp(42px,6vw,92px)/1 Comfortaa;letter-spacing:-.02em;margin:22px 0}
+h1 span{background:linear-gradient(90deg,var(--cy),#6C8CFF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:19px;line-height:1.65;color:#2f4a6b;max-width:540px}
+.hb{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+
+/* thermometer */
+.thermo{border-radius:36px;padding:34px;text-align:center;position:relative}
+.thermo .t{font:700 clamp(80px,9vw,140px)/1 Comfortaa;letter-spacing:-.04em;transition:color .4s}
+.thermo .t sup{font-size:.35em;vertical-align:top;margin-left:4px}
+.thermo .lbl{color:var(--mute);margin-top:6px}
+.tube{height:14px;border-radius:999px;background:linear-gradient(90deg,var(--cy),var(--cy2),#ffd36b,var(--hot));margin:26px 0 10px;position:relative}
+.tube i{position:absolute;top:50%;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid var(--navy);transform:translate(-50%,-50%);transition:left .1s linear}
+.scale{display:flex;justify-content:space-between;font-size:13px;color:var(--mute)}
+.thermo .note{font-size:13px;color:var(--mute);margin-top:16px}
+.thermo button{margin-top:18px;border:0;cursor:pointer;font:500 15px Rubik}
+
+section{padding:80px clamp(16px,6vw,90px)}
+.k{font:700 13px Comfortaa;letter-spacing:.14em;text-transform:uppercase;color:var(--cy)}
+.h2{font:700 clamp(32px,4.4vw,64px)/1.05 Comfortaa;letter-spacing:-.02em;margin:12px 0 14px}
+.sub{color:#3a5577;line-height:1.65;max-width:620px;font-size:17px}
+
+/* symptom checker */
+.chk{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:34px}
+.sym{display:grid;gap:10px}
+.sym label{display:flex;gap:14px;align-items:center;padding:16px 18px;border-radius:18px;cursor:pointer;transition:.2s}
+.sym label:hover{transform:translateX(6px)}
+.sym input{appearance:none;width:24px;height:24px;border-radius:8px;border:2px solid var(--cy);display:grid;place-items:center;flex:0 0 24px;cursor:pointer;background:#fff}
+.sym input:checked{background:var(--cy)}
+.sym input:checked::after{content:"✓";color:#fff;font-weight:700;font-size:14px}
+.res{border-radius:28px;padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-height:320px}
+.res .lvl{display:flex;gap:6px}
+.res .lvl i{flex:1;height:10px;border-radius:999px;background:rgba(11,37,69,.1);transition:background .3s}
+.res h3{font:700 28px Comfortaa}
+.res p{color:#3a5577;line-height:1.6}
+
+/* services */
+.svc{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+.sv{border-radius:24px;padding:24px;transition:transform .3s}
+.sv:hover{transform:translateY(-6px) rotate(-.5deg)}
+.sv .i{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cy2),var(--cy));color:#fff;font-size:24px;margin-bottom:16px}
+.sv b{font:700 18px Comfortaa;display:block;margin-bottom:6px}
+.sv p{font-size:14px;color:#3a5577;line-height:1.5}
+
+/* reviews as crystals */
+.crys{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+.cr{border-radius:24px;padding:24px;text-align:center}
+.cr svg{width:80px;height:80px;margin:0 auto 8px;display:block}
+.cr svg path{stroke:var(--cy);stroke-width:3;fill:none;stroke-linecap:round;stroke-dasharray:240;stroke-dashoffset:240;transition:stroke-dashoffset 1.8s ease}
+.crys.in .cr svg path{stroke-dashoffset:0}
+.cr b{font:700 34px Comfortaa}
+.cr small{display:block;color:var(--mute);margin-top:4px}
+
+.gal{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:220px;gap:14px;margin-top:34px}
+.gal div{border-radius:24px;overflow:hidden;background:var(--ice2);position:relative}
+.gal div:nth-child(1){grid-row:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .8s,filter .8s;filter:saturate(.8) hue-rotate(-8deg)}
+.gal div:hover img{transform:scale(1.06);filter:none}
+.gal div::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(37,185,238,.25));pointer-events:none}
+
+.visit{display:grid;grid-template-columns:1fr 1.1fr;gap:20px;align-items:stretch}
+.vc{border-radius:30px;padding:34px}
+.vc dl{display:grid;gap:18px;margin-top:20px}
+.vc dt{font-size:13px;color:var(--mute);text-transform:uppercase;letter-spacing:.1em}
+.vc dd{font:700 24px Comfortaa}
+.mapv{border-radius:30px;overflow:hidden;min-height:400px;background:var(--ice2)}
+.mapv iframe{width:100%;height:100%;min-height:400px;border:0;filter:saturate(.7) hue-rotate(10deg)}
+footer{padding:10px clamp(16px,6vw,90px) 80px;font-size:13px;color:var(--mute);line-height:1.6}
+.rv{opacity:0;transform:translateY(26px);transition:.8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:1000px){nav .links{display:none}.hero,.chk,.visit{grid-template-columns:1fr}.svc,.crys{grid-template-columns:repeat(2,minmax(0,1fr))}.sv{padding:18px}.gal{grid-template-columns:1fr 1fr}.gal div:nth-child(1){grid-column:span 2;grid-row:auto}}
+</style>
+</head>
+<body>
+<canvas id="snow"></canvas>
+<div class="demo">❄ Демо-сайт · не официальный</div>
+<main>
+<nav class="glass">
+  <a class="logo" href="#"><svg viewBox="0 0 40 40"><g stroke="#25B9EE" stroke-width="3" stroke-linecap="round"><path d="M20 3v34M5 11.5l30 17M5 28.5l30-17"/><path d="M16 6l4 4 4-4M16 34l4-4 4 4M6 16l5-1-2-5M34 24l-5 1 2 5M6 24l5 1-2 5M34 16l-5-1 2-5" fill="none"/></g></svg>АрктикАвто</a>
+  <div class="links"><a href="#ac">Кондиционер</a><a href="#svc">Услуги</a><a href="#visit">Адрес</a></div>
+  <a class="btn" href="tel:+79281812040">+7 928 181-20-40</a>
+</nav>
+
+<header class="hero">
+  <div>
+    <span class="pill rv">★ <b>5,0</b> · 72 оценки · 100% хвалят ремонт кондиционеров</span>
+    <h1 class="rv">Жара — <span>снаружи</span>.<br>В салоне — свежо.</h1>
+    <p class="lead rv">Заправка и ремонт автокондиционеров, промывка радиаторов, ходовая, тормоза и диагностика. 18-й переулок, 4 — каждый день с 10 до 18.</p>
+    <div class="hb rv"><a class="btn" href="tel:+79281812040">Записаться</a><a class="btn l" href="#ac">Проверить кондиционер</a></div>
+  </div>
+  <div class="thermo glass rv">
+    <div class="lbl">температура в салоне</div>
+    <div class="t" id="temp">+45<sup>°C</sup></div>
+    <div class="tube"><i id="knob" style="left:100%"></i></div>
+    <div class="scale"><span>+16°</span><span>+30°</span><span>+45°</span></div>
+    <button class="btn" id="cool">❄ Включить после заправки</button>
+    <p class="note">Иллюстрация: так ощущается исправный кондиционер в таганрогском июле.</p>
+  </div>
+</header>
+
+<section id="ac">
+  <span class="k rv">Самодиагностика</span>
+  <h2 class="h2 rv">Пора к нам? Отметьте, что замечали</h2>
+  <div class="chk">
+    <div class="sym" id="sym">
+      <label class="glass rv"><input type="checkbox" data-w="2">Дует, но не холодно</label>
+      <label class="glass rv"><input type="checkbox" data-w="1">Охлаждает слабее, чем раньше</label>
+      <label class="glass rv"><input type="checkbox" data-w="1">Неприятный запах из дефлекторов</label>
+      <label class="glass rv"><input type="checkbox" data-w="2">Шум или щелчки при включении</label>
+      <label class="glass rv"><input type="checkbox" data-w="1">Последняя заправка — больше 2 лет назад</label>
+      <label class="glass rv"><input type="checkbox" data-w="2">Греется двигатель в пробке</label>
+    </div>
+    <div class="res glass rv" id="res"></div>
+  </div>
+</section>
+
+<section id="svc">
+  <span class="k rv">Услуги</span>
+  <h2 class="h2 rv">Холод, ходовая и всё, что между</h2>
+  <div class="svc">
+    <div class="sv glass rv"><div class="i">❄</div><b>Кондиционеры</b><p>Заправка, поиск утечек и ремонт автокондиционеров.</p></div>
+    <div class="sv glass rv"><div class="i">💧</div><b>Система охлаждения</b><p>Радиаторы, промывка, ремонт — двигатель не перегреется.</p></div>
+    <div class="sv glass rv"><div class="i">🛞</div><b>Ходовая и тормоза</b><p>Подвеска, тормозная система — 100% довольных отзывов.</p></div>
+    <div class="sv glass rv"><div class="i">💻</div><b>Диагностика</b><p>Компьютерная диагностика — тоже 100% положительных.</p></div>
+    <div class="sv glass rv"><div class="i">🛢</div><b>Замена масла</b><p>Быстрое ТО без записи на неделю вперёд.</p></div>
+    <div class="sv glass rv"><div class="i">⛽</div><b>Инжектор и форсунки</b><p>Промывка инжектора и чистка форсунок.</p></div>
+    <div class="sv glass rv"><div class="i">🔌</div><b>Доп. оборудование</b><p>Установка дополнительного оборудования.</p></div>
+    <div class="sv glass rv"><div class="i">⚡</div><b>Электромобили</b><p>Работаем и с электрическими авто, а ещё с китайскими, корейскими, японскими и отечественными.</p></div>
+  </div>
+</section>
+
+<section>
+  <span class="k rv">Отзывы на Яндекс Картах</span>
+  <h2 class="h2 rv">Сто процентов — <span style="color:var(--cy)">не опечатка</span></h2>
+  <div class="crys" id="crys">
+    <div class="cr glass"><svg viewBox="0 0 80 80"><path d="M40 6v68M10 23l60 34M10 57l60-34"/></svg><b>100%</b><small>ремонт кондиционера</small></div>
+    <div class="cr glass"><svg viewBox="0 0 80 80"><path d="M40 6v68M10 23l60 34M10 57l60-34"/></svg><b>100%</b><small>время ожидания</small></div>
+    <div class="cr glass"><svg viewBox="0 0 80 80"><path d="M40 6v68M10 23l60 34M10 57l60-34"/></svg><b>100%</b><small>диагностика</small></div>
+    <div class="cr glass"><svg viewBox="0 0 80 80"><path d="M40 6v68M10 23l60 34M10 57l60-34"/></svg><b>100%</b><small>запчасти и ходовая</small></div>
+  </div>
+  <div class="gal">
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/10350441/2a0000018e0f2f9e735346cbfdb814b5f8b0/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/11924971/2a0000018f66883f38bf2410dcfdf5e3ac7f/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/10494556/2a0000018eacf78af20449b677d446486d6a/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/13457355/2a0000018f668836d1cf291304007f589a6e/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/14185024/2a00000194d477b49a94c4d0bf0e7f29bc55/XXL" alt=""></div>
+  </div>
+</section>
+
+<section id="visit" class="visit">
+  <div class="vc glass rv">
+    <span class="k">Адрес</span>
+    <h2 class="h2">Приезжайте охладиться</h2>
+    <dl>
+      <div><dt>Где</dt><dd>Таганрог, 18-й переулок, 4</dd></div>
+      <div><dt>Когда</dt><dd>Ежедневно 10:00–18:00</dd></div>
+      <div><dt>Телефон</dt><dd><a href="tel:+79281812040">+7 (928) 181-20-40</a></dd></div>
+      <div><dt>Ещё</dt><dd style="font-size:18px">гарантия · скидки · Wi-Fi · парковка</dd></div>
+    </dl>
+  </div>
+  <div class="mapv rv"><iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.900744%2C47.226729&z=16&pt=38.900744,47.226729,pm2rdm"></iframe></div>
+</section>
+<footer>Демо-концепт сайта для автосервиса «АрктикАвто» (Таганрог). Не является официальным сайтом. Информация — с Яндекс Карт (октябрь 2026), фото — из карточки сервиса на Яндекс Картах, принадлежат их авторам. Самодиагностика — ориентир, не заменяет осмотр мастера.</footer>
+</main>
+<script>
+/* snow */
+const cv=document.getElementById('snow'),x=cv.getContext('2d');let W,H,F=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener('resize',rs);
+for(let i=0;i<70;i++)F.push({x:Math.random(),y:Math.random(),r:Math.random()*2.4+.6,s:Math.random()*.5+.2,d:Math.random()*6});
+(function loop(){x.clearRect(0,0,W,H);F.forEach(f=>{f.y+=f.s/H*3;f.d+=.01;if(f.y>1){f.y=0;f.x=Math.random()}x.beginPath();x.arc(f.x*W+Math.sin(f.d)*20,f.y*H,f.r,0,7);x.fillStyle='rgba(120,190,235,.55)';x.fill()});requestAnimationFrame(loop)})();
+/* thermometer */
+const tEl=document.getElementById('temp'),kn=document.getElementById('knob');
+function setT(v){tEl.innerHTML=(v>0?'+':'')+Math.round(v)+'<sup>°C</sup>';const p=(v-16)/(45-16);kn.style.left=(p*100)+'%';tEl.style.color=p>.6?'#FF6B3D':p>.3?'#0B2545':'#25B9EE'}
+function cool(){let v=45;const t=setInterval(()=>{v-=.5;setT(v);if(v<=18){clearInterval(t)}},30)}
+document.getElementById('cool').onclick=()=>{setT(45);setTimeout(cool,200)};setT(45);setTimeout(cool,1400);
+/* symptom checker */
+const res=document.getElementById('res');
+function eval_(){const s=[...document.querySelectorAll('#sym input')].filter(i=>i.checked).reduce((a,i)=>a+ +i.dataset.w,0);
+ const lv=s===0?0:s<=2?1:s<=4?2:3;const T=[["Всё в порядке?","Отметьте симптомы слева — подскажем, стоит ли заехать.","Записаться на профилактику"],["Стоит проверить","Похоже на нехватку хладагента или загрязнение. Обычно решается заправкой и чисткой.","Записаться на проверку"],["Нужна диагностика","Несколько признаков сразу — лучше проверить систему на утечки и состояние компрессора.","Записаться на диагностику"],["Не откладывайте","Признаки серьёзные — особенно перегрев. Позвоните, подберём ближайшее время.","Позвонить сейчас"]][lv];
+ res.innerHTML=`<div><div class="lvl">${[1,2,3].map(i=>`<i style="background:${i<=lv?['#25B9EE','#FFB020','#FF6B3D'][lv-1]:''}"></i>`).join('')}</div><h3 style="margin-top:20px">${T[0]}</h3><p style="margin-top:10px">${T[1]}</p></div><a class="btn" href="tel:+79281812040">${T[2]}</a>`}
+document.querySelectorAll('#sym input').forEach(i=>i.onchange=eval_);eval_();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv,#crys').forEach((el,i)=>{if(el.classList.contains('rv'))el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Хинкальный Подвальчик — Петровская, 56 · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Alegreya+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--stone:#1C1410;--stone2:#2A1E17;--brick:#3B2A20;--candle:#E8A84A;--flame:#FFD58A;--parch:#EADCC2;--wine:#7B2232;--muted:#B3A08A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:'Alegreya Sans',system-ui,sans-serif;background:var(--stone);color:var(--parch);overflow-x:clip;font-size:17px}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+/* candle light follows cursor */
+.light{position:fixed;inset:0;pointer-events:none;z-index:60;background:radial-gradient(circle 340px at var(--x,50%) var(--y,40%),rgba(255,190,100,.10),transparent 70%),radial-gradient(circle 900px at var(--x,50%) var(--y,40%),transparent 30%,rgba(0,0,0,.45));mix-blend-mode:normal;transition:background .05s}
+.demo{position:fixed;left:50%;top:12px;transform:translateX(-50%);z-index:80;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--flame);border:1px solid rgba(232,168,74,.5);border-radius:99px;padding:7px 14px;background:rgba(28,20,16,.8)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:56px clamp(16px,5vw,70px) 0;position:relative;z-index:5}
+.logo{font-family:'Old Standard TT';font-size:24px;line-height:1.05}
+.logo i{color:var(--candle)}
+nav ul{display:flex;gap:30px;list-style:none;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+nav ul a:hover{color:var(--flame)}
+.tel{border-bottom:1px solid var(--candle);padding-bottom:3px;color:var(--flame)}
+
+.hero{position:relative;padding:40px clamp(16px,5vw,70px) 100px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;min-height:90vh}
+.arch{position:relative;aspect-ratio:3/4;max-width:480px;width:100%;justify-self:center;border-radius:999px 999px 0 0;overflow:hidden;border:2px solid rgba(232,168,74,.4);box-shadow:0 0 0 14px var(--stone2),0 0 0 16px rgba(232,168,74,.25),0 40px 90px -30px #000}
+.arch img{width:100%;height:100%;object-fit:cover;filter:sepia(.25) brightness(.85);animation:breath 12s ease-in-out infinite alternate}
+@keyframes breath{to{transform:scale(1.1)}}
+.arch::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 85%,rgba(255,170,80,.25),transparent 60%);animation:flick 3s infinite}
+@keyframes flick{0%,100%{opacity:1}20%{opacity:.75}22%{opacity:1}55%{opacity:.85}60%{opacity:1}}
+.eb{font-family:'Old Standard TT';font-style:italic;color:var(--candle);font-size:22px}
+h1{font-family:'Old Standard TT';font-weight:400;font-size:clamp(50px,7vw,108px);line-height:.98;margin:16px 0 26px}
+h1 em{color:var(--candle)}
+.lead{color:#d4c3aa;font-size:19px;line-height:1.7;max-width:500px;font-weight:300}
+.cands{display:flex;gap:34px;margin-top:40px;align-items:end}
+.cand{width:16px;height:70px;background:linear-gradient(#f3e6cf,#cbb894);border-radius:3px;position:relative}
+.cand:nth-child(2){height:100px}.cand:nth-child(3){height:56px}
+.cand::before{content:"";position:absolute;left:50%;top:-26px;width:14px;height:24px;transform:translateX(-50%);border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 50% 70%,#fff 0 15%,var(--flame) 35%,var(--candle) 60%,transparent 70%);animation:fl .18s infinite alternate;filter:blur(.4px)}
+.cand::after{content:"";position:absolute;left:50%;top:-50px;width:80px;height:80px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,200,110,.35),transparent 70%);animation:fl 2s infinite alternate}
+@keyframes fl{to{transform:translateX(-50%) scale(1.08,.94) rotate(2deg)}}
+.cands span{font-size:14px;color:var(--muted);margin-left:12px;max-width:180px;line-height:1.4}
+
+.stairs{display:flex;flex-direction:column;align-items:center;gap:6px;margin:0 auto;color:var(--muted);font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+.stairs i{display:block;height:4px;background:var(--brick);border-radius:2px;animation:st 2s infinite}
+.stairs i:nth-child(2){width:60px;animation-delay:.2s}.stairs i:nth-child(3){width:46px;animation-delay:.4s}.stairs i:nth-child(4){width:32px;animation-delay:.6s}
+@keyframes st{50%{background:var(--candle)}}
+
+section{padding:clamp(70px,9vw,130px) clamp(16px,5vw,70px)}
+.h2{font-family:'Old Standard TT';font-weight:400;font-size:clamp(38px,5vw,74px);line-height:1;margin-bottom:18px}
+.h2 em{color:var(--candle)}
+.p{color:#c9b79c;line-height:1.7;max-width:600px;font-weight:300}
+
+/* brick wall about */
+.wall{background-color:var(--stone2);background-image:linear-gradient(335deg,rgba(0,0,0,.25) 23px,transparent 23px),linear-gradient(155deg,rgba(0,0,0,.25) 23px,transparent 23px),linear-gradient(335deg,rgba(0,0,0,.25) 23px,transparent 23px),linear-gradient(155deg,rgba(0,0,0,.25) 23px,transparent 23px);background-size:58px 58px;background-position:0 2px,4px 35px,29px 31px,34px 6px}
+.about{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:50px}
+.ab{background:rgba(28,20,16,.88);border:1px solid rgba(232,168,74,.2);padding:34px 28px;border-radius:200px 200px 10px 10px;text-align:center;transition:transform .4s,border-color .4s}
+.ab:hover{transform:translateY(-10px);border-color:var(--candle)}
+.ab b{font-family:'Old Standard TT';font-size:56px;color:var(--candle);display:block;line-height:1;margin:20px 0 10px;font-weight:400}
+.ab p{color:#c9b79c;line-height:1.55;font-size:16px}
+
+/* parchment menu */
+.parch{max-width:980px;margin:50px auto 0;background:var(--parch);color:#2a1d14;padding:clamp(30px,5vw,70px);border-radius:6px;position:relative;box-shadow:0 30px 80px -30px #000,inset 0 0 80px rgba(120,80,30,.35)}
+.parch::before,.parch::after{content:"";position:absolute;left:-10px;right:-10px;height:26px;background:linear-gradient(#b89a6c,#e2cfaa,#a8885a);border-radius:13px}
+.parch::before{top:-13px}.parch::after{bottom:-13px}
+.parch h3{font-family:'Old Standard TT';font-size:30px;text-align:center;margin:30px 0 16px;color:var(--wine);font-weight:400;display:flex;align-items:center;gap:16px}
+.parch h3::before,.parch h3::after{content:"";flex:1;height:1px;background:#b79f7e}
+.parch h3:first-child{margin-top:0}
+.row{display:flex;align-items:baseline;gap:10px;padding:9px 0}
+.row b{font-family:'Old Standard TT';font-size:22px;font-weight:400}
+.row .d{flex:1;border-bottom:1px dotted #9b8463}
+.row span{font-family:'Old Standard TT';font-size:22px;white-space:nowrap}
+.row small{color:#7b6548;font-size:14px}
+.pnote{text-align:center;font-style:italic;color:#7b6548;margin-top:22px;font-size:14px}
+
+/* arches gallery */
+.arches{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:50px}
+.arches div{aspect-ratio:3/4.4;border-radius:999px 999px 8px 8px;overflow:hidden;background:var(--brick);border:1px solid rgba(232,168,74,.25)}
+.arches div:nth-child(even){transform:translateY(40px)}
+.arches img{width:100%;height:100%;object-fit:cover;filter:sepia(.2) brightness(.8);transition:filter .6s,transform .8s}
+.arches div:hover img{filter:none;transform:scale(1.07)}
+
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.visit dl{display:grid;gap:26px;margin-top:30px}
+.visit dt{color:var(--candle);font-size:13px;letter-spacing:.2em;text-transform:uppercase}
+.visit dd{font-family:'Old Standard TT';font-size:30px}
+.mapa{border-radius:999px 999px 10px 10px;overflow:hidden;aspect-ratio:1;max-width:500px;width:100%;justify-self:center;border:2px solid rgba(232,168,74,.35);filter:sepia(.5) brightness(.85)}
+.mapa iframe{width:100%;height:100%;border:0}
+footer{border-top:1px solid rgba(232,168,74,.15);padding:34px clamp(16px,5vw,70px);color:#8d7b66;font-size:14px;line-height:1.7}
+.rv{opacity:0;transform:translateY(34px);transition:1s ease}
+.rv.in{opacity:1;transform:none}
+.arches .rv.in:nth-child(even){transform:translateY(40px)}
+@media(max-width:960px){nav ul{display:none}.hero,.visit{grid-template-columns:1fr}.about{grid-template-columns:1fr}.arches{grid-template-columns:1fr 1fr}.light{display:none}}
+</style>
+</head>
+<body>
+<div class="light" id="light"></div>
+<div class="demo">Демо-сайт · не официальный</div>
+<nav>
+  <a class="logo" href="#">Хинкальный<br><i>Подвальчик</i></a>
+  <ul><li><a href="#about">Подвальчик</a></li><li><a href="#menu">Меню</a></li><li><a href="#visit">Как найти</a></li></ul>
+  <a class="tel" href="tel:+78634392280">+7 (8634) 39-22-80</a>
+</nav>
+
+<header class="hero">
+  <div>
+    <span class="eb rv">спуститесь на несколько ступенек…</span>
+    <h1 class="rv">…и окажитесь <em>в старом Тбилиси</em></h1>
+    <p class="lead rv">Арочные своды, старинные картины, свечи и запах хачапури из печи. Хинкали, харчо и чакапули — на Петровской, 56, с полудня.</p>
+    <div class="cands rv"><div class="cand"></div><div class="cand"></div><div class="cand"></div><span>4,5 ★ · 780 оценок на Яндекс Картах</span></div>
+  </div>
+  <div class="arch rv"><img src="https://avatars.mds.yandex.net/get-altay/7730813/2a0000018b61f392aeb095487a543c2eb41f/XXL" alt="Подвальчик"></div>
+</header>
+<div class="stairs"><i style="width:74px"></i><i></i><i></i><i></i>вниз</div>
+
+<section id="about" class="wall">
+  <h2 class="h2 rv" style="text-align:center">Под сводами <em>Петровской</em></h2>
+  <p class="p rv" style="text-align:center;margin:0 auto">Здесь не спешат. Здесь долго ужинают большой компанией, слушают живую музыку и едят хинкали руками — как положено.</p>
+  <div class="about">
+    <div class="ab rv"><b>93%</b><p>гостей хвалят атмосферу подвальчика</p></div>
+    <div class="ab rv"><b>100%</b><p>положительных отзывов о живой музыке</p></div>
+    <div class="ab rv"><b>500–700 ₽</b><p>средний чек — грузинское застолье без лишних трат</p></div>
+  </div>
+</section>
+
+<section id="menu">
+  <h2 class="h2 rv" style="text-align:center">Из печи и <em>котла</em></h2>
+  <div class="parch rv">
+    <h3>Выпечка</h3>
+    <div class="row"><b>Хачапури королевский</b><i class="d"></i><span>860 ₽</span></div><small>800 г — на всю компанию</small>
+    <div class="row"><b>Хачапури со шпинатом</b><i class="d"></i><span>735 ₽</span></div><small>650 г</small>
+    <div class="row"><b>Хачапури по-мегрельски</b><i class="d"></i><span>680 ₽</span></div><small>650 г</small>
+    <h3>Мясные горячие блюда</h3>
+    <div class="row"><b>Баранина по-тбилисски</b><i class="d"></i><span>630 ₽</span></div><small>250 г</small>
+    <div class="row"><b>Оджахури из говядины</b><i class="d"></i><span>620 ₽</span></div><small>300 г</small>
+    <div class="row"><b>Цыплёнок чкмерули</b><i class="d"></i><span>605 ₽</span></div><small>300 г</small>
+    <div class="row"><b>Оджахури из свинины</b><i class="d"></i><span>580 ₽</span></div><small>300 г</small>
+    <div class="row"><b>Чашушули</b><i class="d"></i><span>565 ₽</span></div><small>300 г</small>
+    <h3>Первые блюда</h3>
+    <div class="row"><b>Чакапули</b><i class="d"></i><span>850 ₽</span></div><small>400 г</small>
+    <div class="row"><b>Харчо</b><i class="d"></i><span>630 ₽</span></div><small>400 г</small>
+    <div class="row"><b>Лапша</b><i class="d"></i><span>520 ₽</span></div><small>400 г</small>
+    <p class="pnote">Хинкали — главное блюдо подвальчика, спрашивайте начинки у официанта.<br>Цены — по меню на Яндекс Картах (Яндекс Еда, октябрь 2026).</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="arches">
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/13611210/2a000001907705cc400d2206819deea8250b/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/11302718/2a000001907705cc6f1ef45b65c7e2f457ca/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/15650736/2a000001988e90bb632d551ac2b983b5ca62/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/17043127/2a0000019adaee993ee2ca33608d9541ff20/XXL" alt=""></div>
+  </div>
+</section>
+
+<section id="visit" class="visit">
+  <div>
+    <h2 class="h2 rv">Ищите <em>вход вниз</em></h2>
+    <p class="p rv">Подвальчик в историческом центре — пара минут от Банковской площади. Можно заказать доставку или забрать с собой.</p>
+    <dl>
+      <div class="rv"><dt>Адрес</dt><dd>Таганрог, Петровская ул., 56</dd></div>
+      <div class="rv"><dt>Телефон</dt><dd><a href="tel:+78634392280">+7 (8634) 39-22-80</a></dd></div>
+      <div class="rv"><dt>Открываемся</dt><dd>с 12:00</dd></div>
+    </dl>
+  </div>
+  <div class="mapa rv"><iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.935929%2C47.211309&z=16&pt=38.935929,47.211309,pm2rdm"></iframe></div>
+</section>
+<footer>Демо-концепт сайта для кафе «Хинкальный Подвальчик» (Таганрог). Не является официальным сайтом заведения. Информация и меню — с Яндекс Карт (октябрь 2026). Фотографии — из карточки кафе на Яндекс Картах, принадлежат их авторам.</footer>
+<script>
+const L=document.getElementById('light');addEventListener('pointermove',e=>{L.style.setProperty('--x',e.clientX+'px');L.style.setProperty('--y',e.clientY+'px')});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*110+'ms';io.observe(el)});
+</script>
+</body>
+</html>

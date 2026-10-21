@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Мясникъ — ресторан мяса и огня · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#110E0D;--bg2:#1A1513;--bone:#EDE6DA;--muted:#A69B8D;--ember:#D06A2E;--brass:#B9935A;--line:rgba(237,230,218,.14)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--bone);overflow-x:hidden;font-weight:300}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.serif{font-family:'Cormorant Garamond',serif}
+
+/* intro curtain */
+.curtain{position:fixed;inset:0;z-index:200;display:flex;pointer-events:none}
+.curtain div{flex:1;background:#0b0908;animation:open 1.4s cubic-bezier(.77,0,.18,1) .5s forwards}
+.curtain div:last-child{animation-name:open2}
+.curtain span{position:absolute;inset:0;display:grid;place-items:center;font-family:'Cormorant Garamond';font-size:clamp(40px,7vw,90px);letter-spacing:.2em;color:var(--brass);animation:fade .5s ease .4s forwards}
+@keyframes open{to{transform:translateY(-100%)}}
+@keyframes open2{to{transform:translateY(100%)}}
+@keyframes fade{to{opacity:0}}
+
+.demo{position:fixed;bottom:18px;left:18px;z-index:120;font-size:11px;letter-spacing:.18em;text-transform:uppercase;border:1px solid var(--brass);color:var(--brass);padding:8px 12px;background:rgba(17,14,13,.7);backdrop-filter:blur(6px)}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;gap:40px;padding:22px clamp(16px,4vw,56px);transition:background .4s,padding .4s}
+nav.solid{background:rgba(17,14,13,.92);padding:14px clamp(16px,4vw,56px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Cormorant Garamond';font-size:30px;font-weight:700;letter-spacing:.06em}
+.logo b{color:var(--ember);font-weight:700}
+nav ul{display:flex;gap:30px;list-style:none;font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+nav ul a{opacity:.75;transition:opacity .2s}
+nav ul a:hover{opacity:1}
+.cta{margin-left:auto;border:1px solid var(--bone);padding:12px 22px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;transition:.3s}
+.cta:hover{background:var(--bone);color:var(--bg)}
+
+.hero{position:relative;height:100vh;min-height:620px;overflow:hidden;display:flex;align-items:flex-end}
+.hero .bg{position:absolute;inset:0}
+.hero .bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.42) saturate(.9);transform:scale(1.15);animation:kb 18s ease-out forwards}
+@keyframes kb{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 4%,transparent 55%),radial-gradient(ellipse at 30% 100%,rgba(208,106,46,.35),transparent 60%)}
+#embers{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.hero-in{position:relative;z-index:3;padding:0 clamp(16px,4vw,56px) 9vh;width:100%;display:grid;grid-template-columns:1fr auto;align-items:end;gap:30px}
+.eyebrow{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--brass);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:46px;height:1px;background:var(--brass)}
+h1{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(58px,10vw,168px);line-height:.88;letter-spacing:-.01em}
+h1 em{color:var(--ember);font-style:italic}
+h1 .ln{display:block;overflow:hidden}
+h1 .ln span{display:block;transform:translateY(110%);animation:up 1.1s cubic-bezier(.2,.8,.2,1) forwards}
+h1 .ln:nth-child(2) span{animation-delay:1.9s}
+h1 .ln:nth-child(1) span{animation-delay:1.7s}
+h1 .ln:nth-child(3) span{animation-delay:2.1s}
+@keyframes up{to{transform:none}}
+.hero-side{max-width:320px;font-size:15px;line-height:1.7;color:#d9cfc1;border-left:1px solid var(--line);padding-left:22px}
+.hero-side b{font-family:'Cormorant Garamond';font-size:46px;font-weight:600;color:var(--bone);display:block;line-height:1}
+
+section{padding:clamp(70px,10vw,140px) clamp(16px,4vw,56px)}
+.h2{font-family:'Cormorant Garamond';font-weight:500;font-size:clamp(40px,5.5vw,84px);line-height:.95;margin-bottom:24px}
+.h2 em{color:var(--ember)}
+.p{color:var(--muted);font-size:17px;line-height:1.75;max-width:560px}
+
+/* intro split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,100px);align-items:center}
+.stack{position:relative;height:620px}
+.stack figure{position:absolute;overflow:hidden}
+.stack .a{left:0;top:0;width:66%;height:78%}
+.stack .b{right:0;bottom:0;width:48%;height:52%;border:10px solid var(--bg)}
+.stack img{width:100%;height:100%;object-fit:cover}
+.par{will-change:transform}
+.nums{display:flex;gap:44px;margin-top:40px;flex-wrap:wrap}
+.nums div b{font-family:'Cormorant Garamond';font-size:54px;font-weight:600;display:block;line-height:1;color:var(--bone)}
+.nums div span{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* menu */
+.menu{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mhead{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:46px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{background:none;border:1px solid var(--line);color:var(--muted);font:600 12px Manrope;letter-spacing:.16em;text-transform:uppercase;padding:12px 18px;cursor:pointer;transition:.25s}
+.tabs button:hover{color:var(--bone);border-color:var(--bone)}
+.tabs button.on{background:var(--ember);border-color:var(--ember);color:#fff}
+.mlist{display:grid;grid-template-columns:1fr 1fr;column-gap:80px}
+.item{padding:22px 0;border-bottom:1px solid var(--line);opacity:0;transform:translateY(16px);animation:item .5s forwards}
+@keyframes item{to{opacity:1;transform:none}}
+.item .t{display:flex;align-items:baseline;gap:12px}
+.item h3{font-family:'Cormorant Garamond';font-weight:600;font-size:26px}
+.item .dots{flex:1;border-bottom:1px dotted rgba(237,230,218,.3);transform:translateY(-6px)}
+.item .pr{font-family:'Cormorant Garamond';font-size:26px;color:var(--brass);white-space:nowrap}
+.item p{color:var(--muted);font-size:14px;margin-top:6px;line-height:1.55}
+.mnote{margin-top:30px;color:#7f7568;font-size:13px}
+
+/* gallery horizontal */
+.hscroll{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:16px;scrollbar-width:thin;scrollbar-color:var(--ember) transparent}
+.hscroll figure{flex:0 0 clamp(260px,32vw,440px);height:clamp(340px,42vw,560px);scroll-snap-align:start;overflow:hidden;position:relative}
+.hscroll img{width:100%;height:100%;object-fit:cover;transition:transform 1s,filter .6s;filter:grayscale(.35) brightness(.85)}
+.hscroll figure:hover img{transform:scale(1.06);filter:none}
+.hscroll figcaption{position:absolute;left:18px;bottom:16px;font-family:'Cormorant Garamond';font-size:24px;font-style:italic}
+
+/* features */
+.feat{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.feat div{padding:34px 26px;border-right:1px solid var(--line);transition:background .4s}
+.feat div:last-child{border-right:0}
+.feat div:hover{background:var(--bg2)}
+.feat .k{font-family:'Cormorant Garamond';color:var(--ember);font-size:22px;font-style:italic}
+.feat h4{font-size:18px;font-weight:600;margin:12px 0 8px}
+.feat p{color:var(--muted);font-size:14px;line-height:1.6}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:stretch}
+.cinfo dl{display:grid;gap:26px;margin-top:30px}
+.cinfo dt{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:6px}
+.cinfo dd{font-family:'Cormorant Garamond';font-size:30px;line-height:1.2}
+.mapw{min-height:440px;filter:grayscale(1) invert(.9) contrast(.9);border:1px solid var(--line)}
+.mapw iframe{width:100%;height:100%;min-height:440px;border:0}
+footer{border-top:1px solid var(--line);padding:34px clamp(16px,4vw,56px);color:#7f7568;font-size:13px;line-height:1.7}
+
+.rv{opacity:0;transform:translateY(40px);transition:1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+@media(max-width:960px){
+ nav ul{display:none}.cta{margin-right:0;display:none}
+ .hero-in{grid-template-columns:1fr}
+ .split,.contact{grid-template-columns:1fr}
+ .stack{height:460px}
+ .mlist{grid-template-columns:1fr}
+ .feat{grid-template-columns:1fr 1fr}
+ .feat div:nth-child(2){border-right:0}
+}
+</style>
+</head>
+<body>
+<div class="curtain"><div></div><div></div><span>МЯСНИКЪ</span></div>
+<div class="demo">Демо-сайт · не официальный</div>
+
+<nav id="nav">
+  <a class="logo" href="#">Мясни<b>къ</b></a>
+  <ul><li><a href="#about">Ресторан</a></li><li><a href="#menu">Меню</a></li><li><a href="#gallery">Интерьер</a></li><li><a href="#contact">Контакты</a></li></ul>
+  <a class="cta" href="tel:+79185202002">Забронировать стол</a>
+</nav>
+
+<header class="hero">
+  <div class="bg"><img src="https://avatars.mds.yandex.net/get-altay/6998076/2a00000185102510f169e2a7bfd76ba3421f/XXL" alt="Ресторан Мясникъ вечером"></div>
+  <canvas id="embers"></canvas>
+  <div class="hero-in">
+    <div>
+      <div class="eyebrow">Таганрог · Петровская, 88</div>
+      <h1><span class="ln"><span>Мясо.</span></span><span class="ln"><span><em>Огонь.</em></span></span><span class="ln"><span>Время.</span></span></h1>
+    </div>
+    <div class="hero-side"><b>5,0</b>рейтинг на Яндекс Картах — 2 129 оценок. Хоспер, мангал, стейки и домашняя кухня в историческом особняке.</div>
+  </div>
+</header>
+
+<section id="about" class="split">
+  <div>
+    <div class="eyebrow rv">О ресторане</div>
+    <h2 class="h2 rv">Место, куда хочется <em>возвращаться</em></h2>
+    <p class="p rv">Уютная атмосфера, внимательный сервис и мясо, приготовленное безупречно: сочное, ароматное, с идеальной прожаркой. Мы готовим на хоспере и углях, держим собственные соленья и печём десерты — от вертикального медовика до эклеров.</p>
+    <div class="nums">
+      <div class="rv"><b>98%</b><span>довольны атмосферой</span></div>
+      <div class="rv"><b>877</b><span>фото гостей</span></div>
+      <div class="rv"><b>11:00</b><span>открываемся</span></div>
+    </div>
+  </div>
+  <div class="stack">
+    <figure class="a rv"><img class="par" data-s="-0.06" src="https://avatars.mds.yandex.net/get-altay/19547455/2a0000019c3c9ee563f3e2ad395c76ac7b61/XXL" alt="Зал"></figure>
+    <figure class="b rv"><img class="par" data-s="0.05" src="https://avatars.mds.yandex.net/get-altay/1018548/2a00000185104a69bd826e6fa685ab107750/XXL" alt="Бронзовый бык"></figure>
+  </div>
+</section>
+
+<section id="menu" class="menu">
+  <div class="mhead">
+    <div><div class="eyebrow">Меню</div><h2 class="h2" style="margin:0">Из <em>хоспера</em> и не только</h2></div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="mlist" id="mlist"></div>
+  <p class="mnote">Цены — по меню на Яндекс Картах (обновлено в октябре 2026). Актуальные цены уточняйте у официанта.</p>
+</section>
+
+<section id="gallery">
+  <div class="eyebrow rv">Интерьер</div>
+  <h2 class="h2 rv">Особняк на <em>Петровской</em></h2>
+  <div class="hscroll rv">
+    <figure><img src="https://avatars.mds.yandex.net/get-altay/15183726/2a00000195341fc1f0fe940c873ec70008a7/XXL" alt=""><figcaption>Фасад</figcaption></figure>
+    <figure><img src="https://avatars.mds.yandex.net/get-altay/15629777/2a0000019ab0988a6cbc00ac7c7e965ae885/XXL" alt=""><figcaption>Борщ по-домашнему</figcaption></figure>
+    <figure><img src="https://avatars.mds.yandex.net/get-altay/13325287/2a0000018ebd50e2f70fb55a5328582635d5/XXL" alt=""><figcaption>Резной буфет</figcaption></figure>
+    <figure><img src="https://avatars.mds.yandex.net/get-altay/4699294/2a0000018d46b1774862f49cc31abec4609f/XXL" alt=""><figcaption>Пицца</figcaption></figure>
+    <figure><img src="https://avatars.mds.yandex.net/get-altay/16136409/2a000001970645ec20268f64942f2c5b6d86/XXL" alt=""><figcaption>Лестница</figcaption></figure>
+    <figure><img src="https://avatars.mds.yandex.net/get-altay/14816713/2a000001968664b24565c62bc4c9b9a3f9da/XXL" alt=""><figcaption>Детали</figcaption></figure>
+  </div>
+</section>
+
+<div class="feat">
+  <div class="rv"><span class="k">i.</span><h4>Летняя веранда</h4><p>Ужин на свежем воздухе в историческом центре.</p></div>
+  <div class="rv"><span class="k">ii.</span><h4>Детская комната</h4><p>98% гостей с детьми довольны — пока вы ужинаете, детям не скучно.</p></div>
+  <div class="rv"><span class="k">iii.</span><h4>Ланчи и доставка</h4><p>Бизнес-ланчи днём, доставка и навынос — когда хочется дома.</p></div>
+  <div class="rv"><span class="k">iv.</span><h4>Подарочные сертификаты</h4><p>Лучший подарок для того, кто любит хорошо поесть.</p></div>
+</div>
+
+<section id="contact" class="contact">
+  <div class="cinfo">
+    <div class="eyebrow rv">Контакты</div>
+    <h2 class="h2 rv">Ждём <em>к столу</em></h2>
+    <dl>
+      <div class="rv"><dt>Адрес</dt><dd>Таганрог, Петровская улица, 88</dd></div>
+      <div class="rv"><dt>Бронирование</dt><dd><a href="tel:+79185202002">+7 (918) 520-20-02</a></dd></div>
+      <div class="rv"><dt>Открываемся</dt><dd>ежедневно с 11:00</dd></div>
+    </dl>
+  </div>
+  <div class="mapw rv"><iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.928870%2C47.215903&z=16&pt=38.928870,47.215903,pm2rdm"></iframe></div>
+</section>
+
+<footer>Демо-концепт сайта для ресторана «Мясникъ» (Таганрог). Не является официальным сайтом заведения. Информация и меню — с Яндекс Карт (октябрь 2026). Фотографии — из карточки ресторана на Яндекс Картах, принадлежат их авторам.</footer>
+
+<script>
+const MENU={
+ "Хоспер":[["Мцвади из телячьей вырезки","1080","Фермерская телятина, лаваш, маринованный лук, гранат · 200 г"],["Шиш-кебаб из молодого барашка","1080","200 г"],["Люля-кебаб из бараньей мякоти","760","На углях, с говяжьим жиром, на армянском лаваше · 330 г"],["Язычки бараньи","920","С перцем, маринованным луком и гранатом · 200 г"],["Свиные рёбрышки в хоспере","640","400 г"],["Шашлык в гранатовом маринаде","450","Молодая свиная шея, прованские травы, хмели-сунели · 250 г"],["Крылья в соусе шрирача","375","250 г"],["Аджапсандал по-кавказски","420","Баклажаны, перец, лук, кинза · 300 г"]],
+ "Стейки":[["Рибай","3476","440 г"],["Филе миньон","1656","230 г"],["Стриплойн","1474","220 г"],["Стейк из тунца","2208","480 г"],["Стейк из лосося","1776","240 г"],["Стейк из свиной шеи","726","330 г"]],
+ "Горячее":[["Оссобуко с соусом демиглас","670","310 г"],["Свиная рулька","790","500 г"],["Лосось на подушке из голландского соуса","970","210 г"],["Тройка: судак, лосось, креветка","860","200 г"],["Филе миньон на брусничном соусе","810","220 г"],["Судак в сливочном соусе с беконом","590","Брокколи, маринованные опята · 240 г"]],
+ "Закуски":[["Тартар из говядины","640","190 г"],["Карпаччо из говяжьей вырезки","670","120 г"],["Вителло тоннато","670","180 г"],["Страчателла на запечённой паприке","540","С песто · 180 г"],["Мясная тарелка","1100","350 г"],["Соленья домашние","480","370 г"]],
+ "Супы и пицца":[["Борщ по-домашнему","380","350 г"],["Том ям с морепродуктами","640","400 г"],["Пицца Маргарита","620","500 г"],["Пицца Охотничья","740","500 г"],["Пицца с ростбифом и сливочным сыром","1100","400 г"],["Сет мини-пицц","980","Четыре вкуса · 900 г"]],
+ "Десерты":[["Медовик вертикальный","288","160 г"],["Наполеон","360","200 г"],["Панна-котта","280","120 г"],["Ягодное наслаждение","450","150 г"],["Чизкейк","360","150 г"],["Эклеры","180–200","Ванильный, малиновый, фундучный, шоколадный"]]
+};
+const tabs=document.getElementById('tabs'),list=document.getElementById('mlist');
+function show(k){
+  [...tabs.children].forEach(b=>b.classList.toggle('on',b.textContent===k));
+  list.innerHTML=MENU[k].map((d,i)=>`<div class="item" style="animation-delay:${i*60}ms"><div class="t"><h3>${d[0]}</h3><span class="dots"></span><span class="pr">${d[1]} ₽</span></div><p>${d[2]}</p></div>`).join('');
+}
+Object.keys(MENU).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>show(k);tabs.appendChild(b)});
+show('Хоспер');
+
+/* embers */
+const c=document.getElementById('embers'),x=c.getContext('2d');let W,H,P=[];
+function rs(){W=c.width=c.offsetWidth;H=c.height=c.offsetHeight}rs();addEventListener('resize',rs);
+for(let i=0;i<70;i++)P.push({x:Math.random(),y:Math.random(),r:Math.random()*2+.5,s:Math.random()*.6+.2,d:Math.random()*Math.PI*2});
+(function loop(){x.clearRect(0,0,W,H);P.forEach(p=>{p.y-=p.s/H*2.2;p.d+=.02;p.x+=Math.sin(p.d)*.0006;if(p.y<0){p.y=1;p.x=Math.random()}
+ const a=Math.min(1,p.y*1.4);x.beginPath();x.arc(p.x*W,p.y*H,p.r,0,7);x.fillStyle=`rgba(${230+Math.random()*25|0},${110+Math.random()*60|0},40,${a*.85})`;x.shadowColor='#ff7a2e';x.shadowBlur=8;x.fill()});requestAnimationFrame(loop)})();
+
+/* nav, reveal, parallax */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>{nav.classList.toggle('solid',scrollY>60);
+  document.querySelectorAll('.par').forEach(el=>{const r=el.getBoundingClientRect();el.style.transform=`translateY(${(r.top-innerHeight/2)*parseFloat(el.dataset.s)}px) scale(1.15)`})});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3)*120+'ms';io.observe(el)});
+</script>
+</body>
+</html>

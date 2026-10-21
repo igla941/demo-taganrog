@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Крутим Вертел — шаурма и гирос · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Inter+Tight:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--y:#FFE600;--k:#0D0D0D;--pink:#FF3D7F;--w:#fff;--g:#1f1f1f}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:'Inter Tight',system-ui,sans-serif;background:var(--y);color:var(--k);overflow-x:clip}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.mono{font-family:'Rubik Mono One',monospace}
+.demo{background:var(--k);color:var(--y);font:800 12px 'Inter Tight';letter-spacing:.12em;text-transform:uppercase;text-align:center;padding:9px}
+.demo b{color:var(--pink)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px clamp(16px,4vw,48px);border-bottom:4px solid var(--k)}
+.logo{font-family:'Rubik Mono One';font-size:20px;line-height:1}
+nav .links{display:flex;gap:6px}
+nav .links a{font-weight:800;text-transform:uppercase;padding:10px 14px;border:3px solid transparent;font-size:14px}
+nav .links a:hover{border-color:var(--k)}
+.order{background:var(--k);color:var(--y);font-weight:900;padding:12px 18px;text-transform:uppercase}
+
+.hero{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);border-bottom:4px solid var(--k);min-height:86vh}
+.hl{padding:clamp(30px,5vw,70px) clamp(16px,4vw,48px);display:flex;flex-direction:column;justify-content:space-between;gap:30px;border-right:4px solid var(--k)}
+h1{font-family:'Rubik Mono One';font-size:clamp(40px,7vw,120px);line-height:.88;letter-spacing:-.04em;text-transform:uppercase}
+h1 .p{color:var(--pink);-webkit-text-stroke:0}
+h1 .o{color:transparent;-webkit-text-stroke:3px var(--k)}
+.hl p{font-size:clamp(17px,1.5vw,21px);font-weight:600;max-width:560px;line-height:1.45}
+.hrow{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.big{background:var(--pink);color:#fff;font-weight:900;font-size:18px;text-transform:uppercase;padding:18px 26px;border:4px solid var(--k);box-shadow:8px 8px 0 var(--k);transition:.12s}
+.big:hover{transform:translate(4px,4px);box-shadow:4px 4px 0 var(--k)}
+.big.w{background:#fff;color:var(--k)}
+.hr{position:relative;background:var(--k);overflow:hidden;display:grid;place-items:center}
+.hr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.spin{position:relative;width:min(340px,70%);aspect-ratio:1;z-index:2}
+.spin svg{width:100%;height:100%;animation:r 10s linear infinite}
+.spin text{font-family:'Rubik Mono One';font-size:21px;fill:var(--y);letter-spacing:3px}
+@keyframes r{to{transform:rotate(360deg)}}
+/* rotating doner */
+.doner{position:absolute;left:50%;top:50%;width:84px;height:180px;transform:translate(-50%,-50%)}
+.doner .rod{position:absolute;left:50%;top:-24px;bottom:-24px;width:6px;transform:translateX(-50%);background:#bbb;border-radius:3px}
+.doner .meat{position:absolute;inset:0;border-radius:40px 40px 30px 30px/60px 60px 30px 30px;background:repeating-linear-gradient(90deg,#8a3f12 0 10px,#b9601f 10px 18px,#d88a3a 18px 24px,#9c4a17 24px 34px);background-size:68px 100%;animation:meat 1.2s linear infinite;box-shadow:inset -14px 0 18px rgba(0,0,0,.45),inset 12px 0 14px rgba(255,200,120,.25)}
+@keyframes meat{to{background-position:68px 0}}
+.rate{position:absolute;right:16px;bottom:16px;z-index:3;background:var(--y);border:4px solid var(--k);padding:12px 16px;font-weight:900;transform:rotate(4deg)}
+.rate b{font-family:'Rubik Mono One';font-size:30px;display:block}
+
+.tick{background:var(--k);color:var(--y);overflow:hidden;white-space:nowrap;border-bottom:4px solid var(--k)}
+.tick div{display:inline-block;padding:14px 0;font-family:'Rubik Mono One';font-size:20px;animation:mq 18s linear infinite}
+.tick span{margin:0 18px}
+.tick .p{color:var(--pink)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+section{padding:clamp(60px,8vw,110px) clamp(16px,4vw,48px);border-bottom:4px solid var(--k)}
+.h2{font-family:'Rubik Mono One';font-size:clamp(32px,5vw,72px);line-height:.95;text-transform:uppercase;letter-spacing:-.03em;margin-bottom:14px}
+.sub{font-weight:600;font-size:18px;max-width:640px}
+
+/* builder */
+.builder{background:#fff;display:grid;grid-template-columns:1fr 380px;gap:0;border:4px solid var(--k);margin-top:40px;box-shadow:12px 12px 0 var(--k)}
+.bl{padding:30px;border-right:4px solid var(--k)}
+.step{font-weight:900;text-transform:uppercase;font-size:14px;letter-spacing:.1em;margin:0 0 12px}
+.sizes{display:flex;gap:10px;margin-bottom:28px}
+.opt{border:3px solid var(--k);background:#fff;padding:12px 18px;font:800 15px 'Inter Tight';cursor:pointer;transition:.12s}
+.opt.on{background:var(--k);color:var(--y)}
+.flv{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.flv .opt{text-align:left;padding:14px;min-height:78px;display:flex;flex-direction:column;justify-content:space-between}
+.flv .opt small{font-weight:600;opacity:.7}
+.br{background:var(--pink);color:#fff;padding:30px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.br .nm{font-family:'Rubik Mono One';font-size:28px;line-height:1.05;text-transform:uppercase}
+.br .pr{font-family:'Rubik Mono One';font-size:64px;line-height:1}
+.br .pr.pop{animation:pop .35s}
+@keyframes pop{50%{transform:scale(1.15) rotate(-3deg)}}
+.br .wt{font-weight:800}
+.br a{background:var(--k);color:var(--y);text-align:center;font-weight:900;text-transform:uppercase;padding:16px}
+
+/* snacks */
+.sn{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:4px solid var(--k);margin-top:40px;background:#fff}
+.sn div{padding:24px;border-right:4px solid var(--k);transition:background .15s}
+.sn div:last-child{border-right:0}
+.sn div:hover{background:var(--y)}
+.sn b{display:block;font-size:18px;font-weight:900;margin-bottom:6px}
+.sn span{font-family:'Rubik Mono One';font-size:22px}
+
+/* photos */
+.ph{display:grid;grid-template-columns:repeat(5,1fr);border-top:4px solid var(--k);border-bottom:4px solid var(--k);background:var(--k)}
+.ph div{aspect-ratio:3/4;overflow:hidden;border-right:4px solid var(--k);background:#222}
+.ph div:last-child{border-right:0}
+.ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1);transition:filter .3s,transform .5s}
+.ph div:hover img{filter:none;transform:scale(1.06)}
+
+/* points */
+.pts{display:grid;grid-template-columns:1fr 1fr;gap:0;border:4px solid var(--k);margin-top:40px}
+.pt{background:#fff;padding:30px;cursor:pointer;border-right:4px solid var(--k);transition:.15s}
+.pt:last-child{border-right:0}
+.pt.on{background:var(--k);color:var(--y)}
+.pt h3{font-family:'Rubik Mono One';font-size:22px;text-transform:uppercase;margin-bottom:8px}
+.pt p{font-weight:600}
+.mapb{border:4px solid var(--k);border-top:0;height:360px;background:#eee}
+.mapb iframe{width:100%;height:100%;border:0;filter:grayscale(1)}
+.facts{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}
+.facts span{background:var(--k);color:var(--y);font-weight:800;padding:8px 12px;text-transform:uppercase;font-size:13px}
+footer{padding:30px clamp(16px,4vw,48px);font-weight:600;font-size:13px;line-height:1.6}
+.rv{opacity:0;transform:translateY(30px);transition:.6s}
+.rv.in{opacity:1;transform:none}
+@media(max-width:960px){nav .links{display:none}.hero{grid-template-columns:1fr}.hl{border-right:0;border-bottom:4px solid var(--k)}.hr{min-height:420px}.builder{grid-template-columns:1fr}.bl{border-right:0;border-bottom:4px solid var(--k)}.flv{grid-template-columns:1fr 1fr}.sn{grid-template-columns:1fr 1fr}.sn div{border-bottom:4px solid var(--k)}.ph{grid-template-columns:repeat(3,1fr)}.ph div:nth-child(n+4){display:none}.pts{grid-template-columns:1fr}.pt{border-right:0;border-bottom:4px solid var(--k)}}
+</style>
+</head>
+<body>
+<div class="demo"><b>Демо-сайт</b> · концепт для «Крутим Вертел» · не официальный</div>
+<nav>
+  <a class="logo" href="#">Крутим<br>Вертел</a>
+  <div class="links"><a href="#build">Собрать гиро</a><a href="#snacks">Закуски</a><a href="#where">Точки</a></div>
+  <a class="order" href="tel:+79885100808">Заказать</a>
+</nav>
+<header class="hero">
+  <div class="hl">
+    <h1 class="rv">Самая <span class="p">сочная</span> <span class="o">шаурма</span> на Петровской</h1>
+    <p class="rv">Темпурная, перечная, с брусничным соусом, «Биг Тейсти», том-ям с креветкой — крутим вертел с 11:00 каждый день. Есть хот-доги, доставка и самовывоз.</p>
+    <div class="hrow rv"><a class="big" href="#build">Собрать свой гиро</a><a class="big w" href="tel:+79885100808">+7 988 510-08-08</a></div>
+  </div>
+  <div class="hr">
+    <img src="https://avatars.mds.yandex.net/get-altay/16113897/2a0000019894ddd0f16ab4af50247981c589/XXL" alt="Крутим Вертел">
+    <div class="spin"><svg viewBox="0 0 300 300"><defs><path id="cc" d="M150,150 m-120,0 a120,120 0 1,1 240,0 a120,120 0 1,1 -240,0"/></defs><text><textPath href="#cc">КРУТИМ ВЕРТЕЛ ★ КРУТИМ ВЕРТЕЛ ★ </textPath></text></svg>
+      <div class="doner"><div class="rod"></div><div class="meat"></div></div></div>
+    <div class="rate"><b>5,0</b>1 166 оценок · Яндекс</div>
+  </div>
+</header>
+<div class="tick"><div><span>ГИРО</span><span class="p">●</span><span>ШАУРМА</span><span class="p">●</span><span>ХОТ-ДОГИ</span><span class="p">●</span><span>ТОМ-ЯМ</span><span class="p">●</span><span>БИГ ТЕЙСТИ</span><span class="p">●</span><span>ГИРО</span><span class="p">●</span><span>ШАУРМА</span><span class="p">●</span><span>ХОТ-ДОГИ</span><span class="p">●</span><span>ТОМ-ЯМ</span><span class="p">●</span><span>БИГ ТЕЙСТИ</span><span class="p">●</span></div></div>
+
+<section id="build">
+  <h2 class="h2 rv">Собери свой гиро</h2>
+  <p class="sub rv">Выбери размер и вкус — цена посчитается сама. Цены из меню доставки на Яндекс Картах (точка «Гирос», октябрь 2026).</p>
+  <div class="builder rv">
+    <div class="bl">
+      <p class="step">01 — Размер</p>
+      <div class="sizes" id="sizes"><button class="opt on" data-s="0">Большой</button><button class="opt" data-s="1">Мини</button></div>
+      <p class="step">02 — Вкус</p>
+      <div class="flv" id="flv"></div>
+    </div>
+    <div class="br">
+      <div><div class="wt" id="wt">390 г</div><div class="nm" id="nm">Гиро Классический</div></div>
+      <div class="pr" id="pr">480 ₽</div>
+      <a href="tel:+79885100808">Позвонить и заказать</a>
+    </div>
+  </div>
+</section>
+
+<section id="snacks" style="background:#fff">
+  <h2 class="h2 rv">К гиро <span style="color:var(--pink)">впридачу</span></h2>
+  <div class="sn rv">
+    <div><b>Картофель фри</b><span>230 ₽</span></div>
+    <div><b>По-деревенски</b><span>230 ₽</span></div>
+    <div><b>Наггетсы</b><span>230 ₽</span></div>
+    <div><b>Сырные палочки</b><span>300 ₽</span></div>
+    <div><b>Черноголовка 0,5</b><span>180 ₽</span></div>
+  </div>
+  <p class="sub" style="margin-top:18px">Соус на выбор — 100 ₽.</p>
+</section>
+
+<div class="ph">
+  <div><img src="https://avatars.mds.yandex.net/get-altay/5469293/2a0000018101f2021f6aa67339312f309bad/XXL" alt=""></div>
+  <div><img src="https://avatars.mds.yandex.net/get-altay/9833397/2a000001889fc47cf0d898b69a1b238e9eb9/XXL" alt=""></div>
+  <div><img src="https://avatars.mds.yandex.net/get-altay/13061180/2a0000018f28b7aeddc0d010e36e8af16df8/XXL" alt=""></div>
+  <div><img src="https://avatars.mds.yandex.net/get-altay/20105336/2a0000019de3c9593f2f51566ba6ed35f396/XXL" alt=""></div>
+  <div><img src="https://avatars.mds.yandex.net/get-altay/9830718/2a0000018ffd4efbf9b2cf782b1bbbd65bd7/XXL" alt=""></div>
+</div>
+
+<section id="where">
+  <h2 class="h2 rv">Две точки в центре</h2>
+  <p class="sub rv">Обе открываются в 11:00. Средний чек — 250–500 ₽.</p>
+  <div class="pts rv">
+    <div class="pt on" data-q="Таганрог, Петровская улица, 69"><h3>Петровская, 69</h3><p>★ 5,0 · 1 166 оценок · шаурма и хот-доги</p></div>
+    <div class="pt" data-q="Таганрог, Тургеневский переулок, 11"><h3>Тургеневский, 11</h3><p>★ 5,0 · 235 оценок · «Крутим Вертел Гирос»</p></div>
+  </div>
+  <div class="mapb rv"><iframe id="map" loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.929764%2C47.214785&z=16&pt=38.929764,47.214785,pm2rdm"></iframe></div>
+  <div class="facts rv"><span>Доставка</span><span>Самовывоз</span><span>Предзаказ онлайн</span><span>Wi-Fi</span><span>Кофе с собой</span><span>Атмосфера 99% 👍</span></div>
+</section>
+<footer>Демо-концепт сайта для «Крутим Вертел» (Таганрог). Не является официальным сайтом заведения. Информация и меню — с Яндекс Карт (октябрь 2026). Фотографии — из карточки заведения на Яндекс Картах, принадлежат их авторам.</footer>
+<script>
+const F=[["Классический",480,390,385,260],["Перечный",510,390,415,260],["Медово-горчичный",510,440,415,230],["Брусничный",570,415,380,250],["Охотничий",585,370,490,280],["Биг Тейсти",610,410,520,280],["Сырный",650,435,585,310],["Том-ям с креветкой",650,440,585,250]];
+let s=0,f=0;const flv=document.getElementById('flv');
+F.forEach((x,i)=>{const b=document.createElement('button');b.className='opt'+(i?'':' on');b.innerHTML=`${x[0]}<small>от ${x[3]} ₽</small>`;b.onclick=()=>{f=i;upd()};flv.appendChild(b)});
+document.querySelectorAll('#sizes .opt').forEach(b=>b.onclick=()=>{s=+b.dataset.s;upd()});
+function upd(){document.querySelectorAll('#sizes .opt').forEach(b=>b.classList.toggle('on',+b.dataset.s===s));[...flv.children].forEach((b,i)=>b.classList.toggle('on',i===f));
+ const x=F[f];document.getElementById('nm').textContent=(s?'Мини-гиро ':'Гиро ')+x[0];document.getElementById('wt').textContent=(s?x[4]:x[2])+' г';
+ const p=document.getElementById('pr');p.textContent=(s?x[3]:x[1])+' ₽';p.classList.remove('pop');void p.offsetWidth;p.classList.add('pop')}
+document.querySelectorAll('.pt').forEach(p=>p.onclick=()=>{document.querySelectorAll('.pt').forEach(x=>x.classList.toggle('on',x===p));document.getElementById('map').src='https://yandex.ru/map-widget/v1/?mode=search&z=16&text='+encodeURIComponent(p.dataset.q)});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

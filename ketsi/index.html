@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Кеци — грузинская кухня на Петровской · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--clay:#B4532A;--clay2:#D9774A;--wine:#5E1A2B;--sand:#F4E6D2;--cream:#FBF5EC;--olive:#6B6A2E;--ink:#2E1A12;--gold:#C9963B}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Jost,system-ui,sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.rug{height:34px;background-color:var(--wine);
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='68' height='34' viewBox='0 0 68 34'%3E%3Cpath d='M34 3 L48 17 L34 31 L20 17Z' fill='%23B4532A'/%3E%3Cpath d='M34 10 L41 17 L34 24 L27 17Z' fill='%23F4E6D2'/%3E%3Cpath d='M34 14 L37 17 L34 20 L31 17Z' fill='%235E1A2B'/%3E%3Cpath d='M0 3 L14 17 L0 31Z M68 3 L54 17 L68 31Z' fill='%23C9963B'/%3E%3Ccircle cx='17' cy='6' r='2' fill='%23F4E6D2'/%3E%3Ccircle cx='51' cy='28' r='2' fill='%23F4E6D2'/%3E%3C/svg%3E");
+animation:rug 40s linear infinite}
+.rug.rev{animation-direction:reverse}
+@keyframes rug{to{background-position:680px 0}}
+.demo{background:var(--ink);color:var(--sand);font-size:13px;text-align:center;padding:8px 14px}
+.demo b{color:var(--gold)}
+
+header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:18px clamp(16px,4vw,56px);background:var(--cream)}
+header ul{display:flex;gap:28px;list-style:none;font-size:15px;letter-spacing:.06em}
+header ul a{position:relative}
+header ul a::after{content:"";position:absolute;left:50%;right:50%;bottom:-6px;height:2px;background:var(--clay);transition:.3s}
+header ul a:hover::after{left:0;right:0}
+.logo{font-family:Forum;font-size:44px;letter-spacing:.12em;color:var(--wine);text-align:center;line-height:1}
+.logo small{display:block;font-family:Jost;font-size:10px;letter-spacing:.42em;color:var(--clay);margin-top:4px}
+.hbtn{justify-self:end;background:var(--clay);color:#fff;padding:12px 22px;border-radius:40px;font-weight:500;transition:.3s}
+.hbtn:hover{background:var(--wine)}
+
+.hero{position:relative;display:grid;grid-template-columns:1fr 1fr;min-height:84vh;background:var(--sand);overflow:hidden}
+.hero-txt{padding:clamp(40px,7vw,100px) clamp(16px,4vw,56px);display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}
+.gm{font-family:Forum;font-size:22px;color:var(--clay);letter-spacing:.1em}
+h1{font-family:Forum;font-weight:400;font-size:clamp(52px,7.4vw,118px);line-height:.95;color:var(--wine);margin:16px 0 24px}
+h1 span{color:var(--clay)}
+.lead{font-size:19px;line-height:1.65;max-width:520px;color:#5b4136;font-weight:300}
+.btns{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.b1{background:var(--wine);color:#fff;padding:16px 28px;border-radius:40px;font-weight:500;transition:.3s}
+.b1:hover{background:var(--clay);transform:translateY(-2px)}
+.b2{border:1.5px solid var(--wine);color:var(--wine);padding:15px 26px;border-radius:40px;font-weight:500}
+.hero-img{position:relative;clip-path:polygon(14% 0,100% 0,100% 100%,0 100%);}
+.hero-img img{width:100%;height:100%;object-fit:cover;animation:pan 22s ease-in-out infinite alternate}
+@keyframes pan{to{transform:scale(1.12) translateX(-3%)}}
+.pot{position:absolute;left:44%;bottom:9%;z-index:3;width:170px;height:170px}
+.pot svg{width:100%;height:100%;animation:sp 22s linear infinite}
+.pot svg text{font-family:Jost;font-size:11.5px;letter-spacing:3.6px;font-weight:600;fill:var(--wine);text-transform:uppercase}
+.pot .c{position:absolute;inset:34px;border-radius:50%;background:var(--clay);display:grid;place-items:center;color:#fff;text-align:center;font-family:Forum;font-size:30px;line-height:1;box-shadow:inset 0 -10px 0 rgba(0,0,0,.15)}
+.pot .c small{font-family:Jost;font-size:11px;display:block;letter-spacing:.1em}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+section{padding:clamp(64px,9vw,120px) clamp(16px,4vw,56px)}
+.h2{font-family:Forum;font-weight:400;font-size:clamp(38px,5vw,72px);line-height:1;color:var(--wine);margin-bottom:16px}
+.h2 span{color:var(--clay)}
+.sub{font-size:18px;line-height:1.6;max-width:620px;color:#6b5146;font-weight:300}
+.center{text-align:center}.center .sub{margin:0 auto}
+
+/* khinkali set builder */
+.set{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:50px}
+.plate{position:relative;aspect-ratio:1;max-width:480px;width:100%;justify-self:center;border-radius:50%;background:radial-gradient(circle,#fff 0 58%,#efe1cc 59% 61%,#fff 62% 70%,var(--sand) 71%);box-shadow:0 30px 60px -30px rgba(94,26,43,.5)}
+.dump{position:absolute;width:21%;aspect-ratio:1;transform:translate(-50%,-50%);cursor:pointer;transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.dump svg{width:100%;height:100%;filter:drop-shadow(0 6px 6px rgba(0,0,0,.15))}
+.dump:hover,.dump.on{transform:translate(-50%,-62%) scale(1.15)}
+.dump.on svg path:first-child{fill:#f7d7a8}
+.info{background:#fff;border-radius:24px;padding:34px;box-shadow:0 20px 50px -30px rgba(46,26,18,.4);min-height:250px}
+.info .k{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay)}
+.info h3{font-family:Forum;font-size:40px;color:var(--wine);margin:10px 0}
+.info p{color:#6b5146;line-height:1.6}
+.info .pr{margin-top:22px;display:flex;align-items:baseline;gap:10px;border-top:1px dashed #e2cfb6;padding-top:18px}
+.info .pr b{font-family:Forum;font-size:44px;color:var(--clay)}
+
+/* menu */
+.menu{background:var(--wine);color:var(--sand)}
+.menu .h2{color:var(--sand)} .menu .h2 span{color:var(--clay2)}
+.menu .sub{color:#e5cfc0}
+.mt{display:flex;gap:10px;flex-wrap:wrap;margin:36px 0}
+.mt button{font:500 15px Jost;background:transparent;color:var(--sand);border:1px solid rgba(244,230,210,.35);padding:11px 20px;border-radius:40px;cursor:pointer;transition:.25s}
+.mt button.on,.mt button:hover{background:var(--sand);color:var(--wine)}
+.mcards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.mc{border:1px solid rgba(244,230,210,.18);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px;animation:pop .45s both;background:rgba(255,255,255,.03);transition:background .3s}
+.mc:hover{background:rgba(255,255,255,.08)}
+@keyframes pop{from{opacity:0;transform:scale(.95) translateY(10px)}}
+.mc h4{font-family:Forum;font-size:26px;font-weight:400}
+.mc p{font-size:14px;color:#dcc4b5;flex:1;line-height:1.5}
+.mc .r{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px}
+.mc .r b{font-family:Forum;font-size:28px;color:var(--gold);font-weight:400}
+.mc .r small{color:#c8ad9d}
+
+/* mosaic */
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:12px}
+.mosaic div{overflow:hidden;border-radius:16px;background:var(--sand)}
+.mosaic .t{grid-row:span 2}
+.mosaic .w{grid-column:span 2}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.mosaic div:hover img{transform:scale(1.08)}
+
+.feats{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:46px}
+.ft{text-align:center;padding:30px 20px;border-radius:20px;background:#fff}
+.ft .i{width:64px;height:64px;margin:0 auto 16px;border-radius:50%;background:var(--sand);display:grid;place-items:center;font-size:28px}
+.ft h4{font-family:Forum;font-size:24px;color:var(--wine);font-weight:400}
+.ft p{font-size:14px;color:#7a5e52;margin-top:6px;line-height:1.5}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--sand)}
+.contact .c1{padding:clamp(40px,6vw,80px)}
+.contact dl{margin-top:30px;display:grid;gap:22px}
+.contact dt{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--clay)}
+.contact dd{font-family:Forum;font-size:30px;color:var(--wine)}
+.contact iframe{width:100%;height:100%;min-height:420px;border:0}
+footer{background:var(--ink);color:#c9b3a3;padding:34px clamp(16px,4vw,56px);font-size:13px;line-height:1.7}
+
+.rv{opacity:0;transform:translateY(34px);transition:.9s ease}
+.rv.in{opacity:1;transform:none}
+@media(max-width:960px){
+ header{grid-template-columns:1fr auto}header ul{display:none}.logo{text-align:left}
+ .hero{grid-template-columns:1fr}.hero-img{height:50vh;clip-path:polygon(0 12%,100% 0,100% 100%,0 100%)}
+ .pot{left:auto;right:16px;bottom:auto;top:calc(84vh - 60px);width:130px;height:130px}.pot .c{inset:26px;font-size:24px}
+ .set,.contact{grid-template-columns:1fr}
+ .mcards{grid-template-columns:1fr 1fr}
+ .mosaic{grid-template-columns:1fr 1fr}
+ .feats{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){.mcards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demo"><b>Демо-сайт</b> — концепт для кафе «Кеци». Не является официальным сайтом.</div>
+<header>
+  <ul><li><a href="#set">Хинкали</a></li><li><a href="#menu">Меню</a></li><li><a href="#place">Место</a></li></ul>
+  <a class="logo" href="#">КЕЦИ<small>ГРУЗИНСКАЯ КУХНЯ</small></a>
+  <a class="hbtn" href="tel:+79882519795">Забронировать</a>
+</header>
+<div class="rug"></div>
+
+<section class="hero" style="padding:0">
+  <div class="hero-txt">
+    <span class="gm rv">გამარჯობა — здравствуйте!</span>
+    <h1 class="rv">Грузия <span>на Петровской,</span> 98</h1>
+    <p class="lead rv">Хинкали семи вкусов, хачапури, мясо на углях и блюда в глиняных кеци — по традиционным рецептам. Живая музыка по вечерам и летняя веранда.</p>
+    <div class="btns rv"><a class="b1" href="#menu">Открыть меню</a><a class="b2" href="tel:+79882519795">+7 988 251-97-95</a></div>
+  </div>
+  <div class="hero-img"><img src="https://avatars.mds.yandex.net/get-altay/17786812/2a0000019e634ef379e46df8a2537331a813/XXL" alt="Блюдо в кеци"></div>
+  <div class="pot"><svg viewBox="0 0 170 170"><defs><path id="pc" d="M85,85 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs><text><textPath href="#pc">хинкали · хачапури · мцвади · чанахи · </textPath></text></svg><div class="c"><div>4,7<small>Яндекс · 2321</small></div></div></div>
+</section>
+<div class="rug rev"></div>
+
+<section id="set">
+  <div class="center"><h2 class="h2 rv">Сет хинкали — <span>7 вкусов</span></h2>
+  <p class="sub rv">Нажмите на хинкали, чтобы узнать начинку. Весь сет — 7 штук, 400 г.</p></div>
+  <div class="set">
+    <div class="plate rv" id="plate"></div>
+    <div class="info rv" id="info"></div>
+  </div>
+</section>
+
+<section id="menu" class="menu">
+  <h2 class="h2 rv">Меню <span>с огоньком</span></h2>
+  <p class="sub rv">Цены — по меню на Яндекс Картах (октябрь 2026).</p>
+  <div class="mt" id="mt"></div>
+  <div class="mcards" id="mc"></div>
+</section>
+
+<section id="place">
+  <h2 class="h2 rv">Ковры, свечи <span>и кот у входа</span></h2>
+  <p class="sub rv" style="margin-bottom:40px">Узнаете нас по коврам на фасаде. Внутри — тепло, свечи и запах свежего теста.</p>
+  <div class="mosaic">
+    <div class="t rv"><img src="https://avatars.mds.yandex.net/get-altay/14007310/2a0000019604b024ca2ec7c228283878faad/XXL" alt="Фасад"></div>
+    <div class="w rv"><img src="https://avatars.mds.yandex.net/get-altay/4464784/2a0000017888676a75aac8dae952fa3dc018/XXL" alt="Стол"></div>
+    <div class="t rv"><img src="https://avatars.mds.yandex.net/get-altay/5490109/2a0000017c7a7b628b713d42b583db46eb32/XXL" alt="Кот"></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/15438512/2a00000199fb4c3087d40b08e2ab778035f0/XXL" alt="Хинкали"></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/2383444/2a000001751757cfd87d8abbd59d1b19f34d/XXL" alt="Бадриджани"></div>
+    <div class="w rv"><img src="https://avatars.mds.yandex.net/get-altay/15389647/2a000001995d735059ec448ba63044984b35/XXL" alt="Веранда"></div>
+    <div class="w rv"><img src="https://avatars.mds.yandex.net/get-altay/7668046/2a0000018b614ca40fdd6f7251ddc8d3e317/XXL" alt="Свечи"></div>
+  </div>
+  <div class="feats">
+    <div class="ft rv"><div class="i">🎻</div><h4>Живая музыка</h4><p>Вечерами — 92% гостей в восторге</p></div>
+    <div class="ft rv"><div class="i">🌿</div><h4>Веранда</h4><p>Летом — за столиками на улице</p></div>
+    <div class="ft rv"><div class="i">🍽</div><h4>Бизнес-ланч</h4><p>Сытный обед в будни</p></div>
+    <div class="ft rv"><div class="i">🛵</div><h4>Доставка</h4><p>Хинкали приедут к вам</p></div>
+  </div>
+</section>
+
+<div class="rug"></div>
+<section class="contact" style="padding:0">
+  <div class="c1">
+    <h2 class="h2 rv">Ждём <span>в гости</span></h2>
+    <dl>
+      <div class="rv"><dt>Адрес</dt><dd>Таганрог, Петровская ул., 98</dd></div>
+      <div class="rv"><dt>Телефон</dt><dd><a href="tel:+79882519795">+7 (988) 251-97-95</a></dd></div>
+      <div class="rv"><dt>Открываемся</dt><dd>каждый день с 9:00</dd></div>
+    </dl>
+  </div>
+  <iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.926925%2C47.217043&z=16&pt=38.926925,47.217043,pm2rdm"></iframe>
+</section>
+<footer>Демо-концепт сайта для кафе «Кеци» (Таганрог). Не является официальным сайтом заведения. Информация и меню — с Яндекс Карт (октябрь 2026). Фотографии — из карточки кафе на Яндекс Картах и принадлежат их авторам.</footer>
+
+<script>
+const K=[["С бараниной","Сочная рубленая баранина с зеленью и специями."],["С курицей","Нежная куриная начинка — лёгкий вариант."],["С креветкой","Морской вкус в грузинском тесте."],["С сыром","Тягучий сыр — для тех, кто не ест мясо."],["Свино-говяжьи","Классика: та самая начинка с бульоном внутри."],["Язык и грибы","Говяжий язык с грибами — необычно и мягко."],["Том ям","Острый тайский твист — для смелых."]];
+const plate=document.getElementById('plate'),info=document.getElementById('info');
+const D='<svg viewBox="0 0 100 100"><path d="M50 8c4 0 6 6 6 10 0 3 14 8 26 22 12 15 10 40-6 48-14 7-38 7-52 0C8 80 6 55 18 40 30 26 44 21 44 18c0-4 2-10 6-10z" fill="#FFF2DC" stroke="#E2C9A3" stroke-width="2"/><path d="M50 18 C40 40 28 60 30 86 M50 18 C60 40 72 60 70 86 M50 18 C46 44 44 66 46 90 M50 18 C54 44 56 66 54 90" fill="none" stroke="#E2C9A3" stroke-width="2"/></svg>';
+K.forEach((k,i)=>{const a=i===6?0:(i/6)*Math.PI*2,r=i===6?0:30;const d=document.createElement('div');d.className='dump';d.style.left=50+Math.cos(a)*r+'%';d.style.top=50+Math.sin(a)*r+'%';d.innerHTML=D;d.onclick=()=>sel(i);plate.appendChild(d)});
+function sel(i){[...plate.children].forEach((d,j)=>d.classList.toggle('on',i===j));info.innerHTML=`<span class="k">Хинкали ${i+1} из 7</span><h3>${K[i][0]}</h3><p>${K[i][1]}</p><div class="pr"><b>750 ₽</b><span>сет из 7 вкусов · 400 г</span></div>`}
+sel(4);let auto=setInterval(()=>sel((+[...plate.children].findIndex(d=>d.classList.contains('on'))+1)%7),2800);plate.addEventListener('click',()=>clearInterval(auto));
+const M={
+"Хинкали и выпечка":[["Сет хинкали","750","7 вкусов: баранина, курица, креветка, сыр, свино-говяжьи, язык-грибы, том ям · 400 г"],["Жареные хинкали с сыром","330","3 шт. · 200 г"],["Цезаридзе с креветками","490","Лёгкий салат с креветками и овощами · 200 г"]],
+"Горячие блюда":[["Баранина по-свански","820","270 г"],["Чанахи","730","Телятина, томаты, перец, морковь · 250 г"],["Чашушули","720","Рагу из говядины в томатах со специями · 250 г"],["Цыплёнок табака","890","350 г"],["Шкмерули","600","Куриное бедро в сливочно-чесночном соусе · 250 г"],["Сациви","520","Куриное бедро в ореховом соусе · 250 г"],["Толма","500","Виноградные листья с фаршем и рисом · 200 г"],["Яхне","750","250 г"],["Рулька свиная с картофелем","1900","На компанию · 2 кг"]],
+"Мангал":[["Мцвади из свиной шеи","960","Фермерская свинина на углях · 300 г"],["Мцвади из курицы","570","Бедро без кости · 300 г"],["Люля из баранины с копчёным сулугуни","690","200 г"],["Кебаб из баранины","610","С капустой пилюской · 200 г"],["Кебаб куриный с копчёным сыром","590","200 г"],["Крылья на мангале","390","300 г"],["Овощи гриль","450","300 г"],["Грибы на мангале","450","300 г"]],
+"К пенному":[["Азовская хамса","390","Хрустящая, с укропом · 200 г"],["Мидии том ям","890","350 г"],["Мидии в сливочном соусе","890","350 г"],["Сет пивной","1300","500 г"],["Кольца кальмара","420","150 г"],["Чесночные гренки","200","Бородинский хлеб · 130 г"]]};
+const mt=document.getElementById('mt'),mc=document.getElementById('mc');
+function show(k){[...mt.children].forEach(b=>b.classList.toggle('on',b.textContent===k));mc.innerHTML=M[k].map((d,i)=>`<div class="mc" style="animation-delay:${i*50}ms"><h4>${d[0]}</h4><p>${d[2]}</p><div class="r"><b>${d[1]} ₽</b></div></div>`).join('')}
+Object.keys(M).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>show(k);mt.appendChild(b)});show('Хинкали и выпечка');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
+</script>
+</body>
+</html>

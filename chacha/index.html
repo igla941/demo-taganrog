@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Чача — грузинская кухня и настойки · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Literata:ital,opsz,wght@0,7..72,300;0,7..72,400;0,7..72,600;1,7..72,400&display=swap" rel="stylesheet">
+<style>
+:root{--grape:#4B1E3F;--grape2:#6A2C59;--pom:#C8323C;--silver:#E9ECEF;--off:#FAF8F5;--leaf:#7C8B3E;--ink:#24151F;--gold:#C49A4A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:Literata,Georgia,serif;background:var(--off);color:var(--ink);overflow-x:clip;font-weight:300}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.ts{font-family:'Tenor Sans',sans-serif}
+.demo{position:fixed;left:16px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;z-index:90;font:12px 'Tenor Sans';letter-spacing:.2em;text-transform:uppercase;color:var(--pom);background:#fff;padding:12px 7px;border:1px solid var(--pom)}
+nav{display:flex;justify-content:space-between;align-items:center;padding:26px clamp(16px,5vw,80px);position:relative;z-index:5}
+.logo{font:400 34px 'Tenor Sans';letter-spacing:.3em;color:var(--grape)}
+nav ul{display:flex;gap:34px;list-style:none;font:14px 'Tenor Sans';letter-spacing:.16em;text-transform:uppercase}
+nav ul a{position:relative}
+nav ul a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--pom);transition:width .3s}
+nav ul a:hover::after{width:100%}
+.tel{font:15px 'Tenor Sans';letter-spacing:.08em;border:1px solid var(--grape);padding:11px 18px;transition:.3s}
+.tel:hover{background:var(--grape);color:#fff}
+
+.hero{position:relative;min-height:88vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:0 clamp(16px,5vw,80px) 60px;overflow:hidden}
+.letters{position:absolute;inset:0;pointer-events:none;z-index:0}
+.letters span{position:absolute;font-family:serif;color:var(--grape);opacity:.07;line-height:1;will-change:transform}
+.ht{position:relative;z-index:2}
+.k{font:13px 'Tenor Sans';letter-spacing:.3em;text-transform:uppercase;color:var(--pom)}
+h1{font:400 clamp(52px,7.6vw,124px)/.98 'Tenor Sans';color:var(--grape);margin:22px 0 26px;letter-spacing:-.01em}
+h1 i{font-family:Literata;font-style:italic;color:var(--pom);font-weight:400}
+.lead{font-size:19px;line-height:1.75;max-width:500px}
+.hb{display:flex;gap:16px;margin-top:34px;align-items:center;flex-wrap:wrap}
+.b{background:var(--pom);color:#fff;font:14px 'Tenor Sans';letter-spacing:.14em;text-transform:uppercase;padding:17px 28px;transition:.3s;display:inline-block}
+.b:hover{background:var(--grape)}
+.lnk{font:14px 'Tenor Sans';letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:4px}
+.hp{position:relative;z-index:2;justify-self:end;width:min(520px,100%)}
+.hp .main{aspect-ratio:4/5;overflow:hidden;clip-path:inset(0 0 0 0 round 260px 260px 0 0);background:var(--silver)}
+.hp .main img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);transition:transform 1.4s}
+.hp:hover .main img{transform:scale(1)}
+.seal{position:absolute;left:-50px;bottom:40px;width:130px;height:130px;border-radius:50%;background:var(--grape);color:#fff;display:grid;place-items:center;text-align:center;font:12px/1.3 'Tenor Sans';letter-spacing:.08em;box-shadow:0 20px 40px -16px rgba(75,30,63,.7)}
+.seal b{display:block;font-size:36px;letter-spacing:0;font-weight:400}
+.seeds{position:absolute;inset:0;pointer-events:none}
+.seed{position:absolute;width:9px;height:12px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 35% 30%,#ff8a8f,var(--pom) 60%,#7a1520);animation:burst 1s ease-out forwards}
+@keyframes burst{to{transform:translate(var(--dx),var(--dy)) rotate(var(--r));opacity:0}}
+
+section{padding:clamp(70px,10vw,140px) clamp(16px,5vw,80px)}
+.h2{font:400 clamp(38px,5vw,76px)/1 'Tenor Sans';color:var(--grape);margin-bottom:18px}
+.h2 i{font-family:Literata;font-style:italic;color:var(--pom)}
+.sub{font-size:18px;line-height:1.7;max-width:600px}
+
+/* dishes */
+.dishes{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#e7dfe4;margin-top:50px;border:1px solid #e7dfe4}
+.dish{background:var(--off);padding:40px 28px;position:relative;overflow:hidden;transition:background .4s}
+.dish:hover{background:#fff}
+.dish .n{font:14px 'Tenor Sans';color:var(--pom);letter-spacing:.2em}
+.dish h3{font:400 30px 'Tenor Sans';color:var(--grape);margin:16px 0 12px}
+.dish p{line-height:1.6;font-size:16px}
+.dish .ge{position:absolute;right:-10px;bottom:-30px;font-size:130px;color:var(--grape);opacity:.06;font-family:serif;transition:transform .6s}
+.dish:hover .ge{transform:translateY(-20px) rotate(-8deg);opacity:.12}
+
+/* tinctures */
+.tinct{background:var(--grape);color:#fff}
+.tinct .h2{color:#fff}.tinct .h2 i{color:#ff9aa0}
+.tinct .sub{color:#e3cfdc}
+.bottles{display:flex;justify-content:center;align-items:flex-end;gap:clamp(14px,3vw,46px);margin-top:60px;flex-wrap:wrap}
+.bt{text-align:center;width:110px}
+.bt svg{width:100%;height:auto;overflow:visible}
+.bt .liq{transition:transform 1.8s cubic-bezier(.3,.8,.2,1);transform:translateY(100%)}
+.bt.full .liq{transform:translateY(0)}
+.bt small{display:block;margin-top:14px;font:13px 'Tenor Sans';letter-spacing:.12em;text-transform:uppercase;color:#e3cfdc}
+.tq{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:70px;border-top:1px solid rgba(255,255,255,.18);padding-top:40px}
+.tq div b{font:400 54px 'Tenor Sans';display:block;color:#ff9aa0}
+.tq div span{font-size:15px;color:#e3cfdc}
+
+/* gallery strip parallax */
+.strip{display:flex;gap:16px;padding:0 clamp(16px,5vw,80px);will-change:transform}
+.strip figure{flex:0 0 clamp(240px,26vw,380px);aspect-ratio:3/4;overflow:hidden;background:var(--silver)}
+.strip figure:nth-child(odd){margin-top:60px}
+.strip img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.strip figure:hover img{transform:scale(1.07)}
+.stripwrap{overflow:hidden;padding:20px 0 80px}
+
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.visit dl{display:grid;gap:26px;margin-top:30px}
+.visit dt{font:12px 'Tenor Sans';letter-spacing:.24em;text-transform:uppercase;color:var(--pom)}
+.visit dd{font:400 28px 'Tenor Sans';color:var(--grape);margin-top:6px}
+.mapa{aspect-ratio:1;max-width:520px;width:100%;justify-self:end;clip-path:circle(50%);background:var(--silver)}
+.mapa iframe{width:100%;height:100%;border:0}
+footer{border-top:1px solid #e7dfe4;padding:34px clamp(16px,5vw,80px);font-size:13px;line-height:1.7;color:#7a6672}
+.rv{opacity:0;transform:translateY(30px);transition:1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:960px){nav ul{display:none}.hero{grid-template-columns:1fr;gap:40px;padding-top:20px}.hp{justify-self:center}.seal{left:-6px}.dishes{grid-template-columns:1fr 1fr}.visit{grid-template-columns:1fr}.mapa{justify-self:center}.tq{grid-template-columns:1fr}.demo{left:4px}}
+@media(max-width:520px){.dishes{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="demo">Демо-сайт · не официальный</div>
+<nav>
+  <a class="logo" href="#">ЧАЧА</a>
+  <ul><li><a href="#kitchen">Кухня</a></li><li><a href="#tinct">Настойки</a></li><li><a href="#visit">Адрес</a></li></ul>
+  <a class="tel" href="tel:+79518377737">+7 951 837-77-37</a>
+</nav>
+
+<header class="hero" id="hero">
+  <div class="letters" id="letters"></div>
+  <div class="ht">
+    <span class="k rv">Грузинская кухня · Петровская, 49</span>
+    <h1 class="rv">Хачапури, хинкали <i>и чача</i> своего производства</h1>
+    <p class="lead rv">Кафе-ресторан с грузинскими блюдами — хачапури, хинкали, чебуреки и шашлык — а ещё вино и настойки, которые мы делаем сами. Живая музыка по вечерам.</p>
+    <div class="hb rv"><a class="b" href="tel:+79518377737">Забронировать стол</a><a class="lnk" href="#tinct">Наши настойки</a></div>
+  </div>
+  <div class="hp rv" id="hp">
+    <div class="main"><img src="https://avatars.mds.yandex.net/get-altay/879259/2a0000018876c26c5b7629b5a9106f6cc5d1/XXL" alt="Кафе Чача"></div>
+    <div class="seal"><div><b>4,9</b>989 оценок<br>Яндекс Карты</div></div>
+    <div class="seeds" id="seeds"></div>
+  </div>
+</header>
+
+<section id="kitchen">
+  <span class="k rv">სამზარეულო — кухня</span>
+  <h2 class="h2 rv" style="margin-top:14px">Четыре причины <i>остаться</i> на ужин</h2>
+  <p class="sub rv">Готовим по-грузински: щедро, с травами, огнём и тестом, которое тянется.</p>
+  <div class="dishes">
+    <div class="dish rv"><span class="n">I</span><h3>Хачапури</h3><p>Горячие лодочки и круглые пироги с сыром — 81% гостей ставят «отлично».</p><span class="ge">ხ</span></div>
+    <div class="dish rv"><span class="n">II</span><h3>Хинкали</h3><p>Сочные, с бульоном внутри — едим руками, хвостики оставляем.</p><span class="ge">ჰ</span></div>
+    <div class="dish rv"><span class="n">III</span><h3>Чебуреки</h3><p>Хрустящее тесто и горячая мясная начинка — прямо со сковороды.</p><span class="ge">ჩ</span></div>
+    <div class="dish rv"><span class="n">IV</span><h3>Шашлык</h3><p>Мясо на углях с луком, зеленью и гранатом.</p><span class="ge">შ</span></div>
+  </div>
+  <p class="sub rv" style="margin-top:26px;font-size:15px;color:#7a6672">Полное меню с ценами — у официанта; онлайн-меню добавим в рабочую версию сайта.</p>
+</section>
+
+<section id="tinct" class="tinct">
+  <span class="k rv" style="color:#ff9aa0">домашние настойки</span>
+  <h2 class="h2 rv" style="margin-top:14px">Своё вино и <i>настойки</i></h2>
+  <p class="sub rv">Настаиваем сами — и гости это ценят: 91% положительных отзывов о наших настойках.</p>
+  <div class="bottles" id="bottles"></div>
+  <p class="rv" style="text-align:center;margin-top:22px;font-size:14px;color:#cdb5c6">Названия на бутылках — для примера; актуальный выбор настоек спросите у официанта.</p>
+  <div class="tq">
+    <div class="rv"><b>94%</b><span>хвалят атмосферу</span></div>
+    <div class="rv"><b>83%</b><span>в восторге от живой музыки</span></div>
+    <div class="rv"><b>100%</b><span>довольны расположением — в самом центре</span></div>
+  </div>
+</section>
+
+<div class="stripwrap"><div class="strip" id="strip">
+  <figure><img src="https://avatars.mds.yandex.net/get-altay/9827107/2a000001894f6fad92ab8d6fd647f9aba231/XXL" alt=""></figure>
+  <figure><img src="https://avatars.mds.yandex.net/get-altay/11093519/2a0000018bb34858ac2d0f5682e394471960/XXL" alt=""></figure>
+  <figure><img src="https://avatars.mds.yandex.net/get-altay/9895050/2a0000019185ea1717fc2fbef1d0eb339d48/XXL" alt=""></figure>
+  <figure><img src="https://avatars.mds.yandex.net/get-altay/15249330/2a000001952e08ef7794e4540bd4f9dd6ce2/XXL" alt=""></figure>
+  <figure><img src="https://avatars.mds.yandex.net/get-altay/7690462/2a00000188633cdf10aee5d98f58db6594a6/XXL" alt=""></figure>
+  <figure><img src="https://avatars.mds.yandex.net/get-altay/760153/2a000001880e75c4652dca48e5f5d5d6b78d/XXL" alt=""></figure>
+</div></div>
+
+<section id="visit" class="visit" style="padding-top:20px">
+  <div>
+    <span class="k rv">მობრძანდით — добро пожаловать</span>
+    <h2 class="h2 rv" style="margin-top:14px">Ждём <i>в гости</i></h2>
+    <dl>
+      <div class="rv"><dt>Адрес</dt><dd>Таганрог, Петровская ул., 49</dd></div>
+      <div class="rv"><dt>Телефон</dt><dd><a href="tel:+79518377737">+7 (951) 837-77-37</a></dd></div>
+      <div class="rv"><dt>Открываемся</dt><dd>каждый день с 12:00</dd></div>
+      <div class="rv"><dt>Ещё</dt><dd>доставка · навынос · кофе с собой</dd></div>
+    </dl>
+  </div>
+  <div class="mapa rv"><iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.934206%2C47.211887&z=17&pt=38.934206,47.211887,pm2rdm"></iframe></div>
+</section>
+<footer>Демо-концепт сайта для кафе «Чача» (Таганрог). Не является официальным сайтом заведения. Информация — с Яндекс Карт (октябрь 2026). Фотографии — из карточки кафе на Яндекс Картах, принадлежат их авторам. Чрезмерное употребление алкоголя вредит вашему здоровью; продажа — лицам старше 18 лет.</footer>
+<script>
+/* floating Georgian letters with parallax */
+const G='აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ';const LE=document.getElementById('letters');const ls=[];
+for(let i=0;i<22;i++){const s=document.createElement('span');s.textContent=G[(i*7)%G.length];const z=Math.random();s.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*100}%;font-size:${40+z*140}px`;s.dataset.z=z;LE.appendChild(s);ls.push(s)}
+addEventListener('pointermove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;ls.forEach(s=>{const z=+s.dataset.z;s.style.transform=`translate(${x*z*-60}px,${y*z*-60}px)`})});
+/* pomegranate seed burst */
+const hp=document.getElementById('hp'),sd=document.getElementById('seeds');let lastB=0;
+hp.addEventListener('pointermove',e=>{const t=performance.now();if(t-lastB<120)return;lastB=t;const r=hp.getBoundingClientRect();for(let i=0;i<5;i++){const s=document.createElement('i');s.className='seed';s.style.left=(e.clientX-r.left)+'px';s.style.top=(e.clientY-r.top)+'px';const a=Math.random()*6.28,d=40+Math.random()*60;s.style.setProperty('--dx',Math.cos(a)*d+'px');s.style.setProperty('--dy',Math.sin(a)*d+'px');s.style.setProperty('--r',Math.random()*360+'deg');sd.appendChild(s);setTimeout(()=>s.remove(),1000)}});
+/* bottles */
+const BT=[["Чача","#E9ECEF",.92],["Гранатовая","#C8323C",.8],["Вишнёвая","#7a1d2e",.86],["Хреновуха","#D9C27A",.74],["Облепиховая","#E8962A",.82],["Вино","#5a1838",.9]];
+document.getElementById('bottles').innerHTML=BT.map((b,i)=>`<div class="bt" style="transition-delay:${i*150}ms"><svg viewBox="0 0 80 200"><defs><clipPath id="cl${i}"><path d="M30 6h20v42c0 8 22 18 22 44v96c0 6-4 10-10 10H18c-6 0-10-4-10-10V92c0-26 22-36 22-44z"/></clipPath></defs><g clip-path="url(#cl${i})"><rect x="0" y="0" width="80" height="200" fill="rgba(255,255,255,.08)"/><rect class="liq" style="transition-delay:${i*150}ms" x="0" y="${200-200*b[2]}" width="80" height="${200*b[2]}" fill="${b[1]}" opacity=".92"/></g><path d="M30 6h20v42c0 8 22 18 22 44v96c0 6-4 10-10 10H18c-6 0-10-4-10-10V92c0-26 22-36 22-44z" fill="none" stroke="rgba(255,255,255,.55)" stroke-width="2"/><rect x="28" y="0" width="24" height="10" rx="2" fill="#C49A4A"/><rect x="16" y="110" width="48" height="40" rx="3" fill="#FAF8F5" opacity=".9"/><text x="40" y="134" text-anchor="middle" font-family="Tenor Sans" font-size="9" fill="#4B1E3F">ЧАЧА</text></svg><small>${b[0]}</small></div>`).join('')+'';
+const bio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.bt').forEach(b=>b.classList.add('full'));bio.disconnect()}}),{threshold:.3});bio.observe(document.getElementById('bottles'));
+/* strip parallax */
+const strip=document.getElementById('strip');addEventListener('scroll',()=>{const r=strip.getBoundingClientRect();strip.style.transform=`translateX(${(r.top-innerHeight)*0.25}px)`});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*100+'ms';io.observe(el)});
+</script>
+</body>
+</html>

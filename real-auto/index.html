@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Real Auto — автосервис на Котлостроительной · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--or:#FF5A1F;--k:#0D0D0D;--k2:#1a1a1a;--paper:#F2EFEA;--mute:#8a8580}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip}
+body{font-family:Roboto,system-ui,sans-serif;background:var(--k);color:var(--paper);overflow-x:clip}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.ru{font-family:'Russo One',sans-serif}
+.demo{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:90;background:var(--paper);color:var(--k);font:12px 'Russo One';padding:8px 14px;letter-spacing:.06em}
+.hud{position:fixed;left:0;right:0;bottom:0;z-index:80;display:flex;align-items:center;gap:20px;padding:14px clamp(16px,3vw,40px);mix-blend-mode:difference;color:#fff;pointer-events:none}
+.hud .logo{font:22px 'Russo One'}
+.hud .bar{flex:1;height:2px;background:rgba(255,255,255,.25);position:relative}
+.hud .bar i{position:absolute;left:0;top:0;bottom:0;background:#fff;width:0}
+.hud .n{font:14px 'Russo One'}
+.hud a{pointer-events:auto}
+
+/* horizontal scroller */
+.hz{position:relative}
+.hz .stick{position:sticky;top:0;height:100vh;overflow:hidden}
+.hz .track{display:flex;height:100%;will-change:transform}
+.pan{flex:0 0 auto;height:100%;position:relative;padding:clamp(60px,9vh,100px) clamp(30px,4vw,70px) 90px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid #262626}
+.w1{width:100vw}.w2{width:70vw}.w3{width:56vw}.w4{width:44vw}
+
+/* panel 1 */
+.p1{background:var(--k);overflow:hidden}
+.p1 .bg{position:absolute;right:0;top:0;bottom:0;width:58%;overflow:hidden}
+.p1 .bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.15) brightness(.7)}
+.p1 .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--k),transparent 50%),linear-gradient(0deg,rgba(255,90,31,.35),transparent 60%);mix-blend-mode:normal}
+.mega{font:clamp(90px,16vw,280px)/.82 'Russo One';letter-spacing:-.03em;position:relative;z-index:2}
+.mega span{display:block;color:transparent;-webkit-text-stroke:2px var(--or)}
+.p1 .meta{position:relative;z-index:2;display:flex;gap:40px;margin-top:40px;flex-wrap:wrap}
+.p1 .meta div small{display:block;color:var(--mute);font-size:12px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px}
+.p1 .meta div b{font:30px 'Russo One'}
+.hint{position:absolute;right:clamp(30px,4vw,70px);bottom:90px;z-index:3;font:14px 'Russo One';display:flex;align-items:center;gap:14px}
+.hint i{width:60px;height:2px;background:var(--or);position:relative;animation:sl 1.4s ease-in-out infinite}
+@keyframes sl{50%{transform:translateX(14px)}}
+
+/* panel 2 rate */
+.p2{background:var(--or);color:var(--k)}
+.p2 .big{font:clamp(80px,12vw,200px)/.85 'Russo One';letter-spacing:-.03em}
+.p2 p{font-size:20px;max-width:520px;line-height:1.5;margin-top:24px;font-weight:500}
+.p2 .row{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.p2 .row span{border:2px solid var(--k);padding:10px 14px;font:15px 'Russo One'}
+
+/* services columns */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;height:100%}
+.col{border-left:1px solid #262626;padding:0 26px;display:flex;flex-direction:column;justify-content:center}
+.col:first-child{border-left:0;padding-left:0}
+.col .n{font:64px 'Russo One';color:var(--or)}
+.col h3{font:28px 'Russo One';margin:10px 0 18px}
+.col ul{list-style:none;display:grid;gap:9px;color:#cfcac3;font-size:16px}
+.col li::before{content:"/ ";color:var(--or)}
+.k{font:13px 'Russo One';letter-spacing:.2em;color:var(--or);text-transform:uppercase}
+.h2{font:clamp(44px,6vw,96px)/.9 'Russo One';letter-spacing:-.02em;margin:14px 0 22px}
+
+/* unique */
+.uniq{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.u{background:var(--k2);padding:22px;border:1px solid #2a2a2a;transition:.3s}
+.u:hover{border-color:var(--or);transform:translateY(-4px)}
+.u b{font:20px 'Russo One';display:block;margin-bottom:6px}
+.u p{color:#bdb7af;font-size:14px;line-height:1.5}
+
+/* brands */
+.p5{background:var(--paper);color:var(--k)}
+.count{font:clamp(100px,14vw,240px)/.85 'Russo One';color:var(--or)}
+.cloud{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:20px;max-height:46vh;overflow:hidden;font:15px 'Russo One';color:#333;-webkit-mask-image:linear-gradient(#000 70%,transparent)}
+.cloud span:nth-child(7n){color:var(--or)}
+
+/* photos */
+.ph{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:10px;height:72vh}
+.ph div{overflow:hidden;background:#222}
+.ph div:nth-child(1){grid-row:span 2}
+.ph img{width:100%;height:100%;object-fit:cover;filter:grayscale(.6);transition:filter .6s,transform .8s}
+.ph div:hover img{filter:none;transform:scale(1.05)}
+
+/* contact */
+.p7 dl{display:grid;gap:22px;margin-top:20px}
+.p7 dt{color:var(--mute);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.p7 dd{font:26px 'Russo One'}
+.p7 dd a:hover{color:var(--or)}
+.mapb{height:60vh;border:2px solid var(--or);filter:grayscale(1) invert(.92)}
+.mapb iframe{width:100%;height:100%;border:0}
+.btn{display:inline-block;background:var(--or);color:var(--k);font:16px 'Russo One';padding:16px 24px;margin-top:26px;transition:.2s}
+.btn:hover{background:var(--paper)}
+.legal{font-size:12px;color:var(--mute);line-height:1.6;margin-top:24px;max-width:520px}
+
+@media(max-width:900px){
+ .hz .stick{position:relative;height:auto}
+ .hz .track{flex-direction:column;transform:none!important}
+ .pan{width:100%!important;height:auto;min-height:auto;padding:70px 20px;border-right:0;border-bottom:1px solid #262626}
+ .p1{min-height:100vh}.p1 .bg{width:100%;opacity:.5}.hint{display:none}
+ .cols{grid-template-columns:1fr;gap:34px}.col{border-left:0;padding:0}
+ .uniq{grid-template-columns:1fr}
+ .ph{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:auto}.ph div{aspect-ratio:1}.ph div:nth-child(1){grid-row:auto;grid-column:span 2}
+ .hud .bar{display:none}
+ .cg{grid-template-columns:1fr!important}
+}
+</style>
+</head>
+<body>
+<div class="demo">ДЕМО-САЙТ · не официальный</div>
+<div class="hud"><span class="logo">REAL AUTO</span><span class="bar"><i id="pb"></i></span><span class="n" id="pn">01/07</span><a class="n" href="tel:+79185334040">+7 918 533-40-40</a></div>
+
+<div class="hz" id="hz">
+ <div class="stick">
+  <div class="track" id="track">
+   <section class="pan w1 p1">
+     <div class="bg"><img src="https://avatars.mds.yandex.net/get-altay/13220786/2a00000192d277a32b27ec0a0916e2bfad7b/XXL" alt="Real Auto"></div>
+     <h1 class="mega">REAL<span>AUTO</span></h1>
+     <div class="meta">
+       <div><small>Адрес</small><b>Котлостроительная, 18/1</b></div>
+       <div><small>Каждый день</small><b>09:00–19:00</b></div>
+       <div><small>Яндекс Карты</small><b>★ 4,9</b></div>
+     </div>
+     <div class="hint">листайте вниз — едем вправо <i></i></div>
+   </section>
+
+   <section class="pan w2 p2">
+     <div class="k" style="color:var(--k)">Нормочас</div>
+     <div class="big">650–1100 ₽</div>
+     <p>Честная цена за час работы мастера. Многие операции по ходовой, двигателю и КПП — от 500 ₽ за работу.</p>
+     <div class="row"><span>Гарантия</span><span>Рассрочка</span><span>Ремонт по ОСАГО</span><span>Сертификаты</span></div>
+   </section>
+
+   <section class="pan w1">
+     <div class="cols">
+       <div class="col"><span class="n">01</span><h3>Двигатель</h3><ul><li>Капремонт и снятие ДВС</li><li>Расточка и гильзовка блоков</li><li>ГБЦ, ГРМ, цепи, клапаны</li><li>Турбины, форсунки, ТНВД</li><li>Эндоскопия и раскоксовка</li><li>Водородная очистка</li></ul></div>
+       <div class="col"><span class="n">02</span><h3>Ходовая и КПП</h3><ul><li>3D сход-развал</li><li>Рычаги, сайлентблоки, стойки</li><li>Рулевые рейки и ГУР</li><li>Проточка тормозных дисков</li><li>DSG, АКПП, РКПП, сцепление</li><li>Мосты и карданы</li></ul></div>
+       <div class="col"><span class="n">03</span><h3>Кузов и защита</h3><ul><li>Сварочно-кузовной ремонт</li><li>Антикор</li><li>Пескоструй и аквабластинг</li><li>Покраска дисков</li><li>Шумоизоляция</li><li>Фаркопы и доп. оборудование</li></ul></div>
+     </div>
+   </section>
+
+   <section class="pan w3">
+     <div class="k">Редкое в городе</div>
+     <h2 class="h2">Чего нет<br>у других</h2>
+     <div class="uniq">
+       <div class="u"><b>Зарядка электромобилей</b><p>Станция прямо у сервиса.</p></div>
+       <div class="u"><b>Самообслуживание</b><p>Автосервис и мойка самообслуживания.</p></div>
+       <div class="u"><b>Выездной сервис</b><p>Выездная диагностика и помощь.</p></div>
+       <div class="u"><b>Рефрижераторы</b><p>Ремонт авторефрижераторов и автономок.</p></div>
+     </div>
+   </section>
+
+   <section class="pan w3 p5">
+     <div class="k">Марки</div>
+     <div class="count" id="cnt">0+</div>
+     <p style="font-size:18px;font-weight:500;max-width:480px">марок в карточке сервиса — от «Москвича» и КАМАЗа до Maserati и Li Auto.</p>
+     <div class="cloud" id="cloud"></div>
+   </section>
+
+   <section class="pan w2">
+     <div class="k">Сервис</div>
+     <h2 class="h2" style="font-size:clamp(36px,4vw,64px)">Оранжевый цех</h2>
+     <div class="ph">
+       <div><img src="https://avatars.mds.yandex.net/get-altay/10812365/2a0000018d2d5ee7739f0f0e8e5275256622/XXL" alt=""></div>
+       <div><img src="https://avatars.mds.yandex.net/get-altay/14306621/2a00000191fec18f0af9132d1f057516edeb/XXL" alt=""></div>
+       <div><img src="https://avatars.mds.yandex.net/get-altay/14307348/2a00000192d2797c723a26da8fe1a4000bc7/XXL" alt=""></div>
+       <div><img src="https://avatars.mds.yandex.net/get-altay/12813969/2a0000018e0b63912e8da5627af0a5b4d53a/XXL" alt=""></div>
+       <div><img src="https://avatars.mds.yandex.net/get-altay/14165812/2a00000192d27811a33a69a1c9b487936cdf/XXL" alt=""></div>
+     </div>
+   </section>
+
+   <section class="pan w1 p7">
+     <div style="display:grid;grid-template-columns:1fr 1.2fr;gap:50px;align-items:center" class="cg">
+       <div>
+         <div class="k">Контакты</div>
+         <h2 class="h2">Заезжайте</h2>
+         <dl>
+           <div><dt>Адрес</dt><dd>Таганрог, Котлостроительная ул., 18/1</dd></div>
+           <div><dt>Телефон и WhatsApp</dt><dd><a href="tel:+79185334040">+7 (918) 533-40-40</a></dd></div>
+           <div><dt>ВКонтакте</dt><dd><a href="https://vk.ru/realautotgn" target="_blank" rel="noopener">vk.ru/realautotgn</a></dd></div>
+         </dl>
+         <a class="btn" href="https://wa.me/79185334040" target="_blank" rel="noopener">Написать в WhatsApp →</a>
+         <p class="legal">Демо-концепт сайта для автосервиса Real Auto (Таганрог). Не является официальным сайтом. Информация — с Яндекс Карт (октябрь 2026), фото — из карточки сервиса, принадлежат их авторам.</p>
+       </div>
+       <div class="mapb"><iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.896944%2C47.242313&z=16&pt=38.896944,47.242313,pm2rdm"></iframe></div>
+     </div>
+   </section>
+  </div>
+ </div>
+</div>
+<script>
+const B="ВАЗ, Лада, Москвич, УАЗ, ГАЗ, КАМАЗ, МАЗ, ЗИЛ, Toyota, Lexus, Honda, Nissan, Infiniti, Mazda, Mitsubishi, Subaru, Suzuki, Isuzu, Hyundai, Kia, Genesis, SsangYong, Daewoo, Chevrolet, Ford, Cadillac, Jeep, Dodge, Chrysler, Tesla, BMW, MINI, Mercedes-Benz, Maybach, Audi, Volkswagen, ŠKODA, Porsche, Opel, Volvo, Saab, Renault, Peugeot, Citroen, Dacia, FIAT, Alfa Romeo, Lancia, Maserati, Lamborghini, Bentley, Aston Martin, Jaguar, Land Rover, Range Rover, Lotus, Koenigsegg, Haval, Great Wall, Chery, Geely, BYD, Changan, EXEED, Omoda, Li Auto, Voyah, HiPhi, GAC, JAC, FAW, Dong Feng, Foton, Lifan, Brilliance, MAN, DAF, Iveco, Hino, Fuso, Yutong, Golden Dragon, НефАЗ, Sollers, Evolute".split(', ');
+document.getElementById('cloud').innerHTML=B.map(b=>`<span>${b}</span>`).join('');
+const hz=document.getElementById('hz'),tr=document.getElementById('track'),pb=document.getElementById('pb'),pn=document.getElementById('pn');
+const panels=[...tr.children];let counted=false;
+function size(){if(innerWidth<=900){hz.style.height='auto';return}const w=tr.scrollWidth;hz.style.height=(w-innerWidth+innerHeight)+'px'}
+function onS(){if(innerWidth<=900)return;const r=hz.getBoundingClientRect();const max=tr.scrollWidth-innerWidth;const x=Math.min(max,Math.max(0,-r.top));tr.style.transform=`translateX(${-x}px)`;
+ const p=max?x/max:0;pb.style.width=p*100+'%';let idx=0;panels.forEach((pa,i)=>{if(pa.offsetLeft-x<innerWidth*.5)idx=i});pn.textContent=String(idx+1).padStart(2,'0')+'/07';
+ if(!counted&&panels[4].offsetLeft-x<innerWidth*.7){counted=true;count()}}
+function count(){const el=document.getElementById('cnt');const N=150;let t0=null;(function a(t){if(!t0)t0=t;const p=Math.min(1,(t-t0)/1500);el.textContent=Math.round(N*p)+'+';if(p<1)requestAnimationFrame(a)})(performance.now())}
+addEventListener('resize',()=>{size();onS()});addEventListener('scroll',onS);size();onS();
+if(innerWidth<=900){const io=new IntersectionObserver(e=>{if(e[0].isIntersecting&&!counted){counted=true;count()}});io.observe(document.getElementById('cnt'))}
+</script>
+</body>
+</html>

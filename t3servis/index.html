@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Т3сервис — автосервис на Менделеева · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Days+One&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--red:#E3262B;--blue:#1E66D0;--ink:#151922;--asph:#2B2F36;--paper:#FAF7F2;--mute:#6b7280;--y:#FFD23F}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:Manrope,system-ui,sans-serif;background:var(--paper);color:var(--ink);overflow-x:clip}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.d1{font-family:'Days One',sans-serif}
+.demo{position:fixed;right:14px;bottom:14px;z-index:90;background:var(--y);color:var(--ink);font:12px 'Days One';padding:8px 14px;border-radius:8px;transform:rotate(2deg)}
+nav{display:flex;align-items:center;justify-content:space-between;padding:20px clamp(16px,5vw,70px)}
+.logo{font:26px 'Days One'}
+.logo b{color:var(--red)}.logo i{font-style:normal;color:var(--blue)}
+nav .links{display:flex;gap:24px;font-weight:700}
+nav .links a:hover{color:var(--red)}
+.pill{background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-weight:800}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:30px clamp(16px,5vw,70px) 60px}
+h1{font:clamp(44px,6.4vw,100px)/.95 'Days One';letter-spacing:-.01em}
+h1 b{color:var(--red)}h1 i{font-style:normal;color:var(--blue)}
+.lead{font-size:19px;line-height:1.6;color:#3b4250;max-width:520px;margin:22px 0 28px}
+.msg{display:flex;gap:10px;flex-wrap:wrap}
+.msg a{display:flex;align-items:center;gap:8px;font-weight:800;padding:14px 18px;border-radius:14px;border:2px solid var(--ink);transition:.2s}
+.msg a:hover{transform:translateY(-3px);box-shadow:0 6px 0 var(--ink)}
+.msg a.r{background:var(--red);border-color:var(--red);color:#fff}
+.stars{display:flex;align-items:center;gap:14px;margin-top:30px}
+.stars b{font:54px 'Days One'}
+.stars span{color:var(--y);font-size:26px;letter-spacing:2px}
+.stars small{color:var(--mute);display:block}
+.heroimg{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:4/5;background:#ddd;transform:rotate(2deg);box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.heroimg img{width:100%;height:100%;object-fit:cover}
+.heroimg .tag{position:absolute;left:16px;bottom:16px;background:#fff;border-radius:14px;padding:12px 16px;font-weight:800}
+.heroimg .tag small{display:block;color:var(--mute);font-weight:500}
+
+/* road journey */
+.journey{position:relative;background:var(--asph);color:#fff;padding:90px clamp(16px,5vw,70px) 60px;overflow:hidden}
+.journey h2{font:clamp(36px,5vw,74px)/1 'Days One';text-align:center}
+.journey h2 b{color:var(--y)}
+.journey .sub{color:#b7bcc6;text-align:center;margin:14px auto 0;max-width:560px;line-height:1.6}
+.road{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+.road path.asp{stroke:#3a3f48;stroke-width:70;fill:none}
+.road path.mark{stroke:var(--y);stroke-width:4;fill:none;stroke-dasharray:26 22}
+.road path.done{stroke:var(--red);stroke-width:6;fill:none}
+.carico{position:absolute;left:0;top:0;width:54px;height:54px;margin:-27px 0 0 -27px;z-index:5;transition:transform .05s linear}
+.steps{position:relative;z-index:3;display:grid;gap:120px;margin-top:100px;padding-bottom:40px}
+.st{width:min(440px,90%);background:#fff;color:var(--ink);border-radius:24px;padding:28px;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
+.st:nth-child(odd){justify-self:start}.st:nth-child(even){justify-self:end}
+.st .n{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--red);color:#fff;font:20px 'Days One'}
+.st:nth-child(even) .n{background:var(--blue)}
+.st h3{font:26px 'Days One';margin:14px 0 8px}
+.st p{color:#4b5260;line-height:1.6}
+.st ul{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.st li{background:#f1efe9;border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+
+/* prices */
+.prices{padding:90px clamp(16px,5vw,70px)}
+.prices h2{font:clamp(34px,4.6vw,66px)/1 'Days One'}
+.prices h2 b{color:var(--red)}
+.plist{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:36px}
+.pc{border:2px solid var(--ink);border-radius:22px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;min-height:200px;background:#fff;transition:.25s}
+.pc:hover{background:var(--ink);color:#fff}
+.pc .e{font-size:34px}
+.pc b{font-size:18px;font-weight:800;display:block;margin:12px 0 6px}
+.pc .v{font:28px 'Days One';color:var(--red)}
+.pc:hover .v{color:var(--y)}
+.note{color:var(--mute);margin-top:16px;font-size:14px}
+
+.gal{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:0 clamp(16px,5vw,70px)}
+.gal div{aspect-ratio:1;border-radius:20px;overflow:hidden;background:#ddd}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.gal div:hover img{transform:scale(1.07)}
+
+.find{display:grid;grid-template-columns:1fr 1.1fr;gap:30px;padding:90px clamp(16px,5vw,70px);align-items:stretch}
+.fcard{background:var(--ink);color:#fff;border-radius:28px;padding:34px;display:flex;flex-direction:column;gap:18px}
+.fcard h2{font:clamp(30px,3.6vw,50px)/1 'Days One'}
+.fcard dt{color:#9aa1ad;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.fcard dd{font:22px 'Days One';margin-top:4px}
+.fcard .dir{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;background:#20252f;border-radius:18px;padding:12px}
+.fcard .dir img{border-radius:12px;aspect-ratio:1;object-fit:cover}
+.fcard .dir p{font-size:14px;color:#c9ced8;line-height:1.5}
+.map{border-radius:28px;overflow:hidden;min-height:440px;background:#e4e1da}
+.map iframe{width:100%;height:100%;min-height:440px;border:0}
+footer{padding:0 clamp(16px,5vw,70px) 50px;color:var(--mute);font-size:13px;line-height:1.6}
+.rv{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:1000px){nav .links{display:none}.hero,.find{grid-template-columns:1fr}.plist{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr 1fr}.st:nth-child(odd),.st:nth-child(even){justify-self:center}.steps{gap:60px}}
+</style>
+</head>
+<body>
+<div class="demo">ДЕМО · не официальный</div>
+<nav>
+  <a class="logo" href="#"><b>Т3</b><i>сервис</i></a>
+  <div class="links"><a href="#journey">Как работаем</a><a href="#prices">Цены</a><a href="#find">Как найти</a></div>
+  <a class="pill" href="tel:+79094004401">+7 909 400-44-01</a>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1 class="rv">Едете к нам —<br><b>уезжаете</b> <i>довольным</i></h1>
+    <p class="lead rv">Автосервис на Менделеева, 123: двигатель, ГБЦ и турбины, ходовая, тормоза, сварка выхлопа и 3D сход-развал. Пн–Сб с 9 до 18.</p>
+    <div class="msg rv">
+      <a class="r" href="tel:+79094004401">📞 Позвонить</a>
+      <a href="https://wa.me/79094004401" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://t.me/+79094004401" target="_blank" rel="noopener">Telegram</a>
+    </div>
+    <div class="stars rv"><b>5,0</b><div><span>★★★★★</span><small>38 оценок на Яндекс Картах · 100% хвалят персонал</small></div></div>
+  </div>
+  <div class="heroimg rv">
+    <img src="https://avatars.mds.yandex.net/get-altay/14317263/2a0000019357dbe3848b461e7f05349d9dc3/XXL" alt="Т3сервис">
+    <div class="tag">Гарантия на работы<small>и предварительная запись</small></div>
+  </div>
+</header>
+
+<section class="journey" id="journey">
+  <svg class="road" id="road" preserveAspectRatio="none"><path class="asp" id="asp"/><path class="mark" id="mark"/><path class="done" id="done"/></svg>
+  <svg class="carico" id="carico" viewBox="0 0 54 54"><rect x="13" y="6" width="28" height="42" rx="10" fill="#E3262B"/><rect x="17" y="14" width="20" height="10" rx="3" fill="#bfe0ff"/><rect x="17" y="32" width="20" height="8" rx="3" fill="#bfe0ff"/><rect x="9" y="12" width="5" height="9" rx="2" fill="#111"/><rect x="40" y="12" width="5" height="9" rx="2" fill="#111"/><rect x="9" y="33" width="5" height="9" rx="2" fill="#111"/><rect x="40" y="33" width="5" height="9" rx="2" fill="#111"/></svg>
+  <h2 class="rv">Маршрут <b>ремонта</b></h2>
+  <p class="sub rv">Прокрутите вниз — машинка проедет весь путь от звонка до выдачи ключей.</p>
+  <div class="steps" id="steps">
+    <div class="st rv"><span class="n">1</span><h3>Записались</h3><p>Звонок, WhatsApp, Telegram или MAX — подберём удобное время.</p><ul><li>предварительная запись</li><li>без очередей</li></ul></div>
+    <div class="st rv"><span class="n">2</span><h3>Диагностика</h3><p>Находим причину, а не меняем всё подряд.</p><ul><li>компьютерная</li><li>эндоскопия двигателя</li><li>осмотр ходовой</li></ul></div>
+    <div class="st rv"><span class="n">3</span><h3>Согласовали</h3><p>Называем стоимость до начала работ. Запчасти можем привезти под заказ.</p><ul><li>запчасти под заказ</li><li>скидки</li></ul></div>
+    <div class="st rv"><span class="n">4</span><h3>Ремонт</h3><p>Двигатель, ГБЦ, ГРМ, турбины, раскоксовка, сцепление и КПП, тормоза, охлаждение, топливная система, ГУР, сварка.</p><ul><li>дизель</li><li>коммерческий транспорт</li><li>шиномонтаж</li></ul></div>
+    <div class="st rv"><span class="n">5</span><h3>Забрали машину</h3><p>Даём гарантию на выполненные работы. Пока ждёте — Wi-Fi, можно с собакой.</p><ul><li>гарантия</li><li>Wi-Fi</li><li>оплата картой</li></ul></div>
+  </div>
+</section>
+
+<section class="prices" id="prices">
+  <h2 class="rv">Цены <b>без сюрпризов</b></h2>
+  <div class="plist">
+    <div class="pc rv"><span class="e">🛢</span><div><b>Замена масла в двигателе</b><span class="v">от 1 000 ₽</span></div></div>
+    <div class="pc rv"><span class="e">🛑</span><div><b>Замена тормозных колодок</b><span class="v">от 1 500 ₽</span></div></div>
+    <div class="pc rv"><span class="e">🎯</span><div><b>3D сход-развал</b><span class="v">1 700 ₽</span></div></div>
+    <div class="pc rv"><span class="e">🔧</span><div><b>Ремонт автомобиля</b><span class="v">от 1 000 ₽</span></div></div>
+    <div class="pc rv"><span class="e">🔥</span><div><b>Сварка глушителя</b><span class="v">от 1 000 ₽</span></div></div>
+  </div>
+  <p class="note rv">По данным прайса на Яндекс Картах (август 2026). Запчасти оплачиваются отдельно.</p>
+</section>
+
+<div class="gal">
+  <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/13212679/2a000001935f93011d523ca8fbc47271f595/XXL" alt=""></div>
+  <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/14837019/2a00000197207a28cc0452abbd7ad4aed36e/XXL" alt=""></div>
+  <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/14064514/2a0000019357db6c58a0aab3d696c9923420/XXL" alt=""></div>
+  <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/16243748/2a00000197c5598e85f8459a1be911701332/XXL" alt=""></div>
+</div>
+
+<section class="find" id="find">
+  <div class="fcard rv">
+    <h2>Как <span style="color:var(--y)">найти</span></h2>
+    <dl style="display:grid;gap:16px">
+      <div><dt>Адрес</dt><dd>Таганрог, ул. Менделеева, 123</dd></div>
+      <div><dt>Режим</dt><dd>Пн–Сб 09:00–18:00</dd></div>
+      <div><dt>Связь</dt><dd><a href="tel:+79094004401">+7 (909) 400-44-01</a></dd></div>
+    </dl>
+    <div class="dir"><img src="https://avatars.mds.yandex.net/get-altay/14235465/2a0000019376acedbea52025799df8f266d2/XXL" alt="Схема проезда"><p>Схема заезда есть в карточке сервиса на картах — въезд со двора. Если заблудитесь, позвоните — подскажем.</p></div>
+  </div>
+  <div class="map rv"><iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.878636%2C47.250102&z=16&pt=38.878636,47.250102,pm2rdm"></iframe></div>
+</section>
+<footer>Демо-концепт сайта для автосервиса «Т3сервис» (Таганрог). Не является официальным сайтом. Информация и цены — с Яндекс Карт (октябрь 2026), фото — из карточки сервиса на Яндекс Картах, принадлежат их авторам.</footer>
+
+<script>
+const J=document.getElementById('journey'),steps=document.getElementById('steps'),road=document.getElementById('road'),asp=document.getElementById('asp'),mark=document.getElementById('mark'),done=document.getElementById('done'),car=document.getElementById('carico');
+let L=0;
+function build(){const r=J.getBoundingClientRect();const W=J.clientWidth,H=J.clientHeight;road.setAttribute('viewBox',`0 0 ${W} ${H}`);
+ const top=steps.offsetTop-40,bot=steps.offsetTop+steps.offsetHeight;const cards=[...steps.children];
+ let d=`M ${W/2} ${top}`;cards.forEach((c,i)=>{const y=c.offsetTop+steps.offsetTop+c.offsetHeight/2;const x=(i%2===0)?W*0.78:W*0.22;const py=d.split(' ').slice(-1)[0];d+=` C ${W/2} ${(+py+y)/2} ${x} ${(+py+y)/2-40} ${x} ${y}`});
+ d+=` S ${W/2} ${bot} ${W/2} ${H}`;[asp,mark,done].forEach(p=>p.setAttribute('d',d));L=done.getTotalLength();done.style.strokeDasharray=L;upd()}
+function upd(){const r=J.getBoundingClientRect();const p=Math.min(1,Math.max(0,(innerHeight*.55-r.top)/(r.height)));const len=L*p;done.style.strokeDashoffset=L-len;
+ const pt=done.getPointAtLength(len),pt2=done.getPointAtLength(Math.min(L,len+2));const a=Math.atan2(pt2.y-pt.y,pt2.x-pt.x)*180/Math.PI+90;car.style.transform=`translate(${pt.x}px,${pt.y}px) rotate(${a}deg)`}
+if(innerWidth>1000){addEventListener('scroll',upd);addEventListener('resize',build);addEventListener('load',build);setTimeout(build,300)}else{road.style.display='none';car.style.display='none'}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+</script>
+</body>
+</html>

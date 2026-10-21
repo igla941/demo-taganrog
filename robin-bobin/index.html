@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Робин-Бобин — кафе и банкетный зал · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Montserrat:wght@400;600;800&family=Neucha&display=swap" rel="stylesheet">
+<style>
+:root{--tom:#E5533D;--mint:#8FD3C1;--butter:#FFE3A3;--navy:#233142;--paper:#FFFDF7;--line:#233142}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:Montserrat,system-ui,sans-serif;background:var(--paper);color:var(--navy);overflow-x:clip;
+ background-image:radial-gradient(rgba(35,49,66,.08) 1px,transparent 1px);background-size:22px 22px}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.hand{font-family:Neucha,cursive}
+.demo{position:fixed;top:0;left:0;right:0;z-index:90;background:var(--navy);color:var(--butter);text-align:center;font-size:12px;font-weight:600;padding:7px}
+nav{display:flex;align-items:center;justify-content:space-between;padding:46px clamp(16px,5vw,64px) 10px}
+.logo{font-family:'Amatic SC';font-size:44px;line-height:1;color:var(--tom)}
+.logo span{color:var(--navy)}
+nav ul{display:flex;gap:26px;list-style:none;font-weight:600}
+.status{display:flex;align-items:center;gap:8px;font-weight:800;font-size:14px;background:#fff;border:2px solid var(--line);border-radius:999px;padding:8px 14px}
+.status i{width:10px;height:10px;border-radius:50%;background:#aaa}
+.status.open i{background:#2bb673;box-shadow:0 0 0 0 rgba(43,182,115,.6);animation:pulse 1.6s infinite}
+@keyframes pulse{to{box-shadow:0 0 0 10px rgba(43,182,115,0)}}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:30px clamp(16px,5vw,64px) 80px}
+h1{font-family:'Amatic SC';font-size:clamp(70px,10vw,170px);line-height:.85;color:var(--navy)}
+h1 .t{color:var(--tom);display:inline-block}
+.drum{display:inline-block;animation:drum .6s ease-in-out infinite alternate;transform-origin:bottom}
+@keyframes drum{to{transform:translateY(-8px) rotate(-3deg)}}
+.lead{font-size:19px;line-height:1.65;max-width:540px;margin:24px 0 30px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.b{font-weight:800;padding:16px 24px;border:3px solid var(--line);border-radius:18px;background:var(--tom);color:#fff;box-shadow:0 6px 0 var(--line);transition:.12s;display:inline-block}
+.b:hover{transform:translateY(3px);box-shadow:0 3px 0 var(--line)}
+.b.m{background:var(--mint);color:var(--navy)}
+.plate{position:relative;justify-self:center;width:min(460px,100%);aspect-ratio:1}
+.plate .ring{position:absolute;inset:0;border-radius:50%;background:#fff;border:3px solid var(--line);box-shadow:12px 12px 0 var(--butter)}
+.plate .ph{position:absolute;inset:9%;border-radius:50%;overflow:hidden;border:3px dashed var(--line);background:var(--butter)}
+.plate .ph img{width:100%;height:100%;object-fit:cover}
+.fork,.spoon{position:absolute;top:10%;bottom:10%;width:18px;border-radius:9px;background:var(--navy)}
+.fork{left:-34px;animation:wig 3s ease-in-out infinite}.spoon{right:-34px;animation:wig 3s ease-in-out infinite reverse}
+@keyframes wig{50%{transform:rotate(6deg)}}
+.price{position:absolute;left:-10px;bottom:4%;background:var(--tom);color:#fff;border:3px solid var(--line);border-radius:22px;padding:14px 18px;transform:rotate(-6deg);text-align:center;font-weight:800}
+.price b{font-family:'Amatic SC';font-size:58px;line-height:.8;display:block}
+
+.wave{height:40px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40'%3E%3Cpath d='M0 20 Q20 0 40 20 T80 20 V40 H0Z' fill='%23FFE3A3'/%3E%3C/svg%3E") repeat-x;animation:wv 6s linear infinite}
+@keyframes wv{to{background-position:80px 0}}
+section{padding:clamp(60px,8vw,110px) clamp(16px,5vw,64px)}
+.yellow{background:var(--butter)}
+.h2{font-family:'Amatic SC';font-size:clamp(52px,7vw,110px);line-height:.9;margin-bottom:10px}
+.h2 span{color:var(--tom)}
+.sub{font-size:18px;line-height:1.6;max-width:620px}
+
+.counter{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px;margin-top:40px}
+.tray{background:#fff;border:3px solid var(--line);border-radius:24px;padding:22px 16px;text-align:center;transition:transform .25s}
+.tray:hover{transform:translateY(-8px) rotate(-2deg)}
+.tray .e{font-size:48px;display:block;margin-bottom:8px}
+.tray b{font-family:'Amatic SC';font-size:34px;display:block;line-height:1}
+.tray small{font-size:13px;color:#56657a}
+.honest{margin-top:26px;font-family:Neucha;font-size:20px}
+
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:40px}
+.st{border:3px solid var(--line);border-radius:24px;padding:24px;background:#fff;position:relative}
+.st b{font-family:'Amatic SC';font-size:clamp(44px,8vw,64px);line-height:.9;color:var(--tom);display:block}
+.st:nth-child(even) b{color:#2a9d84}
+.st small{font-weight:600}
+
+.banq{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.bpics{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bpics div{border:3px solid var(--line);border-radius:22px;overflow:hidden;aspect-ratio:1;background:var(--mint)}
+.bpics div:nth-child(1){transform:rotate(-3deg)}.bpics div:nth-child(2){transform:rotate(2deg) translateY(20px)}.bpics div:nth-child(3){transform:rotate(2deg)}.bpics div:nth-child(4){transform:rotate(-2deg) translateY(20px)}
+.bpics img{width:100%;height:100%;object-fit:cover}
+.list{list-style:none;margin:24px 0 30px;display:grid;gap:12px}
+.list li{display:flex;gap:12px;align-items:center;font-weight:600;font-size:17px}
+.list li::before{content:"✓";width:30px;height:30px;flex:0 0 30px;border-radius:50%;background:var(--mint);border:2px solid var(--line);display:grid;place-items:center;font-weight:800}
+
+.hours{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:30px}
+.d{border:3px solid var(--line);border-radius:18px;padding:16px 8px;text-align:center;background:#fff;font-weight:800}
+.d small{display:block;font-weight:600;font-size:13px;margin-top:6px}
+.d.today{background:var(--tom);color:#fff}
+.where{display:grid;grid-template-columns:1fr 1.2fr;gap:30px;margin-top:40px;align-items:stretch}
+.card{border:3px solid var(--line);border-radius:26px;padding:30px;background:#fff;box-shadow:10px 10px 0 var(--mint)}
+.card p{font-size:22px;font-weight:800;margin:6px 0 20px}
+.card small{font-weight:600;color:#56657a;text-transform:uppercase;letter-spacing:.1em;font-size:12px}
+.mapc{border:3px solid var(--line);border-radius:26px;overflow:hidden;min-height:360px;background:var(--mint)}
+.mapc iframe{width:100%;height:100%;min-height:360px;border:0}
+footer{padding:30px clamp(16px,5vw,64px);font-size:13px;line-height:1.7;color:#56657a}
+.rv{opacity:0;transform:translateY(30px) scale(.98);transition:.7s cubic-bezier(.3,1.4,.5,1)}
+.rv.in{opacity:1;transform:none}
+.bpics .rv.in:nth-child(1){transform:rotate(-3deg)}.bpics .rv.in:nth-child(2){transform:rotate(2deg) translateY(20px)}.bpics .rv.in:nth-child(3){transform:rotate(2deg)}.bpics .rv.in:nth-child(4){transform:rotate(-2deg) translateY(20px)}
+@media(max-width:960px){nav ul{display:none}.hero,.banq,.where{grid-template-columns:1fr}.counter{grid-template-columns:repeat(3,1fr)}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.hours{grid-template-columns:repeat(4,1fr)}.fork,.spoon{display:none}}
+@media(max-width:600px){.counter{grid-template-columns:repeat(2,minmax(0,1fr))}.hours{grid-template-columns:repeat(3,minmax(0,1fr))}h1{font-size:64px}}
+</style>
+</head>
+<body>
+<div class="demo">ДЕМО-САЙТ · концепт для кафе «Робин-Бобин» · не является официальным сайтом</div>
+<nav>
+  <a class="logo" href="#">Робин-<span>Бобин</span></a>
+  <ul><li><a href="#eat">Что поесть</a></li><li><a href="#banquet">Банкеты</a></li><li><a href="#hours">Часы и адрес</a></li></ul>
+  <div class="status" id="status"><i></i><span>…</span></div>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1 class="rv">Наешься <span class="t drum">до&nbsp;отвала</span><br>за сто пятьдесят</h1>
+    <p class="lead rv">Уютное кафе на Петровской, 55, где можно вкусно и сытно пообедать или поужинать — по-домашнему и без лишних трат. А для праздников есть свой банкетный зал.</p>
+    <div class="btns rv"><a class="b" href="tel:+78634393688">Позвонить</a><a class="b m" href="#banquet">Заказать банкет</a></div>
+  </div>
+  <div class="plate rv">
+    <div class="fork"></div><div class="spoon"></div>
+    <div class="ring"></div>
+    <div class="ph"><img src="https://avatars.mds.yandex.net/get-altay/10632051/2a00000191ed286fed9fef9c3fcfff12c41a/XXL" alt="Робин-Бобин"></div>
+    <div class="price"><b>130–150 ₽</b>средний чек</div>
+  </div>
+</header>
+<div class="wave"></div>
+
+<section id="eat" class="yellow">
+  <h2 class="h2 rv">Что сегодня <span>на раздаче?</span></h2>
+  <p class="sub rv">Готовим каждый день: первое, второе и компот — как положено.</p>
+  <div class="counter">
+    <div class="tray rv"><span class="e">🍲</span><b>Супы</b><small>горячие и наваристые</small></div>
+    <div class="tray rv"><span class="e">🍗</span><b>Горячее</b><small>мясо и рыба</small></div>
+    <div class="tray rv"><span class="e">🥔</span><b>Гарниры</b><small>пюре, каши, овощи</small></div>
+    <div class="tray rv"><span class="e">🥗</span><b>Салаты</b><small>свежие каждый день</small></div>
+    <div class="tray rv"><span class="e">🥧</span><b>Выпечка</b><small>и десерты</small></div>
+    <div class="tray rv"><span class="e">🧃</span><b>Напитки</b><small>компоты и морсы</small></div>
+  </div>
+  <p class="honest rv">✎ Меню меняется — актуальный выбор и цены уточняйте по телефону. Здесь будет онлайн-меню дня.</p>
+</section>
+
+<section>
+  <h2 class="h2 rv">Гости говорят <span>цифрами</span></h2>
+  <p class="sub rv">По отзывам на Яндекс Картах — 4,8 ★ и 426 оценок.</p>
+  <div class="stats">
+    <div class="st rv"><b>89%</b><small>довольны едой</small></div>
+    <div class="st rv"><b>94%</b><small>хвалят атмосферу</small></div>
+    <div class="st rv"><b>93%</b><small>не ждали долго</small></div>
+    <div class="st rv"><b>100%</b><small>в восторге от расположения</small></div>
+  </div>
+</section>
+
+<section id="banquet" class="yellow banq">
+  <div>
+    <h2 class="h2 rv">Банкетный зал <span>до 50 гостей</span></h2>
+    <p class="sub rv">Юбилей, день рождения, выпускной или поминальный обед — накроем стол по-домашнему и по силам любому бюджету.</p>
+    <ul class="list">
+      <li class="rv">Зал до 50 мест в центре города</li>
+      <li class="rv">Домашние блюда и десерты</li>
+      <li class="rv">Оплата картой и наличными</li>
+      <li class="rv">Рядом — пешеходная Петровская</li>
+    </ul>
+    <a class="b rv" href="tel:+78634393688">Обсудить праздник</a>
+  </div>
+  <div class="bpics">
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/9829646/2a000001911def9591b6efc666c9a6b0a9fe/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/13793720/2a000001911def04cd5d507fdf38d889bfc4/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/6363798/2a000001912617a13a442501148f6f645b6d/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/4916794/2a000001911def8212fe162e045e957d3c43/XXL" alt=""></div>
+  </div>
+</section>
+
+<section id="hours">
+  <h2 class="h2 rv">Когда <span>приходить</span></h2>
+  <div class="hours rv" id="hrs"></div>
+  <div class="where">
+    <div class="card rv">
+      <small>Адрес</small><p>Таганрог, Петровская ул., 55</p>
+      <small>Телефон</small><p><a href="tel:+78634393688">+7 (8634) 39-36-88</a></p>
+      <small>Средний чек</small><p>130–150 ₽</p>
+    </div>
+    <div class="mapc rv"><iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.933440%2C47.212443&z=17&pt=38.933440,47.212443,pm2rdm"></iframe></div>
+  </div>
+</section>
+<footer>Демо-концепт сайта для кафе «Робин-Бобин» (Таганрог). Не является официальным сайтом заведения. Информация — с Яндекс Карт и 2ГИС (октябрь 2026); часы работы по данным 2ГИС, уточняйте по телефону. Фотографии — из карточки кафе на Яндекс Картах, принадлежат их авторам.</footer>
+<script>
+const H=[["Пн",9,20],["Вт",9,20],["Ср",9,20],["Чт",9,20],["Пт",9,21],["Сб",9,21],["Вс",9,21]];
+const now=new Date();const di=(now.getDay()+6)%7;
+document.getElementById('hrs').innerHTML=H.map((h,i)=>`<div class="d ${i===di?'today':''}">${h[0]}<small>${h[1]}:00–${h[2]}:00</small></div>`).join('');
+const h=now.getHours()+now.getMinutes()/60,open=h>=H[di][1]&&h<H[di][2];const st=document.getElementById('status');
+st.classList.toggle('open',open);st.querySelector('span').textContent=open?'Сейчас открыто':'Сейчас закрыто';
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%5)*70+'ms';io.observe(el)});
+</script>
+</body>
+</html>

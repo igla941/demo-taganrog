@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Юг-моторс — автосервис для легковых и грузовых · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;700;800&family=Fira+Sans+Condensed:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--blue:#0A5BD3;--blue2:#0846A3;--sky:#E8F0FC;--ink:#0E1A2B;--mute:#5F6E84;--line:#DCE4EF;--white:#fff;--sun:#FFC21A}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:'Fira Sans',system-ui,sans-serif;background:#F6F8FB;color:var(--ink);overflow-x:clip}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.cd{font-family:'Fira Sans Condensed',sans-serif}
+.demo{position:fixed;top:0;right:0;z-index:90;background:var(--sun);color:var(--ink);font:700 11px 'Fira Sans Condensed';letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;border-bottom-left-radius:10px}
+
+.wrap{display:grid;grid-template-columns:minmax(340px,38%) 1fr;min-height:100vh}
+/* sticky panel */
+.panel{position:sticky;top:0;height:100vh;background:var(--blue);color:#fff;padding:clamp(28px,3.4vw,52px);display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.panel::before{content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;border-radius:50%;border:60px solid rgba(255,255,255,.06)}
+.panel::after{content:"";position:absolute;left:-80px;bottom:-160px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,.05)}
+.panel>*{position:relative;z-index:1}
+.logo{display:flex;align-items:center;gap:12px;font:800 26px 'Fira Sans Condensed';letter-spacing:.02em;text-transform:uppercase}
+.logo svg{width:42px}
+h1{font:800 clamp(40px,4.6vw,76px)/.95 'Fira Sans Condensed';text-transform:uppercase;letter-spacing:-.01em;margin:30px 0 18px}
+h1 span{color:var(--sun)}
+.panel p{font-size:17px;line-height:1.55;color:#d6e4fb;max-width:420px}
+.pnav{display:flex;flex-direction:column;gap:2px;margin-top:24px}
+.pnav a{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.18);font-weight:500;transition:padding .25s}
+.pnav a:hover,.pnav a.on{padding-left:10px;color:var(--sun)}
+.pnav a span{opacity:.6;font-size:13px}
+.contacts{display:grid;gap:10px}
+.contacts .ph{font:700 26px 'Fira Sans Condensed';letter-spacing:.01em}
+.contacts small{color:#bcd2f6}
+.pbtn{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.b{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--blue);font-weight:700;padding:13px 20px;border-radius:12px;transition:.2s}
+.b:hover{background:var(--sun);color:var(--ink)}
+.b.y{background:var(--sun);color:var(--ink)}
+.b.o{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.5)}
+
+/* content */
+.content{padding:clamp(20px,3vw,44px);display:grid;gap:clamp(20px,2.6vw,36px)}
+.hero-img{position:relative;border-radius:28px;overflow:hidden;height:min(70vh,640px);background:var(--sky)}
+.hero-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform 8s ease}
+.hero-img:hover img{transform:scale(1.12)}
+.chips{position:absolute;left:20px;bottom:20px;display:flex;gap:8px;flex-wrap:wrap}
+.chips span{background:rgba(255,255,255,.94);border-radius:999px;padding:9px 14px;font-weight:500;font-size:14px;box-shadow:0 6px 20px -8px rgba(0,0,0,.3)}
+.rate{position:absolute;right:20px;top:20px;background:var(--ink);color:#fff;border-radius:20px;padding:16px 20px;text-align:center}
+.rate b{font:800 40px 'Fira Sans Condensed';display:block;line-height:1;color:var(--sun)}
+.rate small{font-size:12px;color:#aab7cc}
+
+.card{background:#fff;border-radius:28px;padding:clamp(24px,3vw,44px);border:1px solid var(--line)}
+.k{font:700 13px 'Fira Sans Condensed';letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.h2{font:800 clamp(30px,3.4vw,52px)/1 'Fira Sans Condensed';text-transform:uppercase;margin:10px 0 14px}
+.sub{color:var(--mute);line-height:1.6;max-width:620px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:26px}
+.items{display:grid;gap:8px}
+.it{display:flex;align-items:center;gap:14px;padding:14px 16px;border:1.5px solid var(--line);border-radius:14px;cursor:pointer;transition:.18s;user-select:none}
+.it:hover{border-color:#a9c3ec}
+.it .bx{width:24px;height:24px;border-radius:7px;border:2px solid #b7c6dc;display:grid;place-items:center;flex:0 0 24px;transition:.18s}
+.it.on{border-color:var(--blue);background:var(--sky)}
+.it.on .bx{background:var(--blue);border-color:var(--blue)}
+.it.on .bx::after{content:"";width:10px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.it span{flex:1;font-weight:500}
+.it b{font:700 18px 'Fira Sans Condensed'}
+.total{position:sticky;top:20px;align-self:start;background:var(--ink);color:#fff;border-radius:22px;padding:26px}
+.total small{color:#9fb0c8}
+.total .sum{font:800 54px 'Fira Sans Condensed';color:var(--sun);margin:8px 0;line-height:1}
+.total ul{list-style:none;font-size:14px;color:#c9d4e4;display:grid;gap:6px;margin:14px 0 20px;max-height:180px;overflow:auto}
+.total .b{width:100%;justify-content:center}
+
+/* types */
+.types{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.ty{border-radius:22px;padding:96px 24px 24px;background:var(--sky);position:relative;overflow:hidden;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .3s}
+.ty:hover{transform:translateY(-6px)}
+.ty svg{position:absolute;right:-6px;top:16px;width:130px;opacity:.9;transition:transform .6s}
+.ty:hover svg{transform:translateX(-14px)}
+.ty b{font:800 24px 'Fira Sans Condensed';text-transform:uppercase}
+.ty p{color:var(--mute);font-size:14px;margin-top:6px;line-height:1.5}
+.ty.d{background:var(--ink);color:#fff}.ty.d p{color:#aab7cc}
+
+.photos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:26px}
+.photos div{aspect-ratio:1;border-radius:18px;overflow:hidden;background:var(--sky)}
+.photos div:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.photos img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.photos div:hover img{transform:scale(1.06)}
+
+.meters{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+.mt{text-align:center;padding:20px;border-radius:20px;border:1px solid var(--line)}
+.mt svg{width:96px;height:96px}
+.mt circle.fg{stroke-dasharray:264;stroke-dashoffset:264;transition:stroke-dashoffset 1.6s ease}
+.meters.in circle.fg{stroke-dashoffset:var(--o)}
+.mt b{display:block;font:800 26px 'Fira Sans Condensed';margin-top:-62px;margin-bottom:34px}
+.mt small{color:var(--mute);font-size:13px}
+.extras{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.extras span{border:1px solid var(--line);border-radius:999px;padding:8px 14px;font-size:14px}
+.map{border-radius:22px;overflow:hidden;height:360px;background:var(--sky);margin-top:20px}
+.map iframe{width:100%;height:100%;border:0}
+footer{color:var(--mute);font-size:13px;line-height:1.6;padding:6px 4px 40px}
+.rv{opacity:0;transform:translateY(24px);transition:.7s ease}
+.rv.in{opacity:1;transform:none}
+@media(max-width:1000px){.wrap{grid-template-columns:1fr}.panel{position:relative;height:auto;min-height:auto}.pnav{display:none}.calc{grid-template-columns:1fr}.types{grid-template-columns:1fr}.photos{grid-template-columns:1fr 1fr}.meters{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="demo">Демо-сайт · не официальный</div>
+<div class="wrap">
+<aside class="panel">
+  <div>
+    <div class="logo"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#fff"/><path d="M12 30 L24 12 L36 30 Z" fill="#0A5BD3"/><path d="M18 30 L24 21 L30 30Z" fill="#FFC21A"/><rect x="10" y="32" width="28" height="4" rx="2" fill="#0E1A2B"/></svg>Юг-моторс</div>
+    <h1 class="rv">Легковые, <span>грузовые</span> и дизель</h1>
+    <p class="rv">Автосервис на Галицкого, 8: ремонт двигателя и АКПП, ходовая, диагностика, шиномонтаж и мойка. Обслуживаем спецтехнику и прицепы.</p>
+    <nav class="pnav" id="pnav"><a href="#calc">Посчитать ремонт <span>01</span></a><a href="#types">Какой транспорт <span>02</span></a><a href="#photos">Сервис <span>03</span></a><a href="#where">Как доехать <span>04</span></a></nav>
+  </div>
+  <div class="contacts">
+    <small>Пн–Пт 09:00–18:00 · <span id="op"></span></small>
+    <a class="ph" href="tel:+79085159100">+7 908 515-91-00</a>
+    <div class="pbtn"><a class="b y" href="tel:+79085159100">Позвонить</a><a class="b o" href="https://wa.me/79085159100" target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+</aside>
+
+<main class="content">
+  <div class="hero-img rv">
+    <img src="https://avatars.mds.yandex.net/get-altay/15439859/2a00000195cefc2178bb11155c385fe320dc/XXL" alt="Цех Юг-моторс">
+    <div class="rate"><b>4,9</b><small>112 оценок<br>Яндекс Карты</small></div>
+    <div class="chips"><span>🔧 Гарантия</span><span>⏱ 95% — без ожидания</span><span>🚛 Грузовой сервис</span><span>🛢 Дизель</span></div>
+  </div>
+
+  <div class="card" id="calc">
+    <div class="k rv">01 · Калькулятор</div>
+    <h2 class="h2 rv">Сколько будет стоить?</h2>
+    <p class="sub rv">Отметьте работы — посчитаем ориентир по прайсу сервиса на Яндекс Картах. Цены «от», запчасти отдельно, точную сумму скажет мастер.</p>
+    <div class="calc">
+      <div class="items" id="items"></div>
+      <div class="total rv"><small>Ориентировочно, работы</small><div class="sum" id="sum">0 ₽</div><ul id="sel"><li>Выберите работы слева</li></ul><a class="b y" id="wa" href="https://wa.me/79085159100" target="_blank" rel="noopener">Записаться в WhatsApp</a></div>
+    </div>
+  </div>
+
+  <div class="card" id="types">
+    <div class="k rv">02 · Транспорт</div>
+    <h2 class="h2 rv">От седана до спецтехники</h2>
+    <div class="types">
+      <div class="ty rv"><svg viewBox="0 0 160 70"><path d="M10 50 L20 30 Q30 18 60 18 L100 18 Q118 18 128 30 L148 36 Q154 38 154 46 L154 50Z" fill="#0A5BD3"/><circle cx="42" cy="52" r="12" fill="#0E1A2B"/><circle cx="122" cy="52" r="12" fill="#0E1A2B"/><path d="M38 30 L48 22 L80 22 L80 30Z M86 22 L104 22 L118 30 L86 30Z" fill="#E8F0FC"/></svg><b>Легковые</b><p>Европейские, японские, корейские, китайские и отечественные.</p></div>
+      <div class="ty d rv"><svg viewBox="0 0 160 70"><rect x="8" y="16" width="90" height="34" rx="3" fill="#FFC21A"/><path d="M100 26 L128 26 L148 40 L148 50 L100 50Z" fill="#fff"/><path d="M106 30 L126 30 L138 40 L106 40Z" fill="#0A5BD3"/><circle cx="34" cy="54" r="10" fill="#fff"/><circle cx="74" cy="54" r="10" fill="#fff"/><circle cx="128" cy="54" r="10" fill="#fff"/></svg><b>Грузовые и дизель</b><p>Грузовой и дизельный сервис, коммерческий транспорт.</p></div>
+      <div class="ty rv"><svg viewBox="0 0 160 70"><rect x="40" y="28" width="70" height="20" rx="3" fill="#0A5BD3"/><rect x="70" y="12" width="30" height="18" rx="2" fill="#0E1A2B"/><path d="M110 34 L140 14 L148 18 L120 40Z" fill="#FFC21A"/><circle cx="56" cy="52" r="10" fill="#0E1A2B"/><circle cx="96" cy="52" r="10" fill="#0E1A2B"/></svg><b>Спецтехника и прицепы</b><p>Ремонт спецтехники и прицепов, сварочные работы.</p></div>
+    </div>
+  </div>
+
+  <div class="card" id="photos">
+    <div class="k rv">03 · Сервис</div>
+    <h2 class="h2 rv">Светлый цех и своя приёмка</h2>
+    <div class="photos">
+      <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/14093276/2a000001914697ca3674d690025ffcd12c20/XXL" alt=""></div>
+      <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/5255911/2a000001868ee0627dadbb1a368742f8b8fe/XXL" alt=""></div>
+      <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/5179687/2a0000017c4003d79f2ad6ce55b43b3b3fb6/XXL" alt=""></div>
+      <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/10456159/2a0000018a99e0456157e92b992aeb7ae81f/XXL" alt=""></div>
+      <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/4546519/2a0000017c400271daf99f8362eab97a1c1c/XXL" alt=""></div>
+    </div>
+    <div class="meters" id="meters">
+      <div class="mt"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#E8F0FC" stroke-width="8"/><circle class="fg" cx="50" cy="50" r="42" fill="none" stroke="#0A5BD3" stroke-width="8" stroke-linecap="round" transform="rotate(-90 50 50)" style="--o:0"/></svg><b>100%</b><small>довольны диагностикой</small></div>
+      <div class="mt"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#E8F0FC" stroke-width="8"/><circle class="fg" cx="50" cy="50" r="42" fill="none" stroke="#0A5BD3" stroke-width="8" stroke-linecap="round" transform="rotate(-90 50 50)" style="--o:13"/></svg><b>95%</b><small>не ждали долго</small></div>
+      <div class="mt"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#E8F0FC" stroke-width="8"/><circle class="fg" cx="50" cy="50" r="42" fill="none" stroke="#0A5BD3" stroke-width="8" stroke-linecap="round" transform="rotate(-90 50 50)" style="--o:24"/></svg><b>91%</b><small>хвалят ремонт</small></div>
+      <div class="mt"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#E8F0FC" stroke-width="8"/><circle class="fg" cx="50" cy="50" r="42" fill="none" stroke="#FFC21A" stroke-width="8" stroke-linecap="round" transform="rotate(-90 50 50)" style="--o:24"/></svg><b>91%</b><small>довольны запчастями</small></div>
+    </div>
+    <div class="extras"><span>Антикор</span><span>Тонировка</span><span>Парктроники</span><span>Сигнализации</span><span>Чип-тюнинг</span><span>Мойка</span><span>Сварка</span><span>Кондиционеры</span><span>Wi-Fi</span><span>Скидки льготникам</span><span>Дисконтная система</span></div>
+  </div>
+
+  <div class="card" id="where">
+    <div class="k rv">04 · Адрес</div>
+    <h2 class="h2 rv">Таганрог, ул. Галицкого, 8</h2>
+    <p class="sub rv">Ещё телефоны: <a href="tel:+79064302008">+7 906 430-20-08</a>, <a href="tel:+79185884045">+7 918 588-40-45</a>, <a href="tel:+79084302021">+7 908 430-20-21</a>.</p>
+    <div class="map rv"><iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.850558%2C47.210245&z=16&pt=38.850558,47.210245,pm2rdm"></iframe></div>
+  </div>
+  <footer>Демо-концепт сайта для автосервиса «Юг-моторс» (Таганрог). Не является официальным сайтом. Информация и цены — с Яндекс Карт (октябрь 2026). Фотографии — из карточки сервиса на Яндекс Картах, принадлежат их авторам.</footer>
+</main>
+</div>
+<script>
+const P=[["Диагностика","1000"],["Замена масла в двигателе","1000"],["Замена масла АКПП","2500"],["Замена передних колодок","1200"],["Замена задних колодок","1200"],["Ремонт рулевой рейки","6000"],["Замена комплекта ГРМ","6000"]];
+const items=document.getElementById('items'),sel=new Set();
+P.forEach((p,i)=>{const d=document.createElement('div');d.className='it rv';d.innerHTML=`<i class="bx"></i><span>${p[0]}</span><b>от ${(+p[1]).toLocaleString('ru-RU')} ₽</b>`;d.onclick=()=>{d.classList.toggle('on');sel.has(i)?sel.delete(i):sel.add(i);upd()};items.appendChild(d)});
+let cur=0;function upd(){const tot=[...sel].reduce((a,i)=>a+ +P[i][1],0);const el=document.getElementById('sum');const from=cur;const t0=performance.now();
+ (function an(t){const p=Math.min(1,(t-t0)/400);const v=Math.round(from+(tot-from)*p);el.textContent=(sel.size?'от ':'')+v.toLocaleString('ru-RU')+' ₽';if(p<1)requestAnimationFrame(an);else cur=tot})(t0);
+ document.getElementById('sel').innerHTML=sel.size?[...sel].map(i=>`<li>✓ ${P[i][0]}</li>`).join(''):'<li>Выберите работы слева</li>';
+ document.getElementById('wa').href='https://wa.me/79085159100?text='+encodeURIComponent('Здравствуйте! Хочу записаться в Юг-моторс'+(sel.size?': '+[...sel].map(i=>P[i][0]).join(', '):'')+'.')}
+const h=new Date(),d=h.getDay(),hr=h.getHours();document.getElementById('op').textContent=(d>=1&&d<=5&&hr>=9&&hr<18)?'сейчас открыто':'сейчас закрыто';
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv,#meters').forEach((el,i)=>{if(el.classList.contains('rv'))el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+/* active nav */
+const secs=['calc','types','photos','where'].map(id=>document.getElementById(id));addEventListener('scroll',()=>{let a=0;secs.forEach((s,i)=>{if(s.getBoundingClientRect().top<innerHeight*.4)a=i});document.querySelectorAll('#pnav a').forEach((x,i)=>x.classList.toggle('on',i===a))});
+</script>
+</body>
+</html>

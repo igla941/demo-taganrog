@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Park Astor — ресторан для праздников · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--em:#0E3B2E;--em2:#15513F;--gold:#CFAE6B;--gold2:#E6CF9A;--ivory:#F8F4EC;--ink:#1D2622;--blush:#EBD7CB}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:Raleway,system-ui,sans-serif;background:var(--ivory);color:var(--ink);overflow-x:clip}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+#confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:200}
+.demo{position:fixed;right:0;top:40%;z-index:90;writing-mode:vertical-rl;background:var(--gold);color:var(--em);font-weight:700;font-size:11px;letter-spacing:.2em;text-transform:uppercase;padding:14px 8px}
+nav{position:fixed;top:0;left:0;right:0;z-index:80;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(16px,5vw,70px);transition:.4s;color:var(--ivory)}
+nav.s{background:rgba(14,59,46,.96);padding:12px clamp(16px,5vw,70px)}
+.logo{font-family:'Playfair Display';font-size:28px;letter-spacing:.04em}
+.logo i{color:var(--gold)}
+nav ul{display:flex;gap:30px;list-style:none;font-size:13px;letter-spacing:.16em;text-transform:uppercase}
+nav ul a{opacity:.8}nav ul a:hover{opacity:1;color:var(--gold2)}
+.gbtn{background:var(--gold);color:var(--em);padding:13px 22px;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;transition:.3s;display:inline-block;border:0;cursor:pointer;font-family:Raleway}
+.gbtn:hover{background:var(--gold2)}
+.obtn{border:1px solid var(--gold);color:var(--gold2);padding:13px 22px;font-weight:600;font-size:13px;letter-spacing:.12em;text-transform:uppercase;display:inline-block}
+
+.hero{position:relative;min-height:100vh;background:var(--em);color:var(--ivory);display:grid;grid-template-columns:1fr 1fr;align-items:center;overflow:hidden}
+.hero-t{padding:120px clamp(16px,5vw,70px) 80px;position:relative;z-index:2}
+.orn{display:flex;align-items:center;gap:14px;color:var(--gold);font-size:13px;letter-spacing:.3em;text-transform:uppercase}
+.orn::before,.orn::after{content:"";height:1px;width:40px;background:var(--gold)}
+h1{font-family:'Playfair Display';font-weight:500;font-size:clamp(48px,6.4vw,104px);line-height:1;margin:26px 0}
+h1 i{color:var(--gold)}
+.lead{font-size:18px;line-height:1.75;color:#cfdcd5;max-width:500px;font-weight:300}
+.hb{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
+.hero-p{position:relative;height:100%;min-height:100vh}
+.hero-p .a{position:absolute;inset:0;overflow:hidden}
+.hero-p .a img{width:100%;height:100%;object-fit:cover;opacity:.9}
+.hero-p::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--em),transparent 40%)}
+.frame{position:absolute;z-index:2;inset:9% 10%;border:1px solid rgba(230,207,154,.6);pointer-events:none;animation:fr 2.4s ease forwards;clip-path:inset(0 100% 0 0)}
+@keyframes fr{to{clip-path:inset(0 0 0 0)}}
+.rating{position:absolute;z-index:3;right:12%;bottom:12%;background:var(--ivory);color:var(--em);padding:20px 24px;text-align:center}
+.rating b{font-family:'Playfair Display';font-size:46px;display:block;line-height:1}
+.rating small{font-size:12px;letter-spacing:.1em;text-transform:uppercase}
+.sparkle{position:absolute;width:6px;height:6px;background:var(--gold2);border-radius:50%;z-index:3;animation:tw 2.8s ease-in-out infinite;box-shadow:0 0 12px var(--gold2)}
+@keyframes tw{0%,100%{opacity:0;transform:scale(.3)}50%{opacity:1;transform:scale(1.2)}}
+
+section{padding:clamp(70px,9vw,130px) clamp(16px,5vw,70px)}
+.h2{font-family:'Playfair Display';font-weight:500;font-size:clamp(36px,4.8vw,70px);line-height:1.05;margin-bottom:16px}
+.h2 i{color:#a8843d}
+.sub{font-size:18px;line-height:1.7;max-width:620px;color:#56645d;font-weight:300}
+.c{text-align:center}.c .sub{margin:0 auto}.c .orn{justify-content:center}
+
+/* event picker */
+.ev{display:grid;grid-template-columns:320px 1fr;gap:0;margin-top:50px;background:#fff;box-shadow:0 30px 70px -40px rgba(14,59,46,.5)}
+.evl{background:var(--em);display:flex;flex-direction:column}
+.evl button{background:none;border:0;border-bottom:1px solid rgba(255,255,255,.08);color:#cfdcd5;text-align:left;padding:26px 30px;font:500 22px 'Playfair Display';cursor:pointer;transition:.3s;display:flex;justify-content:space-between;align-items:center}
+.evl button span{font:600 12px Raleway;letter-spacing:.14em;color:var(--gold);opacity:0;transition:.3s}
+.evl button.on,.evl button:hover{background:var(--em2);color:var(--ivory)}
+.evl button.on span{opacity:1}
+.evr{display:grid;grid-template-columns:1fr 1fr;min-height:460px}
+.evr .im{overflow:hidden;background:var(--blush)}
+.evr .im img{width:100%;height:100%;object-fit:cover;animation:zi .9s ease}
+@keyframes zi{from{transform:scale(1.12);opacity:.3}}
+.evr .tx{padding:44px;display:flex;flex-direction:column;justify-content:center;animation:fi .6s ease}
+@keyframes fi{from{opacity:0;transform:translateX(20px)}}
+.evr h3{font-family:'Playfair Display';font-weight:500;font-size:38px;margin-bottom:14px}
+.evr p{color:#56645d;line-height:1.7}
+.evr ul{list-style:none;margin:20px 0 26px;display:grid;gap:10px}
+.evr li{display:flex;gap:10px;align-items:center}
+.evr li::before{content:"✦";color:var(--gold)}
+
+/* calculator */
+.calc{background:var(--em);color:var(--ivory)}
+.calc .h2 i{color:var(--gold)}
+.calc .sub{color:#cfdcd5}
+.cbox{display:grid;grid-template-columns:1.2fr 1fr;gap:50px;align-items:center;margin-top:46px}
+.rng label{display:flex;justify-content:space-between;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold2);margin-bottom:16px}
+.rng output{font-family:'Playfair Display';font-size:56px;color:var(--ivory);letter-spacing:0;text-transform:none}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:2px;background:linear-gradient(90deg,var(--gold) var(--p,20%),rgba(255,255,255,.2) var(--p,20%));outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:var(--gold);border:4px solid var(--em);box-shadow:0 0 0 1px var(--gold);cursor:pointer}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--gold);border:4px solid var(--em);cursor:pointer}
+.res{border:1px solid rgba(230,207,154,.4);padding:36px;text-align:center}
+.res small{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2)}
+.res b{display:block;font-family:'Playfair Display';font-weight:500;font-size:clamp(34px,4vw,50px);margin:12px 0}
+.res p{font-size:13px;color:#a9bdb3;line-height:1.6}
+
+/* features */
+.fts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#e3dccd;margin-top:50px}
+.ft{background:var(--ivory);padding:36px 28px;transition:background .4s}
+.ft:hover{background:#fff}
+.ft .n{font-family:'Playfair Display';font-style:italic;color:var(--gold);font-size:30px}
+.ft h4{font-family:'Playfair Display';font-weight:500;font-size:24px;margin:12px 0 8px}
+.ft p{color:#56645d;font-size:15px;line-height:1.6}
+
+.gal{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:200px;gap:10px;margin-top:50px}
+.gal div{overflow:hidden;background:var(--blush)}
+.gal div:nth-child(1){grid-column:span 3;grid-row:span 2}
+.gal div:nth-child(2),.gal div:nth-child(3){grid-column:span 3}
+.gal div:nth-child(n+4){grid-column:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.gal div:hover img{transform:scale(1.06)}
+
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:0;background:#fff}
+.contact .t{padding:clamp(40px,6vw,90px)}
+.contact dl{display:grid;gap:24px;margin:30px 0}
+.contact dt{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#a8843d}
+.contact dd{font-family:'Playfair Display';font-size:28px}
+.contact iframe{width:100%;height:100%;min-height:460px;border:0;filter:sepia(.25) saturate(.8)}
+.soc{display:flex;gap:12px}
+.soc a{border:1px solid var(--em);padding:10px 16px;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+.soc a:hover{background:var(--em);color:var(--ivory)}
+footer{background:var(--em);color:#a9bdb3;padding:34px clamp(16px,5vw,70px);font-size:13px;line-height:1.7}
+.rv{opacity:0;transform:translateY(34px);transition:1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:980px){nav ul{display:none}.hero{grid-template-columns:1fr}.hero-p{min-height:60vh}.ev{grid-template-columns:1fr}.evl{flex-direction:row;overflow-x:auto}.evl button{white-space:nowrap;font-size:18px;padding:18px}.evr{grid-template-columns:1fr}.evr .im{height:280px}.cbox,.contact{grid-template-columns:1fr}.fts{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr 1fr}.gal div{grid-column:auto!important;grid-row:auto!important}}
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<div class="demo">Демо-сайт · не официальный</div>
+<nav id="nav">
+  <a class="logo" href="#">Park <i>Astor</i></a>
+  <ul><li><a href="#events">Праздники</a></li><li><a href="#calc">Расчёт</a></li><li><a href="#gallery">Залы</a></li><li><a href="#contact">Контакты</a></li></ul>
+  <a class="gbtn" href="tel:+79885186339">Забронировать</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-t">
+    <div class="orn rv">ресторан · Таганрог</div>
+    <h1 class="rv">Праздник, который <i>запомнят</i> все гости</h1>
+    <p class="lead rv">Свадьбы, дни рождения, корпоративы и детские праздники — с караоке, танцполом, живой музыкой и кухней с мангалом. Залы до 200 гостей на улице Сергея Шило.</p>
+    <div class="hb rv"><button class="gbtn" id="cele">Устроить праздник ✦</button><a class="obtn" href="#events">Форматы</a></div>
+  </div>
+  <div class="hero-p">
+    <div class="a"><img src="https://avatars.mds.yandex.net/get-altay/4332216/2a0000017758d01f91dff9be07dc31ca1fcd/XXL" alt="Park Astor"></div>
+    <div class="frame"></div>
+    <div class="rating"><b>4,8</b><small>1 143 оценки<br>Яндекс Карты</small></div>
+    <i class="sparkle" style="left:20%;top:22%"></i><i class="sparkle" style="left:70%;top:30%;animation-delay:.8s"></i><i class="sparkle" style="left:40%;top:68%;animation-delay:1.6s"></i><i class="sparkle" style="left:84%;top:58%;animation-delay:2.2s"></i>
+  </div>
+</header>
+
+<section id="events" class="c">
+  <div class="orn rv">форматы</div>
+  <h2 class="h2 rv">Любой повод — <i>наш</i></h2>
+  <p class="sub rv">Выберите событие — расскажем, как его проведём.</p>
+  <div class="ev rv" style="text-align:left">
+    <div class="evl" id="evl"></div>
+    <div class="evr" id="evr"></div>
+  </div>
+</section>
+
+<section id="calc" class="calc">
+  <div class="orn rv">ориентир по бюджету</div>
+  <h2 class="h2 rv">Сколько гостей <i>ждёте?</i></h2>
+  <p class="sub rv">Подвиньте ползунок — покажем ориентир по бюджету, исходя из среднего чека на Яндекс Картах (1 200–2 500 ₽ на гостя). Точную смету составит менеджер.</p>
+  <div class="cbox">
+    <div class="rng rv"><label>Гостей <output id="gout">40</output></label><input type="range" id="g" min="10" max="200" step="5" value="40"></div>
+    <div class="res rv"><small>примерный бюджет</small><b id="bud">48 000 – 100 000 ₽</b><p>Не является офертой. Меню банкета, напитки и оформление обсуждаются индивидуально.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="c"><div class="orn rv">почему мы</div><h2 class="h2 rv">Всё для <i>праздника</i> — в одном месте</h2></div>
+  <div class="fts">
+    <div class="ft rv"><span class="n">01</span><h4>Караоке и танцпол</h4><p>Поём, танцуем, отрываемся — до полуночи каждый день.</p></div>
+    <div class="ft rv"><span class="n">02</span><h4>Мангал и гриль</h4><p>Шашлык, люля-кебаб, стейки — 85% гостей хвалят шашлык.</p></div>
+    <div class="ft rv"><span class="n">03</span><h4>Детям — аниматоры</h4><p>Мастер-классы и детское меню, пока взрослые отдыхают.</p></div>
+    <div class="ft rv"><span class="n">04</span><h4>Красивая подача</h4><p>93% гостей отмечают подачу блюд. Есть винная карта.</p></div>
+    <div class="ft rv"><span class="n">05</span><h4>До 200 гостей</h4><p>Банкетный зал под большую свадьбу или корпоратив.</p></div>
+    <div class="ft rv"><span class="n">06</span><h4>Веранда</h4><p>Летние вечера на свежем воздухе.</p></div>
+    <div class="ft rv"><span class="n">07</span><h4>Бизнес-ланч</h4><p>И в обычные дни — вкусный обед и кофе с собой.</p></div>
+    <div class="ft rv"><span class="n">08</span><h4>Доставка</h4><p>Блюда ресторана — к вам домой.</p></div>
+  </div>
+</section>
+
+<section id="gallery" style="padding-top:0">
+  <div class="c"><div class="orn rv">атмосфера</div><h2 class="h2 rv">Наши <i>залы</i></h2></div>
+  <div class="gal">
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/10445027/2a0000018aa999ceedeab8908165cf2c2d59/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/4544819/2a0000017a018f1f8d5637149e7d22b7db8a/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/15431134/2a000001974c02b091d0221afff4817ef291/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/1132477/2a00000185e9e4bafd3431cc18ea971f0131/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/1580511/2a0000016f169d259a02194af1e5f6c7f2ba/XXL" alt=""></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/11398069/2a000001909a7c971df07bebb448103e1d98/XXL" alt=""></div>
+  </div>
+</section>
+
+<section id="contact" class="contact" style="padding:0">
+  <div class="t">
+    <div class="orn rv">контакты</div>
+    <h2 class="h2 rv">Обсудим <i>ваш</i> праздник</h2>
+    <dl>
+      <div class="rv"><dt>Адрес</dt><dd>Таганрог, ул. Сергея Шило, 212Б</dd></div>
+      <div class="rv"><dt>Телефон и WhatsApp</dt><dd><a href="tel:+79885186339">+7 (988) 518-63-39</a></dd></div>
+      <div class="rv"><dt>Время работы</dt><dd>ежедневно 11:00 — 24:00</dd></div>
+    </dl>
+    <div class="soc rv"><a href="https://wa.me/79885186339" target="_blank" rel="noopener">WhatsApp</a><a href="https://vk.com/id708828158" target="_blank" rel="noopener">ВКонтакте</a></div>
+  </div>
+  <iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?mode=search&z=16&text=%D0%A2%D0%B0%D0%B3%D0%B0%D0%BD%D1%80%D0%BE%D0%B3%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D1%8F%20%D0%A8%D0%B8%D0%BB%D0%BE%2C%20212%D0%91"></iframe>
+</section>
+<footer>Демо-концепт сайта для ресторана Park Astor (Таганрог). Не является официальным сайтом заведения. Информация — с Яндекс Карт и 2ГИС (октябрь 2026). Фотографии — из карточки ресторана на Яндекс Картах, принадлежат их авторам. Расчёт бюджета — ориентировочный, по среднему чеку из открытых данных.</footer>
+<script>
+const E=[
+ ["Свадьба","Самый важный день — без суеты. Банкетный зал, танцпол для первого танца, живая музыка и мангал для гостей.",["Зал до 200 гостей","Танцпол и живая музыка","Подача, которую фотографируют"],"https://avatars.mds.yandex.net/get-altay/10445027/2a0000018aa999ceedeab8908165cf2c2d59/XXL"],
+ ["День рождения","90% гостей, отмечавших у нас день рождения, остались довольны. Караоке, торт, любимые блюда — и танцы до полуночи.",["Караоке","Шашлык и стейки","Винная карта"],"https://avatars.mds.yandex.net/get-altay/4544819/2a0000017a018f1f8d5637149e7d22b7db8a/XXL"],
+ ["Корпоратив","Новогодний вечер или юбилей компании: накроем банкет, подготовим зал и музыку для команды любого размера.",["Банкет под ключ","Танцпол","Бизнес-ланчи для офиса"],"https://avatars.mds.yandex.net/get-altay/15431134/2a000001974c02b091d0221afff4817ef291/XXL"],
+ ["Детский праздник","Аниматоры и мастер-классы, детское меню — дети заняты, родители отдыхают.",["Аниматоры","Мастер-классы","Детское меню"],"https://avatars.mds.yandex.net/get-altay/1651981/2a0000016f169d2568cf7915437fb809f042/XXL"]];
+const evl=document.getElementById('evl'),evr=document.getElementById('evr');
+E.forEach((e,i)=>{const b=document.createElement('button');b.innerHTML=`${e[0]}<span>смотреть →</span>`;b.onclick=()=>pick(i);evl.appendChild(b)});
+function pick(i){[...evl.children].forEach((b,j)=>b.classList.toggle('on',i===j));const e=E[i];
+ evr.innerHTML=`<div class="im"><img src="${e[3]}" alt=""></div><div class="tx"><h3>${e[0]}</h3><p>${e[1]}</p><ul>${e[2].map(x=>`<li>${x}</li>`).join('')}</ul><a class="gbtn" href="tel:+79885186339" style="align-self:flex-start">Обсудить дату</a></div>`}
+pick(0);
+const g=document.getElementById('g');function calc(){const n=+g.value;document.getElementById('gout').textContent=n;
+ const f=x=>x.toLocaleString('ru-RU');document.getElementById('bud').textContent=`${f(n*1200)} – ${f(n*2500)} ₽`;g.style.setProperty('--p',((n-10)/190*100)+'%')}
+g.oninput=calc;calc();
+/* confetti */
+const cv=document.getElementById('confetti'),cx=cv.getContext('2d');let P=[];
+function boom(x,y){cv.width=innerWidth;cv.height=innerHeight;for(let i=0;i<140;i++)P.push({x,y,vx:(Math.random()-.5)*14,vy:Math.random()*-14-4,r:Math.random()*6+3,c:['#CFAE6B','#E6CF9A','#F8F4EC','#15513F','#EBD7CB'][i%5],a:Math.random()*6,l:1});if(P.length===140)tick()}
+function tick(){cx.clearRect(0,0,cv.width,cv.height);P.forEach(p=>{p.vy+=.35;p.x+=p.vx;p.y+=p.vy;p.a+=.1;p.l-=.008;cx.save();cx.translate(p.x,p.y);cx.rotate(p.a);cx.globalAlpha=Math.max(p.l,0);cx.fillStyle=p.c;cx.fillRect(-p.r/2,-p.r/4,p.r,p.r/2);cx.restore()});P=P.filter(p=>p.l>0&&p.y<cv.height+40);if(P.length)requestAnimationFrame(tick);else cx.clearRect(0,0,cv.width,cv.height)}
+document.getElementById('cele').onclick=e=>{const r=e.target.getBoundingClientRect();boom(r.left+r.width/2,r.top);setTimeout(()=>location.hash='#events',900)};
+const nav=document.getElementById('nav');addEventListener('scroll',()=>nav.classList.toggle('s',scrollY>40));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*100+'ms';io.observe(el)});
+</script>
+</body>
+</html>

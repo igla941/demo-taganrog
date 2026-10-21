@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>DaCar — автосервис полного цикла · Таганрог (демо)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,500;0,700;0,900;1,700&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0B0C0E;--panel:#141619;--panel2:#1B1E22;--line:#262a30;--txt:#E8EAED;--mute:#8A9099;--or:#FF6A13;--or2:#FF8A3D;--ok:#38E07B}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{font-family:'Roboto Condensed',system-ui,sans-serif;background:var(--bg);color:var(--txt);overflow-x:clip;
+ background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.015) 0 2px,transparent 2px 6px)}
+img{display:block;max-width:100%;color:transparent}
+a{color:inherit;text-decoration:none}
+.x{font-family:'Exo 2',sans-serif}
+.demo{position:fixed;right:14px;bottom:14px;z-index:90;font:700 11px 'Exo 2';letter-spacing:.14em;text-transform:uppercase;background:var(--or);color:#000;padding:9px 14px;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+
+/* top bar like car HUD */
+.bar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:24px;padding:12px clamp(16px,3vw,40px);background:rgba(11,12,14,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.logo{font:900 italic 26px 'Exo 2';letter-spacing:.02em}
+.logo b{color:var(--or)}
+.logo small{display:block;font:500 9px 'Exo 2';letter-spacing:.42em;color:var(--mute);font-style:normal}
+.bar nav{display:flex;gap:6px;margin-left:auto}
+.bar nav a{font:500 13px 'Exo 2';letter-spacing:.12em;text-transform:uppercase;padding:9px 14px;border:1px solid transparent;color:var(--mute);transition:.2s}
+.bar nav a:hover{color:var(--txt);border-color:var(--line)}
+.status{display:flex;align-items:center;gap:8px;font:500 12px 'Exo 2';letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.status i{width:8px;height:8px;border-radius:50%;background:#555}
+.status.on i{background:var(--ok);box-shadow:0 0 10px var(--ok)}
+.call{font:700 14px 'Exo 2';background:var(--or);color:#000;padding:11px 18px;clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);transition:.2s}
+.call:hover{background:var(--or2)}
+
+/* cluster hero */
+.hero{position:relative;min-height:calc(100vh - 62px);display:grid;grid-template-columns:1fr minmax(320px,560px) 1fr;align-items:center;gap:20px;padding:40px clamp(16px,3vw,40px);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,rgba(255,106,19,.16),transparent 55%);pointer-events:none}
+.side{position:relative;z-index:2}
+.side.l{text-align:right}
+.lbl{font:500 11px 'Exo 2';letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.big{font:900 italic clamp(44px,5.4vw,92px)/.9 'Exo 2';letter-spacing:-.01em;margin:14px 0}
+.big b{color:var(--or)}
+.side p{color:#b4bac3;font-size:17px;line-height:1.55;max-width:360px}
+.side.l p{margin-left:auto}
+.readouts{display:grid;gap:14px;margin-top:10px}
+.ro{border:1px solid var(--line);background:linear-gradient(180deg,var(--panel),transparent);padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.ro b{font:700 30px 'Exo 2'}
+.ro b.o{color:var(--or)}
+.gauge{position:relative;z-index:2;aspect-ratio:1}
+.gauge svg{width:100%;height:100%}
+.needle{transform-origin:250px 250px;transition:transform 2.2s cubic-bezier(.3,1.4,.4,1)}
+.gtext{font-family:'Exo 2';fill:var(--txt)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.side.l .cta{justify-content:flex-end}
+.btn{font:700 15px 'Exo 2';letter-spacing:.06em;text-transform:uppercase;padding:15px 22px;background:var(--or);color:#000;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);transition:.2s;display:inline-block}
+.btn:hover{background:var(--or2);transform:translateY(-2px)}
+.btn.g{background:var(--panel2);color:var(--txt)}
+
+/* warning lights row */
+.lights{display:flex;justify-content:center;gap:clamp(14px,3vw,40px);padding:22px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}
+.lt{display:flex;align-items:center;gap:10px;font:500 13px 'Exo 2';letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.lt svg{width:26px;height:26px;fill:#3a3f46;transition:fill .3s,filter .3s}
+.lt.on svg{fill:var(--or);filter:drop-shadow(0 0 6px var(--or))}
+.lt.ok svg{fill:var(--ok);filter:drop-shadow(0 0 6px var(--ok))}
+
+section{padding:clamp(70px,9vw,120px) clamp(16px,3vw,40px)}
+.h2{font:900 italic clamp(38px,5vw,76px)/.95 'Exo 2';letter-spacing:-.01em}
+.h2 b{color:var(--or)}
+.sub{color:#9aa1ab;font-size:18px;line-height:1.6;max-width:640px;margin-top:16px}
+
+/* diagnostic scanner */
+.scan{display:grid;grid-template-columns:320px 1fr;gap:20px;margin-top:46px}
+.sys{display:flex;flex-direction:column;gap:6px}
+.sys button{all:unset;cursor:pointer;display:flex;justify-content:space-between;align-items:center;padding:16px 18px;background:var(--panel);border:1px solid var(--line);font:500 15px 'Exo 2';letter-spacing:.04em;transition:.2s}
+.sys button span{font:700 11px 'Exo 2';color:var(--mute);letter-spacing:.14em}
+.sys button.on{border-color:var(--or);background:linear-gradient(90deg,rgba(255,106,19,.15),var(--panel))}
+.sys button.on span{color:var(--or)}
+.screen{background:#050607;border:1px solid var(--line);padding:28px;position:relative;overflow:hidden;min-height:420px}
+.screen::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 3px);pointer-events:none}
+.screen .hd{display:flex;justify-content:space-between;font:500 12px 'Exo 2';letter-spacing:.2em;color:var(--mute);text-transform:uppercase;border-bottom:1px dashed var(--line);padding-bottom:12px;margin-bottom:20px}
+.screen h3{font:700 32px 'Exo 2';margin-bottom:16px}
+.screen ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 30px}
+.screen li{display:flex;gap:12px;align-items:center;font-size:16px;color:#cfd4da;opacity:0;animation:typ .4s forwards}
+.screen li::before{content:"";width:8px;height:8px;background:var(--ok);flex:0 0 8px;box-shadow:0 0 6px var(--ok)}
+@keyframes typ{to{opacity:1}}
+.prog{height:4px;background:var(--panel2);margin-top:26px}
+.prog i{display:block;height:100%;background:var(--or);width:0;animation:pg 1.4s ease forwards}
+@keyframes pg{to{width:100%}}
+
+/* team + photos bento */
+.bento{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:10px;margin-top:46px}
+.bento div{position:relative;overflow:hidden;background:var(--panel);border:1px solid var(--line)}
+.bento div:first-child{grid-row:span 2}
+.bento img{width:100%;height:100%;object-fit:cover;transition:transform .8s,filter .5s;filter:saturate(.85)}
+.bento div:hover img{transform:scale(1.05);filter:saturate(1.1)}
+.bento span{position:absolute;left:14px;bottom:12px;font:700 12px 'Exo 2';letter-spacing:.2em;text-transform:uppercase;background:rgba(0,0,0,.7);padding:6px 10px}
+
+/* brands */
+.brands{overflow:hidden;white-space:nowrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel)}
+.brands div{display:inline-block;animation:mq 40s linear infinite;padding:18px 0;font:900 italic 30px 'Exo 2';color:#2e333a}
+.brands span{margin:0 26px}
+.brands span:nth-child(3n){color:var(--or)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* perks */
+.perks{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:46px}
+.pk{background:var(--panel);border:1px solid var(--line);padding:24px;position:relative;overflow:hidden}
+.pk::before{content:"";position:absolute;left:0;top:0;width:3px;height:0;background:var(--or);transition:height .4s}
+.pk:hover::before{height:100%}
+.pk b{font:700 20px 'Exo 2';display:block;margin-bottom:6px}
+.pk p{color:#9aa1ab;font-size:15px;line-height:1.5}
+
+/* booking */
+.book{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:stretch}
+.form{background:var(--panel);border:1px solid var(--line);padding:30px;display:grid;gap:16px}
+.form label{font:500 12px 'Exo 2';letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chips button{all:unset;cursor:pointer;padding:9px 14px;border:1px solid var(--line);font:500 14px 'Exo 2';transition:.15s}
+.chips button.on{border-color:var(--or);color:var(--or)}
+.form input{width:100%;margin-top:8px;background:#0e1013;border:1px solid var(--line);color:var(--txt);padding:13px 14px;font:400 16px 'Roboto Condensed'}
+.mapw{border:1px solid var(--line);min-height:420px;filter:grayscale(1) invert(.9) contrast(.9) hue-rotate(180deg)}
+.mapw iframe{width:100%;height:100%;min-height:420px;border:0}
+.small{font-size:13px;color:var(--mute);line-height:1.5}
+footer{border-top:1px solid var(--line);padding:30px clamp(16px,3vw,40px) 70px;color:var(--mute);font-size:13px;line-height:1.7}
+.rv{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:1000px){.bar nav{display:none}.status{display:none}.hero{grid-template-columns:1fr;text-align:center}.side.l{text-align:center}.side p,.side.l p{margin:0 auto}.side.l .cta,.cta{justify-content:center}.gauge{max-width:420px;margin:0 auto;order:-1}.scan,.book{grid-template-columns:1fr}.screen ul{grid-template-columns:1fr}.bento{grid-template-columns:1fr 1fr;grid-template-rows:200px 200px 200px}.bento div:first-child{grid-column:span 2;grid-row:auto}.perks{grid-template-columns:1fr 1fr}.lights{flex-wrap:wrap}}
+</style>
+</head>
+<body>
+<div class="demo">Демо-сайт · не официальный</div>
+<div class="bar">
+  <a class="logo" href="#">DA<b>CAR</b><small>АВТОСЕРВИС</small></a>
+  <nav><a href="#diag">Услуги</a><a href="#team">Сервис</a><a href="#book">Запись</a></nav>
+  <div class="status" id="st"><i></i><span>…</span></div>
+  <a class="call" href="tel:+78634691610">69-16-10</a>
+</div>
+
+<header class="hero">
+  <div class="side l">
+    <div class="lbl rv">ул. Москатова, 35А · Таганрог</div>
+    <h1 class="big rv">Полный<br><b>цикл</b><br>сервиса</h1>
+    <p class="rv">От замены масла до ремонта DSG, турбин и электроники — один сервис для любой марки. Каждый день с 8:00 до 20:00.</p>
+    <div class="cta rv"><a class="btn" href="#book">Записаться</a></div>
+  </div>
+  <div class="gauge rv">
+    <svg viewBox="0 0 500 500" id="gsvg">
+      <defs><linearGradient id="arc" x1="0" x2="1"><stop offset="0" stop-color="#3a3f46"/><stop offset=".7" stop-color="#FF8A3D"/><stop offset="1" stop-color="#FF3B13"/></linearGradient>
+      <radialGradient id="face"><stop offset="0" stop-color="#16191d"/><stop offset="1" stop-color="#0a0b0d"/></radialGradient></defs>
+      <circle cx="250" cy="250" r="236" fill="url(#face)" stroke="#262a30" stroke-width="2"/>
+      <circle cx="250" cy="250" r="220" fill="none" stroke="#1f2328" stroke-width="1"/>
+      <path d="M 95.4 404.6 A 218.6 218.6 0 1 1 404.6 404.6" fill="none" stroke="url(#arc)" stroke-width="10" stroke-linecap="round" opacity=".9"/>
+      <g id="ticks"></g>
+      <text class="gtext" x="250" y="330" text-anchor="middle" font-size="16" letter-spacing="6" fill="#8A9099">РЕЙТИНГ</text>
+      <text class="gtext" id="gval" x="250" y="390" text-anchor="middle" font-size="64" font-weight="900" font-style="italic">0,0</text>
+      <text class="gtext" x="250" y="420" text-anchor="middle" font-size="13" letter-spacing="3" fill="#8A9099">310 ОЦЕНОК · ЯНДЕКС</text>
+      <g class="needle" id="needle"><path d="M246 250 L250 70 L254 250Z" fill="#FF6A13"/><circle cx="250" cy="250" r="16" fill="#0b0c0e" stroke="#FF6A13" stroke-width="3"/></g>
+    </svg>
+  </div>
+  <div class="side">
+    <div class="readouts">
+      <div class="ro rv"><span class="lbl">Режим</span><b>08–20</b></div>
+      <div class="ro rv"><span class="lbl">Отзывов</span><b>143</b></div>
+      <div class="ro rv"><span class="lbl">Сход-развал</span><b class="o">3D</b></div>
+      <div class="ro rv"><span class="lbl">Фары</span><b>BOSCH</b></div>
+    </div>
+    <div class="cta rv"><a class="btn g" href="https://wa.me/79001212006" target="_blank" rel="noopener">WhatsApp</a></div>
+  </div>
+</header>
+
+<div class="lights" id="lights">
+  <div class="lt"><svg viewBox="0 0 24 24"><path d="M3 9h3l2-3h7l2 3h4v6h-2l-2 3H8l-2-3H3z"/></svg>Двигатель</div>
+  <div class="lt"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zm0 3a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm-1 2v5h2V8zm0 6v2h2v-2z"/></svg>Тормоза</div>
+  <div class="lt"><svg viewBox="0 0 24 24"><path d="M7 4h10v3h2v10h-2v3H7v-3H5V7h2zm2 5v6h6V9z"/></svg>Аккумулятор</div>
+  <div class="lt"><svg viewBox="0 0 24 24"><path d="M2 12c3-6 6-6 10 0s7 6 10 0v4c-3 6-6 6-10 0S5 10 2 16z"/></svg>Масло</div>
+  <div class="lt"><svg viewBox="0 0 24 24"><path d="M12 2l2 6h6l-5 4 2 6-5-4-5 4 2-6-5-4h6z"/></svg>Кондиционер</div>
+</div>
+
+<section id="diag">
+  <div class="lbl rv">Компьютерная диагностика</div>
+  <h2 class="h2 rv" style="margin-top:12px">Выберите систему — <b>проверим</b></h2>
+  <p class="sub rv">Список работ — по данным карточки сервиса на Яндекс Картах. Точную стоимость назовёт мастер после осмотра.</p>
+  <div class="scan rv">
+    <div class="sys" id="sys"></div>
+    <div class="screen" id="scr"></div>
+  </div>
+</section>
+
+<div class="brands"><div>
+  <span>TOYOTA</span><span>BMW</span><span>KIA</span><span>MERCEDES-BENZ</span><span>HYUNDAI</span><span>VOLKSWAGEN</span><span>LEXUS</span><span>NISSAN</span><span>ŠKODA</span><span>PORSCHE</span><span>ВАЗ</span><span>SUBARU</span><span>GENESIS</span><span>MAZDA</span>
+  <span>TOYOTA</span><span>BMW</span><span>KIA</span><span>MERCEDES-BENZ</span><span>HYUNDAI</span><span>VOLKSWAGEN</span><span>LEXUS</span><span>NISSAN</span><span>ŠKODA</span><span>PORSCHE</span><span>ВАЗ</span><span>SUBARU</span><span>GENESIS</span><span>MAZDA</span>
+</div></div>
+
+<section id="team">
+  <div class="lbl rv">Сервис</div>
+  <h2 class="h2 rv" style="margin-top:12px">Команда, которая <b>чинит</b>, а не меняет всё подряд</h2>
+  <div class="bento">
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/14922087/2a00000195f2456a5695b2d4c7526c9eaff1/XXL" alt=""><span>Команда DaCar</span></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/10830675/2a0000018b12ad946217cddb22d946aa7dda/XXL" alt=""><span>Электромобили тоже</span></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/10447847/2a0000018b12ad951c641b4555ff9e0d239a/XXL" alt=""><span>Ремонт ДВС</span></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/12813969/2a0000018e1fbb91fe8579bf532a5099cce7/XXL" alt=""><span>Кузов</span></div>
+    <div class="rv"><img src="https://avatars.mds.yandex.net/get-altay/14675612/2a00000195f2456fcbaec9d9291c3aa97675/XXL" alt=""><span>Москатова, 35А</span></div>
+  </div>
+  <div class="perks">
+    <div class="pk rv"><b>Гарантия</b><p>На выполненные работы.</p></div>
+    <div class="pk rv"><b>Ремонт по ОСАГО</b><p>Поможем с ремонтом по страховке.</p></div>
+    <div class="pk rv"><b>Wi-Fi и зона ожидания</b><p>Можно подождать машину на месте.</p></div>
+    <div class="pk rv"><b>Любая оплата</b><p>Карта, QR, СБП, безнал, наличные.</p></div>
+  </div>
+</section>
+
+<section id="book" class="book">
+  <div class="form rv">
+    <div class="lbl">Быстрая запись</div>
+    <h2 class="h2" style="font-size:clamp(30px,3.4vw,46px)">Соберите заявку — <b>отправим в WhatsApp</b></h2>
+    <div><label>Что беспокоит</label><div class="chips" id="need"><button>ТО и масло</button><button>Диагностика</button><button>Ходовая</button><button>Двигатель</button><button>Коробка / DSG</button><button>Кондиционер</button><button>Кузов</button><button>Шиномонтаж</button></div></div>
+    <div><label for="car">Марка и модель</label><input id="car" placeholder="Например, Kia Rio 2018"></div>
+    <a class="btn" id="send" href="https://wa.me/79001212006" target="_blank" rel="noopener" style="text-align:center">Открыть WhatsApp с заявкой</a>
+    <p class="small">Заявка не отправляется с сайта — откроется WhatsApp сервиса, и вы сами решите, отправлять ли сообщение. Телефоны: <a href="tel:+78634691610">+7 (8634) 69-16-10</a>, <a href="tel:+79001212006">+7 (900) 121-20-06</a>.</p>
+  </div>
+  <div class="mapw rv"><iframe loading="lazy" title="Карта" src="https://yandex.ru/map-widget/v1/?ll=38.903094%2C47.256275&z=16&pt=38.903094,47.256275,pm2rdm"></iframe></div>
+</section>
+<footer>Демо-концепт сайта для автосервиса DaCar (Таганрог). Не является официальным сайтом. Информация — с Яндекс Карт (октябрь 2026). Фотографии — из карточки сервиса на Яндекс Картах, принадлежат их авторам.</footer>
+
+<script>
+/* ticks */
+const T=document.getElementById('ticks');let s='';for(let i=0;i<=40;i++){const a=(-225+i*6.75)*Math.PI/180,r1=i%5?204:192,r2=212;s+=`<line x1="${250+Math.cos(a)*r1}" y1="${250+Math.sin(a)*r1}" x2="${250+Math.cos(a)*r2}" y2="${250+Math.sin(a)*r2}" stroke="${i>32?'#FF6A13':'#59606a'}" stroke-width="${i%5?1.5:3}"/>`;
+ if(i%8===0){const v=(i/8);s+=`<text x="${250+Math.cos(a)*168}" y="${256+Math.sin(a)*168}" text-anchor="middle" font-family="Exo 2" font-size="20" fill="#8A9099">${v}</text>`}}T.innerHTML=s;
+/* needle sweep: 0..5 scale over 270deg, value 4.7 */
+const nd=document.getElementById('needle'),gv=document.getElementById('gval');nd.style.transform='rotate(-135deg)';
+setTimeout(()=>{nd.style.transform='rotate(135deg)';setTimeout(()=>{nd.style.transform=`rotate(${-135+270*4.7/5}deg)`},700)},400);
+let t0=null;function cnt(ts){if(!t0)t0=ts;const p=Math.min(1,(ts-t0)/2400);gv.textContent=(4.7*p).toFixed(1).replace('.',',');if(p<1)requestAnimationFrame(cnt)}setTimeout(()=>requestAnimationFrame(cnt),400);
+/* warning lights test then ok */
+const L=[...document.querySelectorAll('.lt')];L.forEach((l,i)=>setTimeout(()=>l.classList.add('on'),300+i*150));setTimeout(()=>L.forEach((l,i)=>setTimeout(()=>{l.classList.remove('on');l.classList.add('ok')},i*150)),1800);
+/* status */
+const h=new Date().getHours(),st=document.getElementById('st');st.classList.toggle('on',h>=8&&h<20);st.querySelector('span').textContent=h>=8&&h<20?'Открыто до 20:00':'Откроемся в 8:00';
+/* scanner */
+const SYS={"Двигатель":["Ремонт ДВС","Ремонт ГБЦ","Замена ГРМ","Раскоксовка","Эндоскопия двигателя","Ремонт турбокомпрессора","Ремонт форсунок","Топливная система"],
+"Трансмиссия":["Ремонт АКПП","Ремонт DSG","Ремонт МКПП и РКПП","Ремонт сцепления","Карданные валы","Ремонт моста"],
+"Ходовая и рулевое":["Ремонт ходовой","Рулевые рейки и ГУР","Амортизаторы","Восстановление рычагов","3D сход-развал","Тормозная система"],
+"Электрика":["Компьютерная диагностика","Ремонт проводки и блоков","Чистка памяти блоков после ДТП","Генераторы и стартеры","Подушки безопасности","Чип-тюнинг"],
+"Климат и тепло":["Заправка кондиционера","Ремонт кондиционера","Ремонт Webasto и автономок","Ремонт радиаторов"],
+"Кузов и шины":["Кузовной ремонт","Покраска","Полировка и бронеплёнка","Шиномонтаж","Сварка аргоном, правка дисков","Покраска дисков"],
+"Проверки":["Проверка авто перед покупкой","Регулировка фар на стенде BOSCH","Предрейсовый техосмотр","Ремонт гибридов","Коммерческий транспорт"]};
+const sys=document.getElementById('sys'),scr=document.getElementById('scr');
+Object.keys(SYS).forEach((k,i)=>{const b=document.createElement('button');b.innerHTML=`${k}<span>0${i+1}</span>`;b.onclick=()=>pick(k);sys.appendChild(b)});
+function pick(k){[...sys.children].forEach(b=>b.classList.toggle('on',b.textContent.startsWith(k)));
+ scr.innerHTML=`<div class="hd"><span>DACAR // SCAN</span><span>${k.toUpperCase()}</span></div><h3>${k}</h3><ul>${SYS[k].map((x,i)=>`<li style="animation-delay:${i*90}ms">${x}</li>`).join('')}</ul><div class="prog"><i></i></div>`}
+pick('Двигатель');
+/* booking -> wa link */
+const need=new Set();document.querySelectorAll('#need button').forEach(b=>b.onclick=()=>{b.classList.toggle('on');need.has(b.textContent)?need.delete(b.textContent):need.add(b.textContent);upd()});
+const car=document.getElementById('car');car.oninput=upd;
+function upd(){const msg=`Здравствуйте! Хочу записаться в DaCar.${need.size?' Работы: '+[...need].join(', ')+'.':''}${car.value?' Автомобиль: '+car.value+'.':''}`;document.getElementById('send').href='https://wa.me/79001212006?text='+encodeURIComponent(msg)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*80+'ms';io.observe(el)});
+</script>
+</body>
+</html>
